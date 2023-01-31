@@ -4,7 +4,7 @@ SRCS = mca_ave.c create_cdf.c gattr.c vattr.c
 HEADER = average.h
 
 $(PROGRAM):	$(OBJS)
-	gcc -o $(PROGRAM) $(OBJS) -lcdf -lm -lc
+	gcc -o $(PROGRAM) $(OBJS) -lcdf -lm -lc -L /usr/local/cdf/lib/
 $(OBJS):        $(HEADER)
 .c.o:
 	gcc -c $<
