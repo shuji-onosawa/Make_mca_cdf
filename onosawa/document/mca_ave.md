@@ -60,4 +60,9 @@ WSL(個人ユーザーで実行), VScode, gcc
     ```
     ./bnd: error while loading shared libraries: libcdf.so: cannot open shared object file: No such file or directory
     ```
-    - 
+    ライブラリが見つからないみたい。
+    - パスを追加
+    ```
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cdf/lib/
+    ```
+    エラーが消えた。
