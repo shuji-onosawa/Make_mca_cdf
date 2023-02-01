@@ -1,120 +1,120 @@
 /*
- *    average —p ƒwƒbƒ_[ƒtƒ@ƒCƒ‹
- *    - ave_bndwdth ƒtƒHƒ‹ƒ_[ ‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B
+ *    average ç”¨ ãƒ˜ãƒƒãƒ€ãƒ¼ãƒ•ã‚¡ã‚¤ãƒ«
+ *    - ave_bndwdth ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ ã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚
  *
  *    By Y. Ozaki
  *
  *    2006. 1.10
  *
- *    ÅIXV“ú : 2006. 1.10
+ *    æœ€çµ‚æ›´æ–°æ—¥ : 2006. 1.10
  */
 
-//***** ŠÖ”éŒ¾ *****
+//***** é–¢æ•°å®£è¨€ *****
 
-//****** MCAave.c ‚ÅéŒ¾‚³‚ê‚Ä‚¢‚éŠÖ”
+//****** MCAave.c ã§å®£è¨€ã•ã‚Œã¦ã„ã‚‹é–¢æ•°
 // Status handler.
 void StatusHandler();
 
-//CDFƒtƒ@ƒCƒ‹‚ğƒI[ƒvƒ“‚·‚é
+//CDFãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚ªãƒ¼ãƒ—ãƒ³ã™ã‚‹
 void openCDF( char ymd[][ 5 ] );
 
-//CDFƒtƒ@ƒCƒ‹‚ğƒNƒ[ƒY‚·‚é
+//CDFãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹
 void closeCDF();
 
-//“Ç‚ñ‚¾CDFƒtƒ@ƒCƒ‹‚Ì•Ï”id‚ğƒQƒbƒg‚·‚é
+//èª­ã‚“ã CDFãƒ•ã‚¡ã‚¤ãƒ«ã®å¤‰æ•°idã‚’ã‚²ãƒƒãƒˆã™ã‚‹
 void get_VarNum();
 
-//“Ç‚ñ‚¾CDFƒtƒ@ƒCƒ‹‚Ì CDF_UINT1Œ^•Ï” ‚Ì’l‚ğƒQƒbƒg‚·‚éŠÖ”
+//èª­ã‚“ã CDFãƒ•ã‚¡ã‚¤ãƒ«ã® CDF_UINT1å‹å¤‰æ•° ã®å€¤ã‚’ã‚²ãƒƒãƒˆã™ã‚‹é–¢æ•°
 void get_Data( int num , long record , long varNum , unsigned char data[] );
 
-//“Ç‚ñ‚¾CDFƒtƒ@ƒCƒ‹‚Ì “dŠE,¥ŠE •Ï”‚Ì’l‚ğƒQƒbƒg‚·‚éŠÖ”
+//èª­ã‚“ã CDFãƒ•ã‚¡ã‚¤ãƒ«ã® é›»ç•Œ,ç£ç•Œ å¤‰æ•°ã®å€¤ã‚’ã‚²ãƒƒãƒˆã™ã‚‹é–¢æ•°
 void get_EB( int num , long record , long varNum , double data[] );
 
-//“Ç‚ñ‚¾CDFƒtƒ@ƒCƒ‹‚ÌEpoch’l‚ğƒQƒbƒg‚·‚éŠÖ”
+//èª­ã‚“ã CDFãƒ•ã‚¡ã‚¤ãƒ«ã®Epochå€¤ã‚’ã‚²ãƒƒãƒˆã™ã‚‹é–¢æ•°
 double get_Epoch( long record );
 
-//“Ç‚ñ‚¾CDFƒtƒ@ƒCƒ‹‚Ì PostGap ‚Ì’l‚ğƒQƒbƒg‚·‚éŠÖ”
+//èª­ã‚“ã CDFãƒ•ã‚¡ã‚¤ãƒ«ã® PostGap ã®å€¤ã‚’ã‚²ãƒƒãƒˆã™ã‚‹é–¢æ•°
 int get_PostGap( long record );
 
-//“Ç‚ñ‚¾CDFƒtƒ@ƒCƒ‹‚Ì channel ‚Ì’l‚ğƒQƒbƒg‚·‚éŠÖ”
+//èª­ã‚“ã CDFãƒ•ã‚¡ã‚¤ãƒ«ã® channel ã®å€¤ã‚’ã‚²ãƒƒãƒˆã™ã‚‹é–¢æ•°
 void get_channel();
 
-//4ch‚²‚Æ‚É‚©‚½‚Ü‚Á‚Ä‚¢‚éWIDA‚ğ1ch‚¸‚Â‚É•ª‚¯‚é
+//4chã”ã¨ã«ã‹ãŸã¾ã£ã¦ã„ã‚‹WIDAã‚’1chãšã¤ã«åˆ†ã‘ã‚‹
 void get_wida( unsigned char wida[] , unsigned char ws[] );
 
-//ƒAƒ“ƒeƒiÀŒø’·‚ğ‹‚ß‚é(“dŠE—p)
+//ã‚¢ãƒ³ãƒ†ãƒŠå®ŸåŠ¹é•·ã‚’æ±‚ã‚ã‚‹(é›»ç•Œç”¨)
 double heffe( int i );
 
-//ƒAƒ“ƒeƒiÀŒø’·‚ğ‹‚ß‚é(¥ŠE)
+//ã‚¢ãƒ³ãƒ†ãƒŠå®ŸåŠ¹é•·ã‚’æ±‚ã‚ã‚‹(ç£ç•Œ)
 double heffb( int i );
 
-//MCAƒf[ƒ^‚Ì’l‚©‚çâ‘Î’l‚ğ‹‚ß‚é(“dŠE—p)
+//MCAãƒ‡ãƒ¼ã‚¿ã®å€¤ã‹ã‚‰çµ¶å¯¾å€¤ã‚’æ±‚ã‚ã‚‹(é›»ç•Œç”¨)
 void abs_E_dB( double E[] , unsigned char ws[] );
 
-//MCAƒf[ƒ^‚Ì’l‚©‚çâ‘Î’l‚ğ‹‚ß‚é(¥ŠE—p)
+//MCAãƒ‡ãƒ¼ã‚¿ã®å€¤ã‹ã‚‰çµ¶å¯¾å€¤ã‚’æ±‚ã‚ã‚‹(ç£ç•Œç”¨)
 void abs_B_dB( double B[] , unsigned char ws[] );
 
-//n•bŠÔ‚ÌMCAƒf[ƒ^‚Ì‡Œv‚ğ‹‚ß‚é
+//nç§’é–“ã®MCAãƒ‡ãƒ¼ã‚¿ã®åˆè¨ˆã‚’æ±‚ã‚ã‚‹
 void data_total( double total[] , double data[] );
 
-//n•bŠÔ‚ÌMCAƒf[ƒ^‚Ì•½‹Ï‚ğ‹‚ß‚é
+//nç§’é–“ã®MCAãƒ‡ãƒ¼ã‚¿ã®å¹³å‡ã‚’æ±‚ã‚ã‚‹
 void data_ave( double total[] , unsigned char ave[] , int recsp );
 
-//MCAƒf[ƒ^‚ğ•½‹Ï‚·‚é
+//MCAãƒ‡ãƒ¼ã‚¿ã‚’å¹³å‡ã™ã‚‹
 void ave_data( int sec );
 
-//****** create_cdf.c ‚ÅéŒ¾‚³‚ê‚Ä‚¢‚éŠÖ”
-//•½‹Ï‚µ‚½ƒf[ƒ^‚ğ•Û‘¶‚·‚éCDFƒtƒ@ƒCƒ‹‚ğì¬‚·‚é
+//****** create_cdf.c ã§å®£è¨€ã•ã‚Œã¦ã„ã‚‹é–¢æ•°
+//å¹³å‡ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹CDFãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã™ã‚‹
 void createCDF( char ymd[][ 5 ] );
 
-//•K—v‚Èz•Ï”‚ğì‚éŠÖ”
+//å¿…è¦ãªzå¤‰æ•°ã‚’ä½œã‚‹é–¢æ•°
 void create_zVAR();
 
-//z•Ï” Epoch ‚É’l‚ğŠi”[‚·‚éŠÖ”
+//zå¤‰æ•° Epoch ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
 void input_Epoch( double time , long record );
 
-//z•Ï” channel ‚É’l‚ğŠi”[‚·‚éŠÖ”
+//zå¤‰æ•° channel ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
 void input_channel();
 
-//z•Ï” Emax ‚É’l‚ğŠi”[‚·‚éŠÖ”
+//zå¤‰æ•° Emax ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
 void input_Emax( unsigned char result[] , long record );
 
-//z•Ï” Eave ‚É’l‚ğŠi”[‚·‚éŠÖ”
+//zå¤‰æ•° Eave ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
 void input_Eave( unsigned char result[] , long record );
 
-//z•Ï” Bmax ‚É’l‚ğŠi”[‚·‚éŠÖ”
+//zå¤‰æ•° Bmax ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
 void input_Bmax( unsigned char result[] , long record );
 
-//z•Ï” Bave ‚É’l‚ğŠi”[‚·‚éŠÖ”
+//zå¤‰æ•° Bave ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
 void input_Bave( unsigned char result[] , long record );
 
-//input_PostGap() : z•Ï” PostGap ‚É’l‚ğŠi”[‚·‚éŠÖ”
+//input_PostGap() : zå¤‰æ•° PostGap ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
 void input_PostGap( int flag , long record );
   
-//z•Ï” Emax ‚É’l‚ğ‚æ‚Ş ŠÖ”
+//zå¤‰æ•° Emax ã«å€¤ã‚’ã‚ˆã‚€ é–¢æ•°
 //void read_Emax( long record );
 /*******************************************************************/
-//gattr_ave.c ‚ÅéŒ¾‚³‚ê‚½ŠÖ”
+//gattr_ave.c ã§å®£è¨€ã•ã‚ŒãŸé–¢æ•°
 
-//gloal attribute ‚ğì‚éŠÖ”‚Ìmain
+//gloal attribute ã‚’ä½œã‚‹é–¢æ•°ã®main
 int global_attr( char ymd[][ 5 ] );
 
-//g‘®«‚ğì‚Á‚ÄA‚»‚ÌgƒGƒ“ƒgƒŠ[‚É’l‚ğŠi”[‚·‚éŠÖ”
+//gå±æ€§ã‚’ä½œã£ã¦ã€ãã®gã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
 void input_gATTR( char* gAttrName , char* gEntryValue , long gEntryLen , long data_char);
 
-//Œ»İ‚Ì”NŒ“ú‚ğ’m‚é
+//ç¾åœ¨ã®å¹´æœˆæ—¥ã‚’çŸ¥ã‚‹
 void get_date( char ymd[][ 5 ] );
 
 /*******************************************************************/
-//vattr_ave.c ‚ÅéŒ¾‚³‚ê‚½ŠÖ”
+//vattr_ave.c ã§å®£è¨€ã•ã‚ŒãŸé–¢æ•°
 
-//valiable attribute ‚ğì‚éŠÖ”‚Ìmain
+//valiable attribute ã‚’ä½œã‚‹é–¢æ•°ã®main
 int valiable_attr();
 
-//valiable attribute ‚ğì‚éŠÖ”
+//valiable attribute ã‚’ä½œã‚‹é–¢æ•°
 void input_vATTR( char* vAttrName , long* vAttrNum );
 
-//Ševaliable attribute‚ª•K—v‚Èz•Ï”‚É,ƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
+//å„valiable attributeãŒå¿…è¦ãªzå¤‰æ•°ã«,ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
 void makeAVG_TYPE();
 void makeCATDESC();
 void makeDEPEND_0();
@@ -133,25 +133,25 @@ void makeVALIDMIN();
 void makeVAR_NOTE();
 void makeVAR_TYPE();
 
-//CDF_CHARŒ^‚ÌzƒGƒ“ƒgƒŠ[‚ğPUT‚·‚éŠÖ”
+//CDF_CHARå‹ã®zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’PUTã™ã‚‹é–¢æ•°
 void input_CHARzENTRY( long varNum , long vAttrNum , long zEntryLen , char* zEntryValue );
 
-//CDF_FLOATŒ^‚ÌzƒGƒ“ƒgƒŠ[‚ğPUT‚·‚éŠÖ”
+//CDF_FLOATå‹ã®zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’PUTã™ã‚‹é–¢æ•°
 void input_FLOATzENTRY( long varNum , long vAttrNum , long zEntryLen , float* zEntryValue );
 
-//CDF_UINT1Œ^‚ÌzƒGƒ“ƒgƒŠ[‚ğPUT‚·‚éŠÖ”
+//CDF_UINT1å‹ã®zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’PUTã™ã‚‹é–¢æ•°
 void input_UINT1zENTRY( long varNum , long vAttrNum , long zEntryLen , unsigned char* zEntryValue );
 
-//CDF_UINT4Œ^‚ÌzƒGƒ“ƒgƒŠ[‚ğPUT‚·‚éŠÖ”
+//CDF_UINT4å‹ã®zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’PUTã™ã‚‹é–¢æ•°
 void input_UINT4zENTRY( long varNum , long vAttrNum , long zEntryLen , int* zEntryValue );
 
-//CDF_EPOCHŒ^‚ÌzƒGƒ“ƒgƒŠ[‚ğPUT‚·‚éŠÖ”
+//CDF_EPOCHå‹ã®zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’PUTã™ã‚‹é–¢æ•°
 void input_EPOCHzENTRY( long varNum , long vAttrNum , long zEntryLen , double* zEntryValue );
 
 
 
 
-//***** ’è”éŒ¾ *****
+//***** å®šæ•°å®£è¨€ *****
 #define OPNAME "/remote/raid2/MCADB/CDF-H0/"
 
 #define CRNAME "/remote/raid2/MCADB/CDF-H1/"
@@ -169,28 +169,28 @@ void input_EPOCHzENTRY( long varNum , long vAttrNum , long zEntryLen , double* z
 // ex : /remote/raid1/usr/y-ozaki/CDFdata/ave/1989/ak_h8_mca_19890311_v01.cdf
 #define CREATE_LEN    72
 
-//Å‰‚ÉƒRƒ}ƒ“ƒh“ü—Í‚³‚ê‚é‚×‚«’è”‚Ì”
+//æœ€åˆã«ã‚³ãƒãƒ³ãƒ‰å…¥åŠ›ã•ã‚Œã‚‹ã¹ãå®šæ•°ã®æ•°
 #define MAX_ARGC 5
 
-//1“ú = 0.25 ŠÔŠu‚ª 345600 ŒÂ
+//1æ—¥ = 0.25 é–“éš”ãŒ 345600 å€‹
 #define DAYSPACE    345600
 
-//1•b = 0.25 ŠÔŠu‚ª 4 ŒÂ
+//1ç§’ = 0.25 é–“éš”ãŒ 4 å€‹
 #define SECSPACE    4
 
-//ƒ`ƒƒƒ“ƒlƒ‹”
+//ãƒãƒ£ãƒ³ãƒãƒ«æ•°
 #define NUM_CHANNEL 16
 
-//WIDA ‚Ìƒ`ƒƒƒ“ƒlƒ‹”
+//WIDA ã®ãƒãƒ£ãƒ³ãƒãƒ«æ•°
 #define NUM_WIDA    4
 
-//status = 1001 ‚Írecord‚É“ü‚Á‚Ä‚é’l‚ªvirtual
+//status = 1001 ã¯recordã«å…¥ã£ã¦ã‚‹å€¤ãŒvirtual
 #define VIRTUAL     1001
 
-//Epoch ‚Ì PAD’l ‚Í doubleŒ^‚Å 0 ‚Å‚·B
+//Epoch ã® PADå€¤ ã¯ doubleå‹ã§ 0 ã§ã™ã€‚
 #define EPOCH_PAD   0
 
-//PostGapƒtƒ‰ƒO ‚Ì—§‚¿•û
+//PostGapãƒ•ãƒ©ã‚° ã®ç«‹ã¡æ–¹
 #define FLAG_MCA    1
 #define FLAG_VTL    2
 #define FLAG_BDR    16
