@@ -31,7 +31,7 @@
 #include <time.h>
 #include "cdf.h"
 #include "average.h"
-long ave_EmxNum;
+// long ave_EmxNum;
 
 CDFid opid;
 CDFid crid;
