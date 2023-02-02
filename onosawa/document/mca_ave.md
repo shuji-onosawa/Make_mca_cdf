@@ -66,3 +66,17 @@ WSL(個人ユーザーで実行), VScode, gcc
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cdf/lib/
     ```
     エラーが消えた。
+
+
+## プログラムのデバッグ
+- エラー
+```
+An error has occurred, halting...
+CANNOT_SPARSERECORDS: Sparse records can't be set/modified for the variable.
+```
+- 場所
+    - create_cdf.c 170 行目
+    ```c
+    if ( status != CDF_OK ) StatusHandler( status );
+    ```
+    周波数チャンネルの読み込みがうまくいってないみたい
