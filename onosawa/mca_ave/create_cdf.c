@@ -164,7 +164,7 @@ void create_zVAR()
 
   //***** 変数 channel を作成
   status = CDFlib( CREATE_ , zVAR_ , "channel" , data_float , numElements , numDim1 , dimSize16 , recNoVary , dimVarys , &ave_chNum ,
-		   PUT_ , zVAR_SPARSERECORDS_ , PAD_SPARSERECORDS ,
+		   PUT_ , zVAR_SPARSERECORDS_ , NO_SPARSERECORDS ,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
