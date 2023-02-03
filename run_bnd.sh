@@ -32,5 +32,5 @@ exit 0
 fi
 
 # Run the executable with options
-options="1990 2 4 8"
+options="1990 2 2 8"
 $source_directory/bnd $options

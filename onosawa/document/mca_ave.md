@@ -1,6 +1,9 @@
 # mca_aveに入っているプログラムの実行について
 ## 環境
 WSL(個人ユーザーで実行), VScode, gcc
+## 実行手順
+../../run_bnd.sh　を参照
+
 ## make で実行してみた
 - 分割コンパイルが必要
 - Makefile があるので terminal で 
@@ -80,3 +83,4 @@ CANNOT_SPARSERECORDS: Sparse records can't be set/modified for the variable.
     if ( status != CDF_OK ) StatusHandler( status );
     ```
     周波数チャンネルの読み込みがうまくいってないみたい
+    - create_cdf.c 167 行目を変更したら動いた。変更内容はgitを参照。
