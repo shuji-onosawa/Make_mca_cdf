@@ -2,8 +2,10 @@
 ## 環境
 WSL(個人ユーザーで実行), VScode, gcc
 ## 実行手順
-../../run_bnd.sh　を参照
-
+../../run_bnd.sh　を参照  
+どの日のcdfを作るかはrun_bnd.shで決める。  
+<bar>  
+以下プログラムをもらってから動かせるようになるまでやったこと
 ## make で実行してみた
 - 分割コンパイルが必要
 - Makefile があるので terminal で 
@@ -21,12 +23,13 @@ WSL(個人ユーザーで実行), VScode, gcc
 ## 各エラーの対処
 - /usr/bin/ld: create_cdf.o:(.bss+0x0): multiple definition of `ave_EmxNum'; mca_ave.o:(.bss+0x0): first defined here について
     - mca_ave.cの34行目をコメントアウトしたらコンパイルが通った。
-    ```c
-    long ave_EmxNum;
-    ```
-    ```c
+    ```c  
+    long ave_EmxNum;  
+    ```  
+    
+    ```c  
     // long ave_EmxNum;
-    ```
+    ```  
 
 - '/usr/bin/ld: cannot find -lcdf: No such file or directory'について
     - cdf libarary を[ダウンロード](https://cdf.gsfc.nasa.gov/html/sw_and_docs.html)
