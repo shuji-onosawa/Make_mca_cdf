@@ -60,7 +60,7 @@ float bfact[ NUM_CHANNEL ];
 int main( int argc , char *argv[] )
 {
   clock_t start,end;
-  int sec;
+  float sec;
   int k;
 
   int len_ymd[ 4 ];
@@ -112,7 +112,8 @@ int main( int argc , char *argv[] )
 
   strcpy( ymd[ 3 ] ,argv[ 4 ] );
 
-  sec = atoi( ymd[ 3 ] );
+//  sec = atoi( ymd[ 3 ] );
+  sec = atof( ymd[ 3 ] );
   /*  if( sec < 1 || sec > 60 ){
     printf("!!!!! input error !!!!!\n");
     exit( 1 );
@@ -539,7 +540,7 @@ void data_ave( total , ave , recsp )
 //**************************************************************************
 //ave_data() : MCAデータを平均する関数
 void ave_data( sec )
-     int sec;
+     float sec;
 {
 
   int recsp;
@@ -582,7 +583,7 @@ void ave_data( sec )
 
   int brHb = 0 , brHa = 0;    //仮想なら 1
 
-  recsp = SECSPACE * sec;
+  recsp = (int) (SECSPACE * sec);
   half_recsp = recsp / 2;
   i_max = DAYSPACE - half_recsp;
 

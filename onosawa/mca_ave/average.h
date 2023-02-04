@@ -61,7 +61,7 @@ void data_total( double total[] , double data[] );
 void data_ave( double total[] , unsigned char ave[] , int recsp );
 
 //MCAデータを平均する
-void ave_data( int sec );
+void ave_data( float sec );
 
 //****** create_cdf.c で宣言されている関数
 //平均したデータを保存するCDFファイルを作成する
@@ -154,7 +154,7 @@ void input_EPOCHzENTRY( long varNum , long vAttrNum , long zEntryLen , double* z
 //***** 定数宣言 *****
 #define OPNAME "./onosawa/CDF-H0/"
 
-#define CRNAME "./onosawa/CDF-H1/"
+#define CRNAME "./onosawa/CDF-H1_test/"
 
 #define RESOLUTION       "h"
 #define RESOLUTION_LARGE "H"
