@@ -1,4 +1,4 @@
-mcs_ave
+mca_ave
  
  MCA生CDFからn秒平均CDFファイルを生成する。
  実行方法は、実行ファイル名 bnd (Makefileに明記)と作成したいファイルの年月日
