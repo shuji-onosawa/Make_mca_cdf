@@ -1,9 +1,10 @@
 # MCA(Multi Channel Analyser) data property
 
 ## Time resolution
-- 0.5 s for bit rate H and 0.25 s for bit rate M
+- 0.5 s (Bit rate Hのとき) or 0.25（Bit rate Mのとき）
 
 ## Component
-- Electric field 
-  - One component observed by one of 2 wire antenas in satelite's spin plane. 
+- 電場
+  - 1成分。スピン面内の2本のワイヤアンテナのうちいずれか1本で計測されたもの
+  - スピン軸は 2.5度以内の精度で太陽を向いている
   - 

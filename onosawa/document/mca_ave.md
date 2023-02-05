@@ -87,3 +87,23 @@ CANNOT_SPARSERECORDS: Sparse records can't be set/modified for the variable.
     ```
     周波数チャンネルの読み込みがうまくいってないみたい
     - create_cdf.c 167 行目を変更したら動いた。変更内容はgitを参照。
+
+
+# MCA cdf データの構造
+## cdf 一般の話
+- 時刻データ
+    - CDF_EPOCH, CDF_EPOCH16, CDF_TIME_TT2000という3タイプがある。
+        - CDF_EPOCH: 西暦0年から1ミリ秒単位で数えた時刻, float in python　→　MCA cdfではこれ
+        - CDF_EPOCH16: 西暦0年から1ピコ秒単位で数えた時刻, complex in python
+        - CDF_TIME_TT2000: よくわからん
+    - そのまま```pyspedas.time_string(epoch)```とかやっても正しい時刻に直らない。→```cdflib.cdfepoch.breakdown(epoch)```で年月日時分秒に直せる。
+
+## 生データ
+- レコードはスパースレコードとして保存されている
+- スパースレコード(Sparse record)とは
+    - 「Sparse record」とは、データが頻繁に存在しない属性（フィールド）を含むレコードのことを指します。このようなレコードでは、多くのフィールドが「空」または「null」の値を持つことがあります。Sparse recordは、データベースやデータストレージシステムで使用すると効率的な利用ができる場合があります。
+- Epoch と 観測値(電場データとか)が入った配列 の長さがそろっていないcdfファイルがある
+- Emax, Eave, Bmax, Bave, E_WIDA, B_WIDA, E_axis, channel 変数はデータ欠損部分はその直前の値で埋めるようになっていると尾崎さん卒論にはあるが、そうだとすると長さがそろっていないのはなぜ？
+
+## 平均データ
+- 
