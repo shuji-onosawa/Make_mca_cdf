@@ -1,0 +1,632 @@
+0201
+Variable:  Epoch
+Dimensions:  (345598,)
+Variable:  bitrate
+Dimensions:  (345598,)
+Variable:  Emax
+Dimensions:  (345598, 16)
+Variable:  Bmax
+Dimensions:  (345598, 16)
+Variable:  Eave
+Dimensions:  (345598, 16)
+Variable:  Bave
+Dimensions:  (345598, 16)
+Variable:  E_axis
+Dimensions:  (345598,)
+Variable:  E_WIDA
+Dimensions:  (345598, 4)
+Variable:  B_WIDA
+Dimensions:  (345598, 4)
+Variable:  PostGap
+Dimensions:  (345598,)
+0202
+Variable:  Epoch
+Dimensions:  (345598,)
+Variable:  bitrate
+Dimensions:  (345598,)
+Variable:  Emax
+Dimensions:  (345598, 16)
+Variable:  Bmax
+Dimensions:  (345598, 16)
+Variable:  Eave
+Dimensions:  (345598, 16)
+Variable:  Bave
+Dimensions:  (345598, 16)
+Variable:  E_axis
+Dimensions:  (345598,)
+Variable:  E_WIDA
+Dimensions:  (345598, 4)
+Variable:  B_WIDA
+Dimensions:  (345598, 4)
+Variable:  PostGap
+Dimensions:  (345598,)
+0203
+Variable:  Epoch
+Dimensions:  (345598,)
+Variable:  bitrate
+Dimensions:  (345598,)
+Variable:  Emax
+Dimensions:  (345598, 16)
+Variable:  Bmax
+Dimensions:  (345598, 16)
+Variable:  Eave
+Dimensions:  (345598, 16)
+Variable:  Bave
+Dimensions:  (345598, 16)
+Variable:  E_axis
+Dimensions:  (345598,)
+Variable:  E_WIDA
+Dimensions:  (345598, 4)
+Variable:  B_WIDA
+Dimensions:  (345598, 4)
+Variable:  PostGap
+Dimensions:  (345598,)
+0204
+Variable:  Epoch
+Dimensions:  (345598,)
+Variable:  bitrate
+Dimensions:  (345598,)
+Variable:  Emax
+Dimensions:  (345598, 16)
+Variable:  Bmax
+Dimensions:  (345598, 16)
+Variable:  Eave
+Dimensions:  (345598, 16)
+Variable:  Bave
+Dimensions:  (345598, 16)
+Variable:  E_axis
+Dimensions:  (345598,)
+Variable:  E_WIDA
+Dimensions:  (345598, 4)
+Variable:  B_WIDA
+Dimensions:  (345598, 4)
+Variable:  PostGap
+Dimensions:  (345598,)
+0205
+Variable:  Epoch
+Dimensions:  (345598,)
+Variable:  bitrate
+Dimensions:  (345598,)
+Variable:  Emax
+Dimensions:  (345598, 16)
+Variable:  Bmax
+Dimensions:  (345598, 16)
+Variable:  Eave
+Dimensions:  (345598, 16)
+Variable:  Bave
+Dimensions:  (345598, 16)
+Variable:  E_axis
+Dimensions:  (345598,)
+Variable:  E_WIDA
+Dimensions:  (345598, 4)
+Variable:  B_WIDA
+Dimensions:  (345598, 4)
+Variable:  PostGap
+Dimensions:  (345598,)
+0206
+Variable:  Epoch
+Dimensions:  (345599,)
+Variable:  bitrate
+Dimensions:  (344339,)
+Variable:  Emax
+Dimensions:  (344339, 16)
+Variable:  Bmax
+Dimensions:  (344339, 16)
+Variable:  Eave
+Dimensions:  (344339, 16)
+Variable:  Bave
+Dimensions:  (344339, 16)
+Variable:  E_axis
+Dimensions:  (344339,)
+Variable:  E_WIDA
+Dimensions:  (344339, 4)
+Variable:  B_WIDA
+Dimensions:  (344339, 4)
+Variable:  PostGap
+Dimensions:  (345599,)
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+0207
+Variable:  Epoch
+Dimensions:  (345453,)
+Variable:  bitrate
+Dimensions:  (342831,)
+Variable:  Emax
+Dimensions:  (342831, 16)
+Variable:  Bmax
+Dimensions:  (342831, 16)
+Variable:  Eave
+Dimensions:  (342831, 16)
+Variable:  Bave
+Dimensions:  (342831, 16)
+Variable:  E_axis
+Dimensions:  (342831,)
+Variable:  E_WIDA
+Dimensions:  (342831, 4)
+Variable:  B_WIDA
+Dimensions:  (342831, 4)
+Variable:  PostGap
+Dimensions:  (345453,)
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+0208
+Variable:  Epoch
+Dimensions:  (343194,)
+Variable:  bitrate
+Dimensions:  (341258,)
+Variable:  Emax
+Dimensions:  (341258, 16)
+Variable:  Bmax
+Dimensions:  (341258, 16)
+Variable:  Eave
+Dimensions:  (341258, 16)
+Variable:  Bave
+Dimensions:  (341258, 16)
+Variable:  E_axis
+Dimensions:  (341258,)
+Variable:  E_WIDA
+Dimensions:  (341258, 4)
+Variable:  B_WIDA
+Dimensions:  (341258, 4)
+Variable:  PostGap
+Dimensions:  (343194,)
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+0209
+Variable:  Epoch
+Dimensions:  (341165,)
+Variable:  bitrate
+Dimensions:  (339721,)
+Variable:  Emax
+Dimensions:  (339721, 16)
+Variable:  Bmax
+Dimensions:  (339721, 16)
+Variable:  Eave
+Dimensions:  (339721, 16)
+Variable:  Bave
+Dimensions:  (339721, 16)
+Variable:  E_axis
+Dimensions:  (339721,)
+Variable:  E_WIDA
+Dimensions:  (339721, 4)
+Variable:  B_WIDA
+Dimensions:  (339721, 4)
+Variable:  PostGap
+Dimensions:  (341165,)
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+0210
+Variable:  Epoch
+Dimensions:  (339061,)
+Variable:  bitrate
+Dimensions:  (338957,)
+Variable:  Emax
+Dimensions:  (338957, 16)
+Variable:  Bmax
+Dimensions:  (338957, 16)
+Variable:  Eave
+Dimensions:  (338957, 16)
+Variable:  Bave
+Dimensions:  (338957, 16)
+Variable:  E_axis
+Dimensions:  (338957,)
+Variable:  E_WIDA
+Dimensions:  (338957, 4)
+Variable:  B_WIDA
+Dimensions:  (338957, 4)
+Variable:  PostGap
+Dimensions:  (339061,)
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+0211
+Variable:  Epoch
+Dimensions:  (336888,)
+Variable:  bitrate
+Dimensions:  (336770,)
+Variable:  Emax
+Dimensions:  (336770, 16)
+Variable:  Bmax
+Dimensions:  (336770, 16)
+Variable:  Eave
+Dimensions:  (336770, 16)
+Variable:  Bave
+Dimensions:  (336770, 16)
+Variable:  E_axis
+Dimensions:  (336770,)
+Variable:  E_WIDA
+Dimensions:  (336770, 4)
+Variable:  B_WIDA
+Dimensions:  (336770, 4)
+Variable:  PostGap
+Dimensions:  (336888,)
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+0212
+Variable:  Epoch
+Dimensions:  (345597,)
+Variable:  bitrate
+Dimensions:  (345597,)
+Variable:  Emax
+Dimensions:  (345597, 16)
+Variable:  Bmax
+Dimensions:  (345597, 16)
+Variable:  Eave
+Dimensions:  (345597, 16)
+Variable:  Bave
+Dimensions:  (345597, 16)
+Variable:  E_axis
+Dimensions:  (345597,)
+Variable:  E_WIDA
+Dimensions:  (345597, 4)
+Variable:  B_WIDA
+Dimensions:  (345597, 4)
+Variable:  PostGap
+Dimensions:  (345597,)
+0213
+Variable:  Epoch
+Dimensions:  (332466,)
+Variable:  bitrate
+Dimensions:  (332466,)
+Variable:  Emax
+Dimensions:  (332466, 16)
+Variable:  Bmax
+Dimensions:  (332466, 16)
+Variable:  Eave
+Dimensions:  (332466, 16)
+Variable:  Bave
+Dimensions:  (332466, 16)
+Variable:  E_axis
+Dimensions:  (332466,)
+Variable:  E_WIDA
+Dimensions:  (332466, 4)
+Variable:  B_WIDA
+Dimensions:  (332466, 4)
+Variable:  PostGap
+Dimensions:  (332466,)
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+0214
+Variable:  Epoch
+Dimensions:  (345598,)
+Variable:  bitrate
+Dimensions:  (345598,)
+Variable:  Emax
+Dimensions:  (345598, 16)
+Variable:  Bmax
+Dimensions:  (345598, 16)
+Variable:  Eave
+Dimensions:  (345598, 16)
+Variable:  Bave
+Dimensions:  (345598, 16)
+Variable:  E_axis
+Dimensions:  (345598,)
+Variable:  E_WIDA
+Dimensions:  (345598, 4)
+Variable:  B_WIDA
+Dimensions:  (345598, 4)
+Variable:  PostGap
+Dimensions:  (345598,)
+0215
+Variable:  Epoch
+Dimensions:  (338505,)
+Variable:  bitrate
+Dimensions:  (338505,)
+Variable:  Emax
+Dimensions:  (338505, 16)
+Variable:  Bmax
+Dimensions:  (338505, 16)
+Variable:  Eave
+Dimensions:  (338505, 16)
+Variable:  Bave
+Dimensions:  (338505, 16)
+Variable:  E_axis
+Dimensions:  (338505,)
+Variable:  E_WIDA
+Dimensions:  (338505, 4)
+Variable:  B_WIDA
+Dimensions:  (338505, 4)
+Variable:  PostGap
+Dimensions:  (338505,)
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+0216
+Variable:  Epoch
+Dimensions:  (345597,)
+Variable:  bitrate
+Dimensions:  (345597,)
+Variable:  Emax
+Dimensions:  (345597, 16)
+Variable:  Bmax
+Dimensions:  (345597, 16)
+Variable:  Eave
+Dimensions:  (345597, 16)
+Variable:  Bave
+Dimensions:  (345597, 16)
+Variable:  E_axis
+Dimensions:  (345597,)
+Variable:  E_WIDA
+Dimensions:  (345597, 4)
+Variable:  B_WIDA
+Dimensions:  (345597, 4)
+Variable:  PostGap
+Dimensions:  (345597,)
+0217
+Variable:  Epoch
+Dimensions:  (345597,)
+Variable:  bitrate
+Dimensions:  (345597,)
+Variable:  Emax
+Dimensions:  (345597, 16)
+Variable:  Bmax
+Dimensions:  (345597, 16)
+Variable:  Eave
+Dimensions:  (345597, 16)
+Variable:  Bave
+Dimensions:  (345597, 16)
+Variable:  E_axis
+Dimensions:  (345597,)
+Variable:  E_WIDA
+Dimensions:  (345597, 4)
+Variable:  B_WIDA
+Dimensions:  (345597, 4)
+Variable:  PostGap
+Dimensions:  (345597,)
+0218
+Variable:  Epoch
+Dimensions:  (304921,)
+Variable:  bitrate
+Dimensions:  (304921,)
+Variable:  Emax
+Dimensions:  (304921, 16)
+Variable:  Bmax
+Dimensions:  (304921, 16)
+Variable:  Eave
+Dimensions:  (304921, 16)
+Variable:  Bave
+Dimensions:  (304921, 16)
+Variable:  E_axis
+Dimensions:  (304921,)
+Variable:  E_WIDA
+Dimensions:  (304921, 4)
+Variable:  B_WIDA
+Dimensions:  (304921, 4)
+Variable:  PostGap
+Dimensions:  (304921,)
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+0219
+Variable:  Epoch
+Dimensions:  (345599,)
+Variable:  bitrate
+Dimensions:  (345599,)
+Variable:  Emax
+Dimensions:  (345599, 16)
+Variable:  Bmax
+Dimensions:  (345599, 16)
+Variable:  Eave
+Dimensions:  (345599, 16)
+Variable:  Bave
+Dimensions:  (345599, 16)
+Variable:  E_axis
+Dimensions:  (345599,)
+Variable:  E_WIDA
+Dimensions:  (345599, 4)
+Variable:  B_WIDA
+Dimensions:  (345599, 4)
+Variable:  PostGap
+Dimensions:  (345599,)
+0220
+Variable:  Epoch
+Dimensions:  (345599,)
+Variable:  bitrate
+Dimensions:  (345599,)
+Variable:  Emax
+Dimensions:  (345599, 16)
+Variable:  Bmax
+Dimensions:  (345599, 16)
+Variable:  Eave
+Dimensions:  (345599, 16)
+Variable:  Bave
+Dimensions:  (345599, 16)
+Variable:  E_axis
+Dimensions:  (345599,)
+Variable:  E_WIDA
+Dimensions:  (345599, 4)
+Variable:  B_WIDA
+Dimensions:  (345599, 4)
+Variable:  PostGap
+Dimensions:  (345599,)
+0221
+Variable:  Epoch
+Dimensions:  (345599,)
+Variable:  bitrate
+Dimensions:  (345599,)
+Variable:  Emax
+Dimensions:  (345599, 16)
+Variable:  Bmax
+Dimensions:  (345599, 16)
+Variable:  Eave
+Dimensions:  (345599, 16)
+Variable:  Bave
+Dimensions:  (345599, 16)
+Variable:  E_axis
+Dimensions:  (345599,)
+Variable:  E_WIDA
+Dimensions:  (345599, 4)
+Variable:  B_WIDA
+Dimensions:  (345599, 4)
+Variable:  PostGap
+Dimensions:  (345599,)
+0222
+Variable:  Epoch
+Dimensions:  (345599,)
+Variable:  bitrate
+Dimensions:  (345599,)
+Variable:  Emax
+Dimensions:  (345599, 16)
+Variable:  Bmax
+Dimensions:  (345599, 16)
+Variable:  Eave
+Dimensions:  (345599, 16)
+Variable:  Bave
+Dimensions:  (345599, 16)
+Variable:  E_axis
+Dimensions:  (345599,)
+Variable:  E_WIDA
+Dimensions:  (345599, 4)
+Variable:  B_WIDA
+Dimensions:  (345599, 4)
+Variable:  PostGap
+Dimensions:  (345599,)
+0223
+Variable:  Epoch
+Dimensions:  (345598,)
+Variable:  bitrate
+Dimensions:  (345598,)
+Variable:  Emax
+Dimensions:  (345598, 16)
+Variable:  Bmax
+Dimensions:  (345598, 16)
+Variable:  Eave
+Dimensions:  (345598, 16)
+Variable:  Bave
+Dimensions:  (345598, 16)
+Variable:  E_axis
+Dimensions:  (345598,)
+Variable:  E_WIDA
+Dimensions:  (345598, 4)
+Variable:  B_WIDA
+Dimensions:  (345598, 4)
+Variable:  PostGap
+Dimensions:  (345598,)
+0224
+Variable:  Epoch
+Dimensions:  (345598,)
+Variable:  bitrate
+Dimensions:  (345598,)
+Variable:  Emax
+Dimensions:  (345598, 16)
+Variable:  Bmax
+Dimensions:  (345598, 16)
+Variable:  Eave
+Dimensions:  (345598, 16)
+Variable:  Bave
+Dimensions:  (345598, 16)
+Variable:  E_axis
+Dimensions:  (345598,)
+Variable:  E_WIDA
+Dimensions:  (345598, 4)
+Variable:  B_WIDA
+Dimensions:  (345598, 4)
+Variable:  PostGap
+Dimensions:  (345598,)
+0225
+Variable:  Epoch
+Dimensions:  (345598,)
+Variable:  bitrate
+Dimensions:  (345598,)
+Variable:  Emax
+Dimensions:  (345598, 16)
+Variable:  Bmax
+Dimensions:  (345598, 16)
+Variable:  Eave
+Dimensions:  (345598, 16)
+Variable:  Bave
+Dimensions:  (345598, 16)
+Variable:  E_axis
+Dimensions:  (345598,)
+Variable:  E_WIDA
+Dimensions:  (345598, 4)
+Variable:  B_WIDA
+Dimensions:  (345598, 4)
+Variable:  PostGap
+Dimensions:  (345598,)
+0226
+Variable:  Epoch
+Dimensions:  (345598,)
+Variable:  bitrate
+Dimensions:  (345598,)
+Variable:  Emax
+Dimensions:  (345598, 16)
+Variable:  Bmax
+Dimensions:  (345598, 16)
+Variable:  Eave
+Dimensions:  (345598, 16)
+Variable:  Bave
+Dimensions:  (345598, 16)
+Variable:  E_axis
+Dimensions:  (345598,)
+Variable:  E_WIDA
+Dimensions:  (345598, 4)
+Variable:  B_WIDA
+Dimensions:  (345598, 4)
+Variable:  PostGap
+Dimensions:  (345598,)
+0227
+Variable:  Epoch
+Dimensions:  (344666,)
+Variable:  bitrate
+Dimensions:  (344666,)
+Variable:  Emax
+Dimensions:  (344666, 16)
+Variable:  Bmax
+Dimensions:  (344666, 16)
+Variable:  Eave
+Dimensions:  (344666, 16)
+Variable:  Bave
+Dimensions:  (344666, 16)
+Variable:  E_axis
+Dimensions:  (344666,)
+Variable:  E_WIDA
+Dimensions:  (344666, 4)
+Variable:  B_WIDA
+Dimensions:  (344666, 4)
+Variable:  PostGap
+Dimensions:  (344666,)
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+0228
+Variable:  Epoch
+Dimensions:  (342057,)
+Variable:  bitrate
+Dimensions:  (342057,)
+Variable:  Emax
+Dimensions:  (342057, 16)
+Variable:  Bmax
+Dimensions:  (342057, 16)
+Variable:  Eave
+Dimensions:  (342057, 16)
+Variable:  Bave
+Dimensions:  (342057, 16)
+Variable:  E_axis
+Dimensions:  (342057,)
+Variable:  E_WIDA
+Dimensions:  (342057, 4)
+Variable:  B_WIDA
+Dimensions:  (342057, 4)
+Variable:  PostGap
+Dimensions:  (342057,)
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
+The lengths of x and y do not match!
