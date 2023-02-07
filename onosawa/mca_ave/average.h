@@ -154,7 +154,7 @@ void input_EPOCHzENTRY( long varNum , long vAttrNum , long zEntryLen , double* z
 //***** 定数宣言 *****
 #define OPNAME "./onosawa/CDF-H0/"
 
-#define CRNAME "./onosawa/CDF-H1_test/"
+#define CRNAME "./onosawa/CDF-H1/"
 
 #define RESOLUTION       "h"
 #define RESOLUTION_LARGE "H"
