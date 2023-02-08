@@ -1,0 +1,728 @@
+0201
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 91 96 95 91 87 79 66 ... 68 63 55 46 55 55
+    Eave     (Epoch, channel) uint8 93 97 95 88 82 73 64 ... 62 56 50 43 52 52
+    Bmax     (Epoch, channel) uint8 127 117 125 121 122 122 ... 90 82 78 75 71
+    Bave     (Epoch, channel) uint8 130 120 119 120 123 122 ... 84 76 71 70 72
+    PostGap  (Epoch) uint32 32 32 0 0 0 32 32 0 0 0 32 ... 0 0 0 0 0 32 32 0 0 2
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/01_0:0:0:0
+    End_time:                    1990_02/01_23:59:59:999
+0202
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 87 84 84 80 85 76 73 ... 85 83 81 71 65 60
+    Eave     (Epoch, channel) uint8 89 84 83 79 85 76 72 ... 82 80 73 66 60 51
+    Bmax     (Epoch, channel) uint8 139 135 118 119 122 120 ... 90 82 85 81 78
+    Bave     (Epoch, channel) uint8 140 133 126 121 122 122 ... 85 77 73 70 69
+    PostGap  (Epoch) uint32 0 0 0 0 0 0 0 0 0 0 0 ... 32 32 0 0 0 0 32 32 0 0 2
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/02_0:0:0:0
+    End_time:                    1990_02/02_23:59:59:999
+0203
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 102 104 102 100 94 87 ... 72 67 65 49 60 49
+    Eave     (Epoch, channel) uint8 105 104 102 98 94 86 ... 57 54 51 47 48 44
+    Bmax     (Epoch, channel) uint8 140 136 134 129 124 125 ... 90 82 84 80 77
+    Bave     (Epoch, channel) uint8 143 136 132 126 123 122 ... 85 77 72 70 69
+    PostGap  (Epoch) uint32 32 32 0 0 0 32 32 0 0 0 32 ... 0 0 0 0 32 32 0 0 0 2
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/03_0:0:0:0
+    End_time:                    1990_02/03_23:59:59:999
+0204
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 111 106 104 98 95 85 ... 71 50 47 67 64 42
+    Eave     (Epoch, channel) uint8 112 107 102 97 91 82 ... 63 42 36 61 59 40
+    Bmax     (Epoch, channel) uint8 144 129 136 140 133 129 ... 90 82 89 85 81
+    Bave     (Epoch, channel) uint8 146 130 137 143 131 127 ... 87 77 74 71 70
+    PostGap  (Epoch) uint32 32 32 0 0 0 0 32 32 0 0 ... 0 0 32 32 0 0 0 0 32 34
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/04_0:0:0:0
+    End_time:                    1990_02/04_23:59:59:999
+0205
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 94 98 94 85 74 63 60 ... 44 38 42 68 60 73
+    Eave     (Epoch, channel) uint8 94 97 90 85 72 59 55 ... 39 34 36 62 56 70
+    Bmax     (Epoch, channel) uint8 140 126 124 123 130 125 ... 86 81 81 78 90
+    Bave     (Epoch, channel) uint8 143 127 123 121 128 123 ... 80 75 75 71 84
+    PostGap  (Epoch) uint32 0 0 0 0 32 32 0 0 0 0 32 ... 0 0 0 0 0 0 0 0 0 0 2
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/05_0:0:0:0
+    End_time:                    1990_02/05_23:59:59:999
+0206
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 55 56 59 59 56 56 43 57 ... 0 0 0 0 0 0 0 0
+    Eave     (Epoch, channel) uint8 58 56 57 54 49 46 41 53 ... 0 0 0 0 0 0 0 0
+    Bmax     (Epoch, channel) uint8 120 114 113 117 111 104 99 ... 0 0 0 0 0 0 0
+    Bave     (Epoch, channel) uint8 122 114 110 109 112 104 97 ... 0 0 0 0 0 0 0
+    PostGap  (Epoch) uint32 0 0 0 0 1 1 1 1 1 1 1 1 ... 1 1 1 1 1 1 1 1 1 1 1 1
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/06_0:0:0:0
+    End_time:                    1990_02/06_23:59:59:999
+0207
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Eave     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Bmax     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Bave     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    PostGap  (Epoch) uint32 1 1 1 1 1 1 1 1 1 1 1 1 ... 1 1 1 1 1 1 1 1 1 1 1 1
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/07_0:0:0:0
+    End_time:                    1990_02/07_23:59:59:999
+0208
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Eave     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Bmax     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Bave     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    PostGap  (Epoch) uint32 1 1 1 1 1 1 1 1 1 1 1 1 ... 1 1 1 1 1 1 1 1 1 1 1 1
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/08_0:0:0:0
+    End_time:                    1990_02/08_23:59:59:999
+0209
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Eave     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Bmax     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Bave     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    PostGap  (Epoch) uint32 1 1 1 1 1 1 1 1 1 1 1 1 ... 1 1 1 1 1 1 1 1 1 1 1 1
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/09_0:0:0:0
+    End_time:                    1990_02/09_23:59:59:999
+0210
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Eave     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Bmax     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Bave     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    PostGap  (Epoch) uint32 1 1 1 1 1 1 1 1 1 1 1 1 ... 1 1 1 1 1 1 1 1 1 1 1 1
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/10_0:0:0:0
+    End_time:                    1990_02/10_23:59:59:999
+0211
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Eave     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Bmax     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Bave     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    PostGap  (Epoch) uint32 1 1 1 1 1 1 1 1 1 1 1 1 ... 1 1 1 1 1 1 1 1 1 1 1 1
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/11_0:0:0:0
+    End_time:                    1990_02/11_23:59:59:999
+0212
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 254 254 254 254 254 254 ... 43 41 41 36 33
+    Eave     (Epoch, channel) uint8 254 254 254 254 254 254 ... 30 31 34 29 22
+    Bmax     (Epoch, channel) uint8 254 254 254 254 254 254 ... 89 83 81 77 76
+    Bave     (Epoch, channel) uint8 254 254 254 254 254 254 ... 83 77 74 70 70
+    PostGap  (Epoch) uint32 1 1 1 1 1 1 1 1 1 1 1 1 ... 0 0 0 0 0 0 0 0 0 0 0 2
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/12_0:0:0:0
+    End_time:                    1990_02/12_23:59:59:999
+0213
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 86 95 102 61 68 55 53 46 ... 0 0 0 0 0 0 0 0
+    Eave     (Epoch, channel) uint8 88 95 98 60 69 47 42 35 ... 0 0 0 0 0 0 0 0
+    Bmax     (Epoch, channel) uint8 167 174 162 154 148 141 129 ... 0 0 0 0 0 0
+    Bave     (Epoch, channel) uint8 166 171 162 155 148 142 127 ... 0 0 0 0 0 0
+    PostGap  (Epoch) uint32 2 2 2 1 1 1 1 1 1 1 1 1 ... 1 1 1 1 1 1 1 1 1 1 1 1
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/13_0:0:0:0
+    End_time:                    1990_02/13_23:59:59:999
+0214
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 254 254 254 254 254 254 ... 49 46 47 43 17
+    Eave     (Epoch, channel) uint8 254 254 254 254 254 254 ... 39 35 34 26 13
+    Bmax     (Epoch, channel) uint8 254 254 254 254 254 254 ... 98 82 91 87 72
+    Bave     (Epoch, channel) uint8 254 254 254 254 254 254 ... 88 80 75 72 71
+    PostGap  (Epoch) uint32 1 1 1 1 1 1 1 1 1 1 ... 16 16 16 16 16 16 16 16 18
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/14_0:0:0:0
+    End_time:                    1990_02/14_23:59:59:999
+0215
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 99 104 93 48 45 78 55 59 ... 0 0 0 0 0 0 0 0
+    Eave     (Epoch, channel) uint8 102 103 91 55 43 69 51 57 ... 0 0 0 0 0 0 0
+    Bmax     (Epoch, channel) uint8 171 167 161 147 141 133 124 ... 0 0 0 0 0 0
+    Bave     (Epoch, channel) uint8 172 168 160 148 138 132 119 ... 0 0 0 0 0 0
+    PostGap  (Epoch) uint32 16 16 16 16 16 16 16 16 16 16 ... 1 1 1 1 1 1 1 1 1
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/15_0:0:0:0
+    End_time:                    1990_02/15_23:59:59:999
+0216
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 254 254 254 254 254 254 ... 67 72 93 79 60
+    Eave     (Epoch, channel) uint8 254 254 254 254 254 254 ... 60 67 88 76 53
+    Bmax     (Epoch, channel) uint8 254 254 254 254 254 254 ... 89 82 90 78 75
+    Bave     (Epoch, channel) uint8 254 254 254 254 254 254 ... 84 81 85 73 70
+    PostGap  (Epoch) uint32 1 1 1 1 1 1 1 1 1 1 1 1 ... 1 1 1 0 2 0 0 0 0 0 0 2
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/16_0:0:0:0
+    End_time:                    1990_02/16_23:59:59:999
+0217
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 65 68 67 67 62 57 52 ... 99 94 92 66 55 46
+    Eave     (Epoch, channel) uint8 68 71 66 66 59 52 49 ... 97 87 89 61 48 42
+    Bmax     (Epoch, channel) uint8 126 115 114 110 113 106 ... 104 104 81 77 76
+    Bave     (Epoch, channel) uint8 128 116 114 110 111 104 ... 97 99 72 70 70
+    PostGap  (Epoch) uint32 0 0 0 0 0 0 0 0 0 0 0 0 ... 2 2 2 2 2 2 2 2 2 2 2 2
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/17_0:0:0:0
+    End_time:                    1990_02/17_23:59:59:999
+0218
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 83 84 85 81 75 70 78 69 ... 0 0 0 0 0 0 0 0
+    Eave     (Epoch, channel) uint8 89 85 85 79 75 69 66 65 ... 0 0 0 0 0 0 0 0
+    Bmax     (Epoch, channel) uint8 154 137 146 138 133 127 122 ... 0 0 0 0 0 0
+    Bave     (Epoch, channel) uint8 172 136 143 138 131 125 118 ... 0 0 0 0 0 0
+    PostGap  (Epoch) uint32 34 2 34 2 34 2 34 34 34 34 ... 1 1 1 1 1 1 1 1 1 1
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/18_0:0:0:0
+    End_time:                    1990_02/18_23:59:59:999
+0219
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 254 254 254 254 254 254 ... 52 49 44 49 56
+    Eave     (Epoch, channel) uint8 254 254 254 254 254 254 ... 52 47 38 47 51
+    Bmax     (Epoch, channel) uint8 254 254 254 254 254 254 ... 90 82 82 79 77
+    Bave     (Epoch, channel) uint8 254 254 254 254 254 254 ... 85 77 72 70 70
+    PostGap  (Epoch) uint32 1 1 1 1 1 1 1 1 1 1 1 1 ... 0 0 0 0 0 32 32 0 0 0 0
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/19_0:0:0:0
+    End_time:                    1990_02/19_23:59:59:999
+0220
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 99 104 79 66 62 60 58 ... 65 60 52 46 41 41
+    Eave     (Epoch, channel) uint8 104 101 76 65 56 52 50 ... 60 56 48 38 34 37
+    Bmax     (Epoch, channel) uint8 138 136 131 124 124 124 ... 90 82 92 87 83
+    Bave     (Epoch, channel) uint8 140 133 126 118 122 122 ... 89 80 75 71 70
+    PostGap  (Epoch) uint32 2 0 0 0 0 0 0 0 2 0 ... 32 32 32 32 32 32 32 32 32
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/20_0:0:0:0
+    End_time:                    1990_02/20_23:59:59:999
+0221
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 89 85 83 79 75 71 69 ... 49 45 45 41 36 39
+    Eave     (Epoch, channel) uint8 90 88 81 78 73 69 66 ... 38 33 29 31 30 35
+    Bmax     (Epoch, channel) uint8 143 129 135 138 133 127 ... 90 82 90 86 82
+    Bave     (Epoch, channel) uint8 146 131 137 142 132 127 ... 87 78 74 71 70
+    PostGap  (Epoch) uint32 34 32 32 32 32 32 32 32 32 ... 0 0 32 32 0 0 0 32 32
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/21_0:0:0:0
+    End_time:                    1990_02/21_23:59:59:999
+0222
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 96 92 92 83 86 58 55 ... 69 64 52 46 43 43
+    Eave     (Epoch, channel) uint8 98 92 91 81 79 54 48 ... 60 54 48 39 41 41
+    Bmax     (Epoch, channel) uint8 132 124 117 123 128 122 ... 90 82 80 76 76
+    Bave     (Epoch, channel) uint8 134 128 118 119 126 122 ... 85 77 72 70 70
+    PostGap  (Epoch) uint32 2 0 0 32 48 16 16 16 48 48 ... 0 0 0 0 32 32 0 0 0 0
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/22_0:0:0:0
+    End_time:                    1990_02/22_23:59:59:999
+0223
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 91 94 81 74 73 71 78 ... 51 49 46 41 36 41
+    Eave     (Epoch, channel) uint8 93 94 81 72 70 67 75 ... 49 45 38 31 32 38
+    Bmax     (Epoch, channel) uint8 139 135 121 120 123 122 ... 90 82 88 84 80
+    Bave     (Epoch, channel) uint8 140 134 126 119 123 122 ... 86 78 73 71 70
+    PostGap  (Epoch) uint32 2 0 0 0 0 0 0 0 0 0 0 ... 32 32 0 0 0 32 32 0 0 0 34
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/23_0:0:0:0
+    End_time:                    1990_02/23_23:59:59:999
+0224
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 89 90 88 83 83 80 57 ... 52 50 51 62 60 61
+    Eave     (Epoch, channel) uint8 91 92 88 81 76 70 55 ... 42 39 47 57 56 56
+    Bmax     (Epoch, channel) uint8 143 137 135 129 131 127 ... 90 82 92 87 83
+    Bave     (Epoch, channel) uint8 145 138 133 126 129 124 ... 87 78 73 71 70
+    PostGap  (Epoch) uint32 32 0 0 0 32 32 0 0 0 ... 32 32 32 32 32 32 32 32 34
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/24_0:0:0:0
+    End_time:                    1990_02/24_23:59:59:999
+0225
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 103 101 98 90 84 74 64 ... 52 56 63 60 54 49
+    Eave     (Epoch, channel) uint8 105 103 98 90 80 70 68 ... 46 52 58 56 51 46
+    Bmax     (Epoch, channel) uint8 142 131 135 140 134 128 ... 90 82 90 86 81
+    Bave     (Epoch, channel) uint8 145 130 137 143 133 128 ... 86 78 73 71 70
+    PostGap  (Epoch) uint32 32 32 32 32 32 32 32 32 ... 32 32 32 32 32 32 32 34
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/25_0:0:0:0
+    End_time:                    1990_02/25_23:59:59:999
+0226
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 92 93 89 89 83 77 70 ... 55 47 42 39 35 35
+    Eave     (Epoch, channel) uint8 94 94 89 87 79 71 67 ... 55 44 37 29 30 32
+    Bmax     (Epoch, channel) uint8 141 130 133 143 133 130 ... 88 81 85 81 78
+    Bave     (Epoch, channel) uint8 143 129 134 145 133 130 ... 83 80 72 71 70
+    PostGap  (Epoch) uint32 32 32 32 32 32 32 32 32 32 32 ... 2 2 0 2 2 2 2 2 2
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/26_0:0:0:0
+    End_time:                    1990_02/26_23:59:59:999
+0227
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 90 95 86 86 93 93 79 70 ... 0 0 0 0 0 0 0 0
+    Eave     (Epoch, channel) uint8 90 95 84 85 93 90 77 68 ... 0 0 0 0 0 0 0 0
+    Bmax     (Epoch, channel) uint8 121 113 111 105 110 108 104 ... 0 0 0 0 0 0
+    Bave     (Epoch, channel) uint8 122 113 109 104 108 105 99 ... 0 0 0 0 0 0 0
+    PostGap  (Epoch) uint32 2 2 2 2 2 2 2 2 2 2 2 2 ... 1 1 1 1 1 1 1 1 1 1 1 1
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/27_0:0:0:0
+    End_time:                    1990_02/27_23:59:59:999
+0228
+<xarray.Dataset>
+Dimensions:  (Epoch: 10800, channel: 16)
+Coordinates:
+  * Epoch    (Epoch) float64 6.28e+13 6.28e+13 6.28e+13 ... 6.28e+13 6.28e+13
+  * channel  (channel) float32 3.16 5.62 10.0 17.8 ... 5.62e+03 1e+04 1.78e+04
+Data variables:
+    Emax     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Eave     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Bmax     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    Bave     (Epoch, channel) uint8 254 254 254 254 254 254 254 ... 0 0 0 0 0 0
+    PostGap  (Epoch) uint32 1 1 1 1 1 1 1 1 1 1 1 1 ... 1 1 1 1 1 1 1 1 1 1 1 1
+Attributes: (12/24)
+    Acknowledgement:             AKEBONO VLF-MCA data were provided by Akebon...
+    ADID_ref:                    NSSD0241 
+    Data_type:                   H1 > High Resolution data
+    Data_version:                2
+    Descriptor:                  MCA > multi channel analyzer
+    Discipline:                  Space Physics > Magnetospheric Science
+    ...                          ...
+    source_name:                 Akebono > Akebono satellite
+    TEXT:                        Kimura, I., K. Hashimoto, I. Nagano, T. Okad...
+    Time_resolution:             8s
+    TITLE:                       Akebono MCA High resolution data
+    Start_time:                  1990_02/28_0:0:0:0
+    End_time:                    1990_02/28_23:59:59:999
