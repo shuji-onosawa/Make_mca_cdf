@@ -1,10 +1,10 @@
 /*
- *    MCAç”¨CDFãƒ•ã‚¡ã‚¤ãƒ«ã® nç§’å¹³å‡CDFãƒ•ã‚¡ã‚¤ãƒ«ç”¨ valiable Attributeã‚’ä½œã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
- *    - valiable Attribute ã¯ 16ç¨®é¡ ã‚ã‚Šã¾ã™ã€‚
+ *    MCA—pCDFƒtƒ@ƒCƒ‹‚Ì n•b•½‹ÏCDFƒtƒ@ƒCƒ‹—p valiable Attribute‚ğì‚éƒvƒƒOƒ‰ƒ€
+ *    - valiable Attribute ‚Í 16í—Ş ‚ ‚è‚Ü‚·B
  *
  *    By Y. Ozaki     2005.12.14
  *
- *    æœ€çµ‚æ›´æ–°æ—¥ : 2005.12.14
+ *    ÅIXV“ú : 2005.12.14
  */
 
 #include <stdio.h>
@@ -15,12 +15,12 @@
 #include "average.h"
 
 //**************************************************************************
-//valiable_attr() : valiable attribute ã‚’ä½œã‚‹é–¢æ•°ã®main
+//valiable_attr() : valiable attribute ‚ğì‚éŠÖ”‚Ìmain
 
 extern CDFid crid;
 extern CDFstatus status;
 
-//å„å¤‰æ•°ã®å¤‰æ•°id
+//Še•Ï”‚Ì•Ï”id
 extern long ave_EmxNum;
 extern long ave_EavNum;
 extern long ave_BmxNum;
@@ -86,18 +86,18 @@ int valiable_attr()
 }
 
 //**************************************************************************
-//makeAVG_TYPE() : AVG_TYPEå±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeAVG_TYPE() : AVG_TYPE‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeAVG_TYPE()
 {
 
   long Avg_typeNum;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "AVG_TYPE" , &Avg_typeNum );
 
   //===== Emax =====================================================
@@ -138,18 +138,18 @@ void makeAVG_TYPE()
 
 }
 //**************************************************************************
-//makeCATDESC() : CATDESCå±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeCATDESC() : CATDESC‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeCATDESC()
 {
 
   long CatdescNum;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "CATDESC" , &CatdescNum );
 
   //===== Emax =====================================================
@@ -218,18 +218,18 @@ void makeCATDESC()
 }
 
 //**************************************************************************
-//makeDEPEND_0() : DEPEND_0å±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeDEPEND_0() : DEPEND_0‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeDEPEND_0()
 {
 
   long DEPEND0Num;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "DEPEND_0" , &DEPEND0Num );
 
   //===== Emax =====================================================
@@ -280,18 +280,18 @@ void makeDEPEND_0()
 
 
 //**************************************************************************
-//makeDEPEND_1() : DEPEND_1å±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeDEPEND_1() : DEPEND_1‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeDEPEND_1()
 {
 
   long DEPEND1Num;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "DEPEND_1" , &DEPEND1Num );
 
   //===== Emax =====================================================
@@ -333,18 +333,18 @@ void makeDEPEND_1()
 }
 
 //**************************************************************************
-//makeDICT_KEY() : DICT_KEYå±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeDICT_KEY() : DICT_KEY‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeDICT_KEY()
 {
 
   long DictkeyNum;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "DICT_KEY" , &DictkeyNum );
 
   //===== Emax =====================================================
@@ -413,17 +413,17 @@ void makeDICT_KEY()
 }
 
 //**************************************************************************
-//makeDISPLAY_TYPE() : DISPLAY_TYPEå±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeDISPLAY_TYPE() : DISPLAY_TYPE‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 void makeDISPLAY_TYPE()
 {
 
   long DisplaytypeNum;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "DISPLAY_TYPE" , &DisplaytypeNum );
 
   //===== Emax =====================================================
@@ -474,18 +474,18 @@ void makeDISPLAY_TYPE()
 }
 
 //**************************************************************************
-//makeFIELDNAM() : FIELDNAMå±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeFIELDNAM() : FIELDNAM‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeFIELDNAM()
 {
 
   long FieldnamNum;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "FIELDNAM" , &FieldnamNum );
 
   //===== Emax =====================================================
@@ -554,22 +554,22 @@ void makeFIELDNAM()
 }
 
 //**************************************************************************
-//makeFILLVAL() : FILLVALå±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeFILLVAL() : FILLVAL‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeFILLVAL()
 {
 
   long FillvalNum;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 1;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 1;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
 
-  unsigned char zEntryValue[ 1 ];            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  unsigned char zEntryValue[ 1 ];            // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
   double EpochValue[ 1 ];
   float channelValue[ 1 ];
   int PostgapValue[ 1 ];
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "FILLVAL" , &FillvalNum );
 
   //===== Emax =====================================================
@@ -624,18 +624,18 @@ void makeFILLVAL()
 }
 
 //**************************************************************************
-//makeFORMAT() : FORMATå±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeFORMAT() : FORMAT‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeFORMAT()
 {
 
   long FormatNum;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "FORMAT" , &FormatNum );
 
   //===== Emax =====================================================
@@ -695,18 +695,18 @@ void makeFORMAT()
 }
 
 //**************************************************************************
-//makeLABLAXIS() : LABLAXISå±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeLABLAXIS() : LABLAXIS‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeLABLAXIS()
 {
 
   long LablaxisNum;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "LABLAXIS" , &LablaxisNum );
 
   //===== Emax =====================================================
@@ -774,18 +774,18 @@ void makeLABLAXIS()
 }
 
 //**************************************************************************
-//makeMONOTON() : MONOTONå±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeMONOTON() : MONOTON‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeMONOTON()
 {
 
   long MonotonNum;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "MONOTON" , &MonotonNum );
 
   //===== Epoch ====================================================
@@ -809,18 +809,18 @@ void makeMONOTON()
 }
 
 //**************************************************************************
-//makeSCALETYP() : SCALETYPå±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeSCALETYP() : SCALETYP‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeSCALETYP()
 {
 
   long ScaletypNum;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "SCALETYP" , &ScaletypNum );
 
   //===== Epoch ====================================================
@@ -845,18 +845,18 @@ void makeSCALETYP()
 
 
 //**************************************************************************
-//makeUNITS() : UNITSå±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeUNITS() : UNITS‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeUNITS()
 {
 
   long UnitsNum;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "UNITS" , &UnitsNum );
 
   //===== Emax =====================================================
@@ -916,16 +916,16 @@ void makeUNITS()
 }
 
 //**************************************************************************
-//makeVALIDMAX() : VALIDMAXå±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeVALIDMAX() : VALIDMAX‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeVALIDMAX()
 {
 
   long ValidmaxNum;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
   unsigned char max255[ 1 ];
   double EpochValue[ 1 ];
@@ -933,7 +933,7 @@ void makeVALIDMAX()
   int PostgapValue[ 1 ];
 
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "VALIDMAX" , &ValidmaxNum );
 
   //===== Emax =====================================================
@@ -989,16 +989,16 @@ void makeVALIDMAX()
 }
 
 //**************************************************************************
-//makeVALIDMIN() : VALIDMINå±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeVALIDMIN() : VALIDMIN‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeVALIDMIN()
 {
 
   long ValidminNum;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
   unsigned char min0[ 1 ];
   double EpochValue[ 1 ];
@@ -1006,7 +1006,7 @@ void makeVALIDMIN()
   int PostgapValue[ 1 ];
 
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "VALIDMIN" , &ValidminNum );
 
   //===== Emax =====================================================
@@ -1061,18 +1061,18 @@ void makeVALIDMIN()
 }
 
 //**************************************************************************
-//makeVAR_NOTE() : VAR_NOTEå±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeVAR_NOTE() : VAR_NOTE‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeVAR_NOTE()
 {
 
   long VarnoteNum;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "VAR_NOTE" , &VarnoteNum );
 
   //===== Emax =====================================================
@@ -1132,18 +1132,18 @@ void makeVAR_NOTE()
 }
 
 //**************************************************************************
-//makeVAR_TYPE() : VAR_TYPEå±æ€§ã‚’ä½œã‚Šã€å¿…è¦ãªzå¤‰æ•°ã«ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ä½œã‚‹é–¢æ•°
+//makeVAR_TYPE() : VAR_TYPE‘®«‚ğì‚èA•K—v‚Èz•Ï”‚ÉƒGƒ“ƒgƒŠ[‚ğì‚éŠÖ”
 
 void makeVAR_TYPE()
 {
 
   long VartypeNum;
 
-  //zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
-  long zEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-  char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  //zƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
+  long zEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+  char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 
-  //***** vå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** v‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   input_vATTR( "VAR_TYPE" , &VartypeNum );
 
   //===== Emax =====================================================
@@ -1211,23 +1211,23 @@ void makeVAR_TYPE()
 }
 
 //***************************************************************
-//input_vATTR() : vå±æ€§ã‚’ä½œã‚‹é–¢æ•°
+//input_vATTR() : v‘®«‚ğì‚éŠÖ”
 
 void input_vATTR( vAttrName , vAttrNum )
      char* vAttrName;
      long* vAttrNum;
 {
 
-  //vå±æ€§ã‚’ä½œã‚‹ãŸã‚ã®å¤‰æ•°
+  //v‘®«‚ğì‚é‚½‚ß‚Ì•Ï”
   long v_scope = VARIABLE_SCOPE;
 
-  //***** æ›¸ãè¾¼ã¿ãŸã„CDFãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠ
+  //***** ‘‚«‚İ‚½‚¢CDFƒtƒ@ƒCƒ‹‚ğ‘I‘ğ
   status = CDFlib( SELECT_ , CDF_ , crid ,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
 
-  //***** gå±æ€§ã‚’ä½œã‚‹
+  //***** g‘®«‚ğì‚é
   status = CDFlib( CREATE_ , ATTR_ , vAttrName , v_scope , vAttrNum ,
 		   NULL_ );
   
@@ -1236,24 +1236,24 @@ void input_vATTR( vAttrName , vAttrNum )
 }
 
 //***************************************************************
-//input_CHARzENTRY() : CHARå‹ã®zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
+//input_CHARzENTRY() : CHARŒ^‚ÌzƒGƒ“ƒgƒŠ[‚ğŠi”[‚·‚éŠÖ”
 
 void input_CHARzENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
      long  zEntryNum;
      long  vAttrNum;
-     long  zEntryLen;               // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-     char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+     long  zEntryLen;               // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+     char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 {
 
   char res[ 1000 ];
   
-  //***** æ›¸ãè¾¼ã¿ãŸã„CDFãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠ
+  //***** ‘‚«‚İ‚½‚¢CDFƒtƒ@ƒCƒ‹‚ğ‘I‘ğ
   status = CDFlib( SELECT_ , CDF_ , crid ,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
 
-  //***** æ›¸ãè¾¼ã¿ãŸã„zå¤‰æ•°,vå±æ€§ã‚’é¸æŠã—ã¦ã€zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«ãƒ‡ãƒ¼ã‚¿ã‚’ä»£å…¥ã™ã‚‹
+  //***** ‘‚«‚İ‚½‚¢z•Ï”,v‘®«‚ğ‘I‘ğ‚µ‚ÄAzƒGƒ“ƒgƒŠ[‚Éƒf[ƒ^‚ğ‘ã“ü‚·‚é
   status = CDFlib(  SELECT_ , ATTR_ , vAttrNum ,
                               zENTRY_ , zEntryNum ,
                     PUT_ , zENTRY_DATA_ , CDF_CHAR , zEntryLen , zEntryValue ,
@@ -1267,24 +1267,24 @@ void input_CHARzENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
 }
 
 //***************************************************************
-//input_FLOATzENTRY() : FLOATå‹ã®zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
+//input_FLOATzENTRY() : FLOATŒ^‚ÌzƒGƒ“ƒgƒŠ[‚ğŠi”[‚·‚éŠÖ”
 
 void input_FLOATzENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
      long  zEntryNum;
      long  vAttrNum;
-     long  zEntryLen;               // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-     float* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+     long  zEntryLen;               // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+     float* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 {
 
   float res[ 1 ];
   
-  //***** æ›¸ãè¾¼ã¿ãŸã„CDFãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠ
+  //***** ‘‚«‚İ‚½‚¢CDFƒtƒ@ƒCƒ‹‚ğ‘I‘ğ
   status = CDFlib( SELECT_ , CDF_ , crid ,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
 
-  //***** æ›¸ãè¾¼ã¿ãŸã„zå¤‰æ•°,vå±æ€§ã‚’é¸æŠã—ã¦ã€zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«ãƒ‡ãƒ¼ã‚¿ã‚’ä»£å…¥ã™ã‚‹
+  //***** ‘‚«‚İ‚½‚¢z•Ï”,v‘®«‚ğ‘I‘ğ‚µ‚ÄAzƒGƒ“ƒgƒŠ[‚Éƒf[ƒ^‚ğ‘ã“ü‚·‚é
   status = CDFlib(  SELECT_ , ATTR_ , vAttrNum ,
                               zENTRY_ , zEntryNum ,
                     PUT_ , zENTRY_DATA_ , CDF_FLOAT , zEntryLen , zEntryValue ,
@@ -1298,24 +1298,24 @@ void input_FLOATzENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
 }
 
 //***************************************************************
-//input_UINT1zENTRY() : UINT1å‹ã®zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
+//input_UINT1zENTRY() : UINT1Œ^‚ÌzƒGƒ“ƒgƒŠ[‚ğŠi”[‚·‚éŠÖ”
 
 void input_UINT1zENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
      long  zEntryNum;
      long  vAttrNum;
-     long  zEntryLen;               // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-     unsigned char* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+     long  zEntryLen;               // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+     unsigned char* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 {
 
   unsigned char res[ 1 ];
   
-  //***** æ›¸ãè¾¼ã¿ãŸã„CDFãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠ
+  //***** ‘‚«‚İ‚½‚¢CDFƒtƒ@ƒCƒ‹‚ğ‘I‘ğ
   status = CDFlib( SELECT_ , CDF_ , crid ,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
 
-  //***** æ›¸ãè¾¼ã¿ãŸã„zå¤‰æ•°,vå±æ€§ã‚’é¸æŠã—ã¦ã€zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«ãƒ‡ãƒ¼ã‚¿ã‚’ä»£å…¥ã™ã‚‹
+  //***** ‘‚«‚İ‚½‚¢z•Ï”,v‘®«‚ğ‘I‘ğ‚µ‚ÄAzƒGƒ“ƒgƒŠ[‚Éƒf[ƒ^‚ğ‘ã“ü‚·‚é
   status = CDFlib(  SELECT_ , ATTR_ , vAttrNum ,
                               zENTRY_ , zEntryNum ,
                     PUT_ , zENTRY_DATA_ , CDF_UINT1 , zEntryLen , zEntryValue ,
@@ -1329,24 +1329,24 @@ void input_UINT1zENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
 }
 
 //***************************************************************
-//input_UINT4zENTRY() : UINT4å‹ã®zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
+//input_UINT4zENTRY() : UINT4Œ^‚ÌzƒGƒ“ƒgƒŠ[‚ğŠi”[‚·‚éŠÖ”
 
 void input_UINT4zENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
      long  zEntryNum;
      long  vAttrNum;
-     long  zEntryLen;               // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-     int*  zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+     long  zEntryLen;               // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+     int*  zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 {
 
   int res[ 1 ];
   
-  //***** æ›¸ãè¾¼ã¿ãŸã„CDFãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠ
+  //***** ‘‚«‚İ‚½‚¢CDFƒtƒ@ƒCƒ‹‚ğ‘I‘ğ
   status = CDFlib( SELECT_ , CDF_ , crid ,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
 
-  //***** æ›¸ãè¾¼ã¿ãŸã„zå¤‰æ•°,vå±æ€§ã‚’é¸æŠã—ã¦ã€zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«ãƒ‡ãƒ¼ã‚¿ã‚’ä»£å…¥ã™ã‚‹
+  //***** ‘‚«‚İ‚½‚¢z•Ï”,v‘®«‚ğ‘I‘ğ‚µ‚ÄAzƒGƒ“ƒgƒŠ[‚Éƒf[ƒ^‚ğ‘ã“ü‚·‚é
   status = CDFlib(  SELECT_ , ATTR_ , vAttrNum ,
                               zENTRY_ , zEntryNum ,
                     PUT_ , zENTRY_DATA_ , CDF_UINT4 , zEntryLen , zEntryValue ,
@@ -1360,13 +1360,13 @@ void input_UINT4zENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
 }
 
 //***************************************************************
-//input_EPOCHzENTRY() : EPOCHå‹ã®zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
+//input_EPOCHzENTRY() : EPOCHŒ^‚ÌzƒGƒ“ƒgƒŠ[‚ğŠi”[‚·‚éŠÖ”
 
 void input_EPOCHzENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
      long  zEntryNum;
      long  vAttrNum;
-     long  zEntryLen;               // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
-     double* zEntryValue;             // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+     long  zEntryLen;               // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
+     double* zEntryValue;             // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
 {
 
   double res;
@@ -1380,13 +1380,13 @@ void input_EPOCHzENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
   long msec;
   
   
-  //***** æ›¸ãè¾¼ã¿ãŸã„CDFãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠ
+  //***** ‘‚«‚İ‚½‚¢CDFƒtƒ@ƒCƒ‹‚ğ‘I‘ğ
   status = CDFlib( SELECT_ , CDF_ , crid ,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
 
-  //***** æ›¸ãè¾¼ã¿ãŸã„zå¤‰æ•°,vå±æ€§ã‚’é¸æŠã—ã¦ã€zã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«ãƒ‡ãƒ¼ã‚¿ã‚’ä»£å…¥ã™ã‚‹
+  //***** ‘‚«‚İ‚½‚¢z•Ï”,v‘®«‚ğ‘I‘ğ‚µ‚ÄAzƒGƒ“ƒgƒŠ[‚Éƒf[ƒ^‚ğ‘ã“ü‚·‚é
   status = CDFlib(  SELECT_ , ATTR_ , vAttrNum ,
                               zENTRY_ , zEntryNum ,
                     PUT_ , zENTRY_DATA_ , CDF_EPOCH , zEntryLen , zEntryValue ,

@@ -1,120 +1,120 @@
 /*
- *    average 用 ヘッダーファイル
- *    - ave_bndwdth フォルダー に対応しています。
+ *    average �p �w�b�_�[�t�@�C��
+ *    - ave_bndwdth �t�H���_�[ �ɑΉ����Ă��܂��B
  *
  *    By Y. Ozaki
  *
  *    2006. 1.10
  *
- *    最終更新日 : 2006. 1.10
+ *    �ŏI�X�V�� : 2006. 1.10
  */
 
-//***** 関数宣言 *****
+//***** �֐��錾 *****
 
-//****** MCAave.c で宣言されている関数
+//****** MCAave.c �Ő錾����Ă���֐�
 // Status handler.
 void StatusHandler();
 
-//CDFファイルをオープンする
+//CDF�t�@�C�����I�[�v������
 void openCDF( char ymd[][ 5 ] );
 
-//CDFファイルをクローズする
+//CDF�t�@�C�����N���[�Y����
 void closeCDF();
 
-//読んだCDFファイルの変数idをゲットする
+//�ǂ�CDF�t�@�C���̕ϐ�id���Q�b�g����
 void get_VarNum();
 
-//読んだCDFファイルの CDF_UINT1型変数 の値をゲットする関数
+//�ǂ�CDF�t�@�C���� CDF_UINT1�^�ϐ� �̒l���Q�b�g����֐�
 void get_Data( int num , long record , long varNum , unsigned char data[] );
 
-//読んだCDFファイルの 電界,磁界 変数の値をゲットする関数
+//�ǂ�CDF�t�@�C���� �d�E,���E �ϐ��̒l���Q�b�g����֐�
 void get_EB( int num , long record , long varNum , double data[] );
 
-//読んだCDFファイルのEpoch値をゲットする関数
+//�ǂ�CDF�t�@�C����Epoch�l���Q�b�g����֐�
 double get_Epoch( long record );
 
-//読んだCDFファイルの PostGap の値をゲットする関数
+//�ǂ�CDF�t�@�C���� PostGap �̒l���Q�b�g����֐�
 int get_PostGap( long record );
 
-//読んだCDFファイルの channel の値をゲットする関数
+//�ǂ�CDF�t�@�C���� channel �̒l���Q�b�g����֐�
 void get_channel();
 
-//4chごとにかたまっているWIDAを1chずつに分ける
+//4ch���Ƃɂ����܂��Ă���WIDA��1ch���ɕ�����
 void get_wida( unsigned char wida[] , unsigned char ws[] );
 
-//アンテナ実効長を求める(電界用)
+//�A���e�i�����������߂�(�d�E�p)
 double heffe( int i );
 
-//アンテナ実効長を求める(磁界)
+//�A���e�i�����������߂�(���E)
 double heffb( int i );
 
-//MCAデータの値から絶対値を求める(電界用)
+//MCA�f�[�^�̒l�����Βl�����߂�(�d�E�p)
 void abs_E_dB( double E[] , unsigned char ws[] );
 
-//MCAデータの値から絶対値を求める(磁界用)
+//MCA�f�[�^�̒l�����Βl�����߂�(���E�p)
 void abs_B_dB( double B[] , unsigned char ws[] );
 
-//n秒間のMCAデータの合計を求める
+//n�b�Ԃ�MCA�f�[�^�̍��v�����߂�
 void data_total( double total[] , double data[] );
 
-//n秒間のMCAデータの平均を求める
+//n�b�Ԃ�MCA�f�[�^�̕��ς����߂�
 void data_ave( double total[] , unsigned char ave[] , int recsp );
 
-//MCAデータを平均する
-void ave_data( float sec );
+//MCA�f�[�^�𕽋ς���
+void ave_data( int sec );
 
-//****** create_cdf.c で宣言されている関数
-//平均したデータを保存するCDFファイルを作成する
+//****** create_cdf.c �Ő錾����Ă���֐�
+//���ς����f�[�^��ۑ�����CDF�t�@�C�����쐬����
 void createCDF( char ymd[][ 5 ] );
 
-//必要なz変数を作る関数
+//�K�v��z�ϐ������֐�
 void create_zVAR();
 
-//z変数 Epoch に値を格納する関数
+//z�ϐ� Epoch �ɒl���i�[����֐�
 void input_Epoch( double time , long record );
 
-//z変数 channel に値を格納する関数
+//z�ϐ� channel �ɒl���i�[����֐�
 void input_channel();
 
-//z変数 Emax に値を格納する関数
+//z�ϐ� Emax �ɒl���i�[����֐�
 void input_Emax( unsigned char result[] , long record );
 
-//z変数 Eave に値を格納する関数
+//z�ϐ� Eave �ɒl���i�[����֐�
 void input_Eave( unsigned char result[] , long record );
 
-//z変数 Bmax に値を格納する関数
+//z�ϐ� Bmax �ɒl���i�[����֐�
 void input_Bmax( unsigned char result[] , long record );
 
-//z変数 Bave に値を格納する関数
+//z�ϐ� Bave �ɒl���i�[����֐�
 void input_Bave( unsigned char result[] , long record );
 
-//input_PostGap() : z変数 PostGap に値を格納する関数
+//input_PostGap() : z�ϐ� PostGap �ɒl���i�[����֐�
 void input_PostGap( int flag , long record );
   
-//z変数 Emax に値をよむ 関数
+//z�ϐ� Emax �ɒl����� �֐�
 //void read_Emax( long record );
 /*******************************************************************/
-//gattr_ave.c で宣言された関数
+//gattr_ave.c �Ő錾���ꂽ�֐�
 
-//gloal attribute を作る関数のmain
+//gloal attribute �����֐���main
 int global_attr( char ymd[][ 5 ] );
 
-//g属性を作って、そのgエントリーに値を格納する関数
+//g����������āA����g�G���g���[�ɒl���i�[����֐�
 void input_gATTR( char* gAttrName , char* gEntryValue , long gEntryLen , long data_char);
 
-//現在の年月日を知る
+//���݂̔N������m��
 void get_date( char ymd[][ 5 ] );
 
 /*******************************************************************/
-//vattr_ave.c で宣言された関数
+//vattr_ave.c �Ő錾���ꂽ�֐�
 
-//valiable attribute を作る関数のmain
+//valiable attribute �����֐���main
 int valiable_attr();
 
-//valiable attribute を作る関数
+//valiable attribute �����֐�
 void input_vATTR( char* vAttrName , long* vAttrNum );
 
-//各valiable attributeが必要なz変数に,エントリーを作る関数
+//�evaliable attribute���K�v��z�ϐ���,�G���g���[�����֐�
 void makeAVG_TYPE();
 void makeCATDESC();
 void makeDEPEND_0();
@@ -133,19 +133,19 @@ void makeVALIDMIN();
 void makeVAR_NOTE();
 void makeVAR_TYPE();
 
-//CDF_CHAR型のzエントリーをPUTする関数
+//CDF_CHAR�^��z�G���g���[��PUT����֐�
 void input_CHARzENTRY( long varNum , long vAttrNum , long zEntryLen , char* zEntryValue );
 
-//CDF_FLOAT型のzエントリーをPUTする関数
+//CDF_FLOAT�^��z�G���g���[��PUT����֐�
 void input_FLOATzENTRY( long varNum , long vAttrNum , long zEntryLen , float* zEntryValue );
 
-//CDF_UINT1型のzエントリーをPUTする関数
+//CDF_UINT1�^��z�G���g���[��PUT����֐�
 void input_UINT1zENTRY( long varNum , long vAttrNum , long zEntryLen , unsigned char* zEntryValue );
 
-//CDF_UINT4型のzエントリーをPUTする関数
+//CDF_UINT4�^��z�G���g���[��PUT����֐�
 void input_UINT4zENTRY( long varNum , long vAttrNum , long zEntryLen , int* zEntryValue );
 
-//CDF_EPOCH型のzエントリーをPUTする関数
+//CDF_EPOCH�^��z�G���g���[��PUT����֐�
 void input_EPOCHzENTRY( long varNum , long vAttrNum , long zEntryLen , double* zEntryValue );
 
 
@@ -154,7 +154,7 @@ void input_EPOCHzENTRY( long varNum , long vAttrNum , long zEntryLen , double* z
 //***** 定数宣言 *****
 #define OPNAME "./onosawa/data/CDF-H0/"
 
-#define CRNAME "./onosawa/data/CDF-H1/"
+#define CRNAME "./onosawa/data/CDF-H1_test1/"
 
 #define RESOLUTION       "h"
 #define RESOLUTION_LARGE "H"
@@ -169,28 +169,28 @@ void input_EPOCHzENTRY( long varNum , long vAttrNum , long zEntryLen , double* z
 // ex : /remote/raid1/usr/y-ozaki/CDFdata/ave/1989/ak_h8_mca_19890311_v01.cdf
 #define CREATE_LEN    72
 
-//最初にコマンド入力されるべき定数の数
+//�ŏ��ɃR�}���h���͂����ׂ��萔�̐�
 #define MAX_ARGC 5
 
-//1日 = 0.25 間隔が 345600 個
+//1�� = 0.25 �Ԋu�� 345600 ��
 #define DAYSPACE    345600
 
-//1秒 = 0.25 間隔が 4 個
+//1�b = 0.25 �Ԋu�� 4 ��
 #define SECSPACE    4
 
-//チャンネル数
+//�`�����l����
 #define NUM_CHANNEL 16
 
-//WIDA のチャンネル数
+//WIDA �̃`�����l����
 #define NUM_WIDA    4
 
-//status = 1001 はrecordに入ってる値がvirtual
+//status = 1001 ��record�ɓ����Ă�l��virtual
 #define VIRTUAL     1001
 
-//Epoch の PAD値 は double型で 0 です。
+//Epoch �� PAD�l �� double�^�� 0 �ł��B
 #define EPOCH_PAD   0
 
-//PostGapフラグ の立ち方
+//PostGap�t���O �̗�����
 #define FLAG_MCA    1
 #define FLAG_VTL    2
 #define FLAG_BDR    16

@@ -1,5 +1,5 @@
 /*    
- *    å¹³å‡ã—ãŸMCAãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹CDFãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã™ã‚‹ãŸã‚ã®å„ç¨®é–¢æ•°
+ *    •½‹Ï‚µ‚½MCAƒf[ƒ^‚ğ•Û‘¶‚·‚éCDFƒtƒ@ƒCƒ‹‚ğì¬‚·‚é‚½‚ß‚ÌŠeíŠÖ”
  */
 
 
@@ -9,7 +9,7 @@
 #include "cdf.h"
 #include "average.h"
 
-//CDFãƒ•ã‚¡ã‚¤ãƒ«ã®id
+//CDFƒtƒ@ƒCƒ‹‚Ìid
 extern CDFid crid;
 extern CDFstatus status;
 
@@ -21,7 +21,7 @@ extern long f_year;
 extern long f_month;
 extern long f_day;
 
-//å„å¤‰æ•°ã®å¤‰æ•°id
+//Še•Ï”‚Ì•Ï”id
 long ave_EmxNum;
 long ave_EavNum;
 long ave_BmxNum;
@@ -31,7 +31,7 @@ long ave_EphNum;
 long ave_chNum;
 
 //**************************************************************************
-//createCDF() : å¹³å‡ã—ãŸMCAãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹CDFãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã™ã‚‹é–¢æ•°
+//createCDF() : •½‹Ï‚µ‚½MCAƒf[ƒ^‚ğ•Û‘¶‚·‚éCDFƒtƒ@ƒCƒ‹‚ğì¬‚·‚éŠÖ”
 void createCDF( ymd )
      char ymd[][ 5 ];
 {
@@ -50,13 +50,13 @@ void createCDF( ymd )
 
   createfile = ( char * )calloc( CREATE_LEN , sizeof( char ) );
 
-  //***** ç”Ÿæˆã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åã‚’ä½œæˆ
+  //***** ¶¬‚·‚éƒtƒ@ƒCƒ‹–¼‚ğì¬
   sprintf( createfile , "%s%s/ak_%s%d_mca_%s%s%s_v0%d" , CRNAME , ymd[ 0 ] , RESOLUTION , RESOLUTION_NUM , ymd[ 0 ] , ymd[ 1 ] , ymd[ 2 ] , VERSION); 
 
   rmfile = ( char * )calloc( CREATE_LEN , sizeof( char ) );
   sprintf( rmfile , "%s.cdf" , createfile );
 
-  remove( rmfile );       /* æ—¢ã«CDFãŒå­˜åœ¨ã™ã‚‹ãªã‚‰ã°å‰Šé™¤ */
+  remove( rmfile );       /* Šù‚ÉCDF‚ª‘¶İ‚·‚é‚È‚ç‚Îíœ */
 
   printf("createfile =  %s\n" , createfile );
 
@@ -71,23 +71,23 @@ void createCDF( ymd )
   free( rmfile );
   free( createfile );
 
-  //***** globalå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** global‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   global_attr( ymd );
 
-  //***** zå¤‰æ•°ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** z•Ï”‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   create_zVAR();
 
-  //***** valiableå±æ€§ã‚’ä½œã‚‹é–¢æ•°ã‚’å‘¼ã¶
+  //***** valiable‘®«‚ğì‚éŠÖ”‚ğŒÄ‚Ô
   valiable_attr();
 
 }
 
 //**************************************************************************
-//create_zVAR() : å¿…è¦ãªzå¤‰æ•°ã‚’ä½œã‚‹é–¢æ•°
+//create_zVAR() : •K—v‚Èz•Ï”‚ğì‚éŠÖ”
 void create_zVAR()
 {
 
-  //datatypeç”¨å¤‰æ•°
+  //datatype—p•Ï”
   long data_char = CDF_CHAR;
   long data_uint1 = CDF_UINT1;
   long data_uint4 = CDF_UINT4;
@@ -95,74 +95,74 @@ void create_zVAR()
   long data_float = CDF_FLOAT;
 
 
-  //nocharå‹ã¯å¿…ãš1 ,  charå‹ã®å¤‰æ•°ã«ã¯1æ–‡å­—ã—ã‹ä¿å­˜ã—ãªã„ã®ã§1
+  //nocharŒ^‚Í•K‚¸1 ,  charŒ^‚Ì•Ï”‚É‚Í1•¶š‚µ‚©•Û‘¶‚µ‚È‚¢‚Ì‚Å1
   long numElements = 1;
 
-  //æ¬¡å…ƒã¯1æ¬¡å…ƒ
+  //ŸŒ³‚Í1ŸŒ³
   long numDim1 = 1;
   long numDim0 = 0;
 
-  //æ¬¡å…ƒã‚µã‚¤ã‚ºã¯ 1 ã‹ 16
+  //ŸŒ³ƒTƒCƒY‚Í 1 ‚© 16
   long dimSize1[] = { 1 };
   long dimSize16[] = { 16 };
 
-  //ãƒ¬ã‚³ãƒ¼ãƒ‰å¤‰åŒ–ã¯ channel ä»¥å¤–ã¯VARY
+  //ƒŒƒR[ƒh•Ï‰»‚Í channel ˆÈŠO‚ÍVARY
   long recVary = VARY;
   long recNoVary = NOVARY;
 
-  //æ¬¡å…ƒå¤‰åŒ–ã¯å…¨å¤‰æ•° VARY = æ¬¡å…ƒã«æ²¿ã£ã¦å¤‰åŒ–ã™ã‚‹
+  //ŸŒ³•Ï‰»‚Í‘S•Ï” VARY = ŸŒ³‚É‰ˆ‚Á‚Ä•Ï‰»‚·‚é
   long dimVarys[] = { VARY };
 
 
-  //***** æ›¸ãè¾¼ã¿ãŸã„CDFãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸ã¶ *****
+  //***** ‘‚«‚İ‚½‚¢CDFƒtƒ@ƒCƒ‹‚ğ‘I‚Ô *****
   status = CDFlib( SELECT_ , CDF_ , crid ,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
   
-  //***** å¤‰æ•° Emax ã‚’ä½œæˆ
+  //***** •Ï” Emax ‚ğì¬
   status = CDFlib( CREATE_ , zVAR_ , "Emax" , data_uint1 , numElements , numDim1 , dimSize16 , recVary , dimVarys , &ave_EmxNum ,
 		   PUT_ , zVAR_SPARSERECORDS_ , PAD_SPARSERECORDS ,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
 
-  //***** å¤‰æ•° Eave ã‚’ä½œæˆ
+  //***** •Ï” Eave ‚ğì¬
   status = CDFlib( CREATE_ , zVAR_ , "Eave" , data_uint1 , numElements , numDim1 , dimSize16 , recVary , dimVarys , &ave_EavNum ,
 		   PUT_ , zVAR_SPARSERECORDS_ , PAD_SPARSERECORDS ,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
 
-  //***** å¤‰æ•° Bmax ã‚’ä½œæˆ
+  //***** •Ï” Bmax ‚ğì¬
   status = CDFlib( CREATE_ , zVAR_ , "Bmax" , data_uint1 , numElements , numDim1 , dimSize16 , recVary , dimVarys , &ave_BmxNum ,
 		   PUT_ , zVAR_SPARSERECORDS_ , PAD_SPARSERECORDS ,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
 
-  //***** å¤‰æ•° Bave ã‚’ä½œæˆ
+  //***** •Ï” Bave ‚ğì¬
   status = CDFlib( CREATE_ , zVAR_ , "Bave" , data_uint1 , numElements , numDim1 , dimSize16 , recVary , dimVarys , &ave_BavNum ,
 		   PUT_ , zVAR_SPARSERECORDS_ , PAD_SPARSERECORDS ,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
 
-  //***** å¤‰æ•° PostGap ã‚’ä½œæˆ
+  //***** •Ï” PostGap ‚ğì¬
   status = CDFlib( CREATE_ , zVAR_ , "PostGap" , data_uint4 , numElements , numDim0 , dimSize1 , recVary , dimVarys , &ave_PGapNum ,
 		   PUT_ , zVAR_SPARSERECORDS_ , PAD_SPARSERECORDS ,
 		   NULL_ );
   
   if ( status != CDF_OK ) StatusHandler( status );
   
-  //***** å¤‰æ•° Epoch ã‚’ä½œæˆ
+  //***** •Ï” Epoch ‚ğì¬
   status = CDFlib( CREATE_ , zVAR_ , "Epoch" , data_epoch , numElements , numDim0 , dimSize1 , recVary , dimVarys , &ave_EphNum ,
 		   PUT_ , zVAR_SPARSERECORDS_ , PAD_SPARSERECORDS ,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
 
-  //***** å¤‰æ•° channel ã‚’ä½œæˆ
+  //***** •Ï” channel ‚ğì¬
   status = CDFlib( CREATE_ , zVAR_ , "channel" , data_float , numElements , numDim1 , dimSize16 , recNoVary , dimVarys , &ave_chNum ,
 		   PUT_ , zVAR_SPARSERECORDS_ , NO_SPARSERECORDS ,
 		   NULL_ );
@@ -172,7 +172,7 @@ void create_zVAR()
   input_channel();
 }
 //**************************************************************************
-//input_channel() : zå¤‰æ•° channel ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
+//input_channel() : z•Ï” channel ‚É’l‚ğŠi”[‚·‚éŠÖ”
 
 void input_channel()
 {
@@ -185,10 +185,10 @@ void input_channel()
 
   get_channel();
 
-  //ç”ŸCDFã®é–“é•ã„ã®ãŸã‚ã®å¿œæ€¥å‡¦ç½®
+  //¶CDF‚ÌŠÔˆá‚¢‚Ì‚½‚ß‚Ì‰‹}ˆ’u
   freq[ 0 ]= 3.16;
 
-  //***** å„ãƒãƒ£ãƒ³ãƒãƒ«ã®å‘¨æ³¢æ•°ã®å€¤ã‚’å¤‰æ•° channel ã«æ ¼ç´ã™ã‚‹
+  //***** Šeƒ`ƒƒƒ“ƒlƒ‹‚Ìü”g”‚Ì’l‚ğ•Ï” channel ‚ÉŠi”[‚·‚é
   for( i = 0 ; i < 16 ; i ++ ) {
     indices[ 0 ] = ( long )i;
     status = CDFlib( SELECT_ , CDF_             , crid ,
@@ -202,8 +202,8 @@ void input_channel()
   }
 
 
-  //***** å„ãƒãƒ£ãƒ³ãƒãƒ«ã®å‘¨æ³¢æ•°ã®å€¤ã‚’å¤‰æ•° channel ã‹ã‚‰å–ã‚Šå‡ºã™
-  //***** - ãƒ‡ãƒ¼ã‚¿ãƒã‚§ãƒƒã‚¯ã®ãŸã‚
+  //***** Šeƒ`ƒƒƒ“ƒlƒ‹‚Ìü”g”‚Ì’l‚ğ•Ï” channel ‚©‚çæ‚èo‚·
+  //***** - ƒf[ƒ^ƒ`ƒFƒbƒN‚Ì‚½‚ß
   /*
   for( i = 0 ; i < 16 ; i++ ) {
     status = CDFlib( SELECT_ , zVAR_ , ave_chNum ,
@@ -221,13 +221,13 @@ void input_channel()
 
 
 //**************************************************************************
-//input_Epoch() : zå¤‰æ•° Epoch ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
+//input_Epoch() : z•Ï” Epoch ‚É’l‚ğŠi”[‚·‚éŠÖ”
 
 void input_Epoch( time , record )
      double time;
      long record;
 {
-  //ãƒ‡ãƒ¼ã‚¿ãƒã‚§ãƒƒã‚¯ç”¨å¤‰æ•°  
+  //ƒf[ƒ^ƒ`ƒFƒbƒN—p•Ï”  
   //  double res;
 
   long year;
@@ -250,7 +250,7 @@ void input_Epoch( time , record )
 
   time = computeEPOCH( f_year , f_month , f_day , hour , min , sec , msec );
   
-  //***** æ™‚åˆ»ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ•° Epoch ã«æ ¼ç´ã™ã‚‹
+  //***** ƒf[ƒ^‚ğ•Ï” Epoch ‚ÉŠi”[‚·‚é
   status = CDFlib( SELECT_ , CDF_            , crid ,
 		             zVAR_           , ave_EphNum ,
 		             zVAR_RECNUMBER_ , record ,
@@ -259,8 +259,8 @@ void input_Epoch( time , record )
 
   if ( status != CDF_OK ) StatusHandler( status );
 
-  //***** æ™‚åˆ»ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ•° Epoch ã‹ã‚‰å–ã‚Šå‡ºã™
-  //***** - ãƒ‡ãƒ¼ã‚¿ãƒã‚§ãƒƒã‚¯ã®ãŸã‚
+  //***** ƒf[ƒ^‚ğ•Ï” Epoch ‚©‚çæ‚èo‚·
+  //***** - ƒf[ƒ^ƒ`ƒFƒbƒN‚Ì‚½‚ß
   /*
   status = CDFlib( SELECT_ , zVAR_           , ave_EphNum ,
 		             zVAR_RECNUMBER_ , record ,
@@ -276,7 +276,7 @@ void input_Epoch( time , record )
 }
 
 //**************************************************************************
-//input_Emax() : zå¤‰æ•° Emax ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
+//input_Emax() : z•Ï” Emax ‚É’l‚ğŠi”[‚·‚éŠÖ”
 void input_Emax( result , record )
      unsigned char result[];
      long record;
@@ -299,11 +299,11 @@ void input_Emax( result , record )
   indices[0]=0;
   counts[0]=(long)NUM_CHANNEL;
   intervals[0]=1;
- 
+
   for( i = 0 ; i < NUM_CHANNEL ; i ++ ) {
     tmp[ i ] = result[ i ];
   } 
-  //***** é›»ç•Œãƒ”ãƒ¼ã‚¯å€¤ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ•° Emax ã«æ ¼ç´ã™ã‚‹
+  //***** “dŠEƒs[ƒN’lƒf[ƒ^‚ğ•Ï” Emax ‚ÉŠi”[‚·‚é
    status = CDFlib( SELECT_ , CDF_              , crid ,
 		   zVAR_             , ave_EmxNum ,
 		   zVAR_RECNUMBER_   , recS ,
@@ -316,8 +316,8 @@ void input_Emax( result , record )
 		   NULL_ );
   if ( status != CDF_OK ) StatusHandler( status ); 
 
-  //***** é›»ç•Œãƒ”ãƒ¼ã‚¯å€¤ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ•° Emax ã‹ã‚‰å–ã‚Šå‡ºã™
-  //***** - ãƒ‡ãƒ¼ã‚¿ãƒã‚§ãƒƒã‚¯ã®ãŸã‚
+  //***** “dŠEƒs[ƒN’lƒf[ƒ^‚ğ•Ï” Emax ‚©‚çæ‚èo‚·
+  //***** - ƒf[ƒ^ƒ`ƒFƒbƒN‚Ì‚½‚ß
   /*
   for( i = 0 ; i < 16 ; i++ ) {
     indices[ 0 ] = ( long )i;
@@ -335,8 +335,8 @@ void input_Emax( result , record )
 }
 
 //**************************************************************************
-//***** - ãƒ‡ãƒ¼ã‚¿ãƒã‚§ãƒƒã‚¯ã®ãŸã‚
-//read_Emax() : zå¤‰æ•° Emax ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
+//***** - ƒf[ƒ^ƒ`ƒFƒbƒN‚Ì‚½‚ß
+//read_Emax() : z•Ï” Emax ‚É’l‚ğŠi”[‚·‚éŠÖ”
 /*
 void read_Emax( record )
      long record;
@@ -353,8 +353,8 @@ void read_Emax( record )
   counts[0]=(long)NUM_CHANNEL;
   intervals[0]=1;
  
-  //***** é›»ç•Œãƒ”ãƒ¼ã‚¯å€¤ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ•° Emax ã‹ã‚‰å–ã‚Šå‡ºã™
-  //***** - ãƒ‡ãƒ¼ã‚¿ãƒã‚§ãƒƒã‚¯ã®ãŸã‚
+  //***** “dŠEƒs[ƒN’lƒf[ƒ^‚ğ•Ï” Emax ‚©‚çæ‚èo‚·
+  //***** - ƒf[ƒ^ƒ`ƒFƒbƒN‚Ì‚½‚ß
   
   for( i = 0 ; i < 16 ; i++ ) {
     indices[ 0 ] = ( long )i;
@@ -372,7 +372,7 @@ void read_Emax( record )
 */
 
 //**************************************************************************
-//input_Eave() : zå¤‰æ•° Eave ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
+//input_Eave() : z•Ï” Eave ‚É’l‚ğŠi”[‚·‚éŠÖ”
 
 void input_Eave( result , record )
      unsigned char result[];
@@ -400,7 +400,7 @@ void input_Eave( result , record )
     tmp[ i ] = result[ i ];
   } 
 
-  //***** é›»ç•Œå¹³å‡å€¤ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ•° Eave ã«æ ¼ç´ã™ã‚‹
+  //***** “dŠE•½‹Ï’lƒf[ƒ^‚ğ•Ï” Eave ‚ÉŠi”[‚·‚é
   status = CDFlib( SELECT_ , CDF_              , crid ,
 		   zVAR_             , ave_EavNum ,
 		   zVAR_RECNUMBER_   , recS ,
@@ -414,8 +414,8 @@ void input_Eave( result , record )
 
   if ( status != CDF_OK ) StatusHandler( status ); 
   
-  //***** é›»ç•Œå¹³å‡å€¤ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ•° Eave ã‹ã‚‰å–ã‚Šå‡ºã™
-  //***** - ãƒ‡ãƒ¼ã‚¿ãƒã‚§ãƒƒã‚¯ã®ãŸã‚
+  //***** “dŠE•½‹Ï’lƒf[ƒ^‚ğ•Ï” Eave ‚©‚çæ‚èo‚·
+  //***** - ƒf[ƒ^ƒ`ƒFƒbƒN‚Ì‚½‚ß
   /*
   for( i = 0 ; i < 16 ; i++ ) {
     indices[ 0 ] = ( long )i;
@@ -433,7 +433,7 @@ void input_Eave( result , record )
 }
 
 //**************************************************************************
-//input_Bmax() : zå¤‰æ•° Bmax ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
+//input_Bmax() : z•Ï” Bmax ‚É’l‚ğŠi”[‚·‚éŠÖ”
 
 void input_Bmax( result , record )
      unsigned char result[];
@@ -461,7 +461,7 @@ void input_Bmax( result , record )
     tmp[ i ] = result[ i ];
   } 
 
-  //***** ç£ç•Œãƒ”ãƒ¼ã‚¯å€¤ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ•° Bmax ã«æ ¼ç´ã™ã‚‹
+  //***** ¥ŠEƒs[ƒN’lƒf[ƒ^‚ğ•Ï” Bmax ‚ÉŠi”[‚·‚é
   status = CDFlib( SELECT_ , CDF_              , crid ,
 		   zVAR_             , ave_BmxNum ,
 		   zVAR_RECNUMBER_   , recS ,
@@ -474,8 +474,8 @@ void input_Bmax( result , record )
 		   NULL_ );
   if ( status != CDF_OK ) StatusHandler( status ); 
 
-  //***** ç£ç•Œãƒ”ãƒ¼ã‚¯å€¤ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ•° Bmax ã‹ã‚‰å–ã‚Šå‡ºã™
-  //***** - ãƒ‡ãƒ¼ã‚¿ãƒã‚§ãƒƒã‚¯ã®ãŸã‚
+  //***** ¥ŠEƒs[ƒN’lƒf[ƒ^‚ğ•Ï” Bmax ‚©‚çæ‚èo‚·
+  //***** - ƒf[ƒ^ƒ`ƒFƒbƒN‚Ì‚½‚ß
   /*  
   for( i = 0 ; i < 16 ; i++ ) {
     indices[ 0 ] = ( long )i;
@@ -495,7 +495,7 @@ void input_Bmax( result , record )
 
 
 //**************************************************************************
-//input_Bave() : zå¤‰æ•° Bave ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
+//input_Bave() : z•Ï” Bave ‚É’l‚ğŠi”[‚·‚éŠÖ”
 
 void input_Bave( result , record )
      unsigned char result[];
@@ -523,7 +523,7 @@ void input_Bave( result , record )
     tmp[ i ] = result[ i ];
   } 
 
-  //***** ç£ç•Œå¹³å‡å€¤ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ•° Bave ã«æ ¼ç´ã™ã‚‹
+  //***** ¥ŠE•½‹Ï’lƒf[ƒ^‚ğ•Ï” Bave ‚ÉŠi”[‚·‚é
   status = CDFlib( SELECT_ , CDF_              , crid ,
 		   zVAR_             , ave_BavNum ,
 		   zVAR_RECNUMBER_   , recS ,
@@ -536,8 +536,8 @@ void input_Bave( result , record )
 		   NULL_ );
   if ( status != CDF_OK ) StatusHandler( status ); 
 
-  //***** ç£ç•Œå¹³å‡å€¤ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ•° Bave ã‹ã‚‰å–ã‚Šå‡ºã™
-  //***** - ãƒ‡ãƒ¼ã‚¿ãƒã‚§ãƒƒã‚¯ã®ãŸã‚
+  //***** ¥ŠE•½‹Ï’lƒf[ƒ^‚ğ•Ï” Bave ‚©‚çæ‚èo‚·
+  //***** - ƒf[ƒ^ƒ`ƒFƒbƒN‚Ì‚½‚ß
   /* 
   for( i = 0 ; i < 16 ; i++ ) {
     indices[ 0 ] = ( long )i;
@@ -557,11 +557,11 @@ void input_Bave( result , record )
 }
 
 //**************************************************************************
-//input_PostGap() : zå¤‰æ•° PostGap ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
-//    = 1  : MCA è¦³æ¸¬å™¨ OFF
-//    = 2  : ãƒã‚¤ã‚¸ãƒ¼ãƒ‡ãƒ¼ã‚¿å…¥ã‚Š
-//    = 16 : BDR(ãƒ‡ãƒ¼ã‚¿ãƒ¬ã‚³ãƒ¼ãƒ€ãƒ¼) ON
-//    = 32 : SMS(ç²’å­è¦³æ¸¬å™¨) ON
+//input_PostGap() : z•Ï” PostGap ‚É’l‚ğŠi”[‚·‚éŠÖ”
+//    = 1  : MCA ŠÏ‘ªŠí OFF
+//    = 2  : ƒmƒCƒW[ƒf[ƒ^“ü‚è
+//    = 16 : BDR(ƒf[ƒ^ƒŒƒR[ƒ_[) ON
+//    = 32 : SMS(—±qŠÏ‘ªŠí) ON
 //    = 64 : bitrate M
 
 void input_PostGap( flag , record )
@@ -571,7 +571,7 @@ void input_PostGap( flag , record )
 
     int res;
 
-  //***** ãƒã‚¹ãƒˆã‚®ãƒ£ãƒƒãƒ—ãƒ•ãƒ©ã‚°ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ•° PostGap ã«æ ¼ç´ã™ã‚‹
+  //***** ƒ|ƒXƒgƒMƒƒƒbƒvƒtƒ‰ƒOƒf[ƒ^‚ğ•Ï” PostGap ‚ÉŠi”[‚·‚é
   status = CDFlib( SELECT_ , CDF_            , crid ,
 		             zVAR_           , ave_PGapNum ,
 		             zVAR_RECNUMBER_ , record ,
@@ -580,8 +580,8 @@ void input_PostGap( flag , record )
 
   if ( status != CDF_OK ) StatusHandler( status );
 
-  //***** ãƒã‚¹ãƒˆã‚®ãƒ£ãƒƒãƒ—ãƒ•ãƒ©ã‚°ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ•° PostGap ã‹ã‚‰å–ã‚Šå‡ºã™
-  //***** - ãƒ‡ãƒ¼ã‚¿ãƒã‚§ãƒƒã‚¯ã®ãŸã‚
+  //***** ƒ|ƒXƒgƒMƒƒƒbƒvƒtƒ‰ƒOƒf[ƒ^‚ğ•Ï” PostGap ‚©‚çæ‚èo‚·
+  //***** - ƒf[ƒ^ƒ`ƒFƒbƒN‚Ì‚½‚ß
   /*
   status = CDFlib( SELECT_ , zVAR_ , ave_PGapNum ,
 		             zVAR_RECNUMBER_ , record ,

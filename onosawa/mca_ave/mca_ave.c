@@ -1,27 +1,27 @@
  /*
- *    MCAãƒ‡ãƒ¼ã‚¿ã®CDFãƒ•ã‚¡ã‚¤ãƒ«(0.25ç§’é–“éš”)ã‚’nç§’å¹³å‡ã™ã‚‹ã€‚
- *    ãã—ã¦ã€ãã‚Œã‚’æ–°ã—ã„CDFãƒ•ã‚¡ã‚¤ãƒ«ã«ä¿å­˜ã™ã‚‹ã€‚
- *    n ç§’ 1 ãƒ¬ã‚³ãƒ¼ãƒ‰ã«ã™ã‚‹ã€‚
+ *    MCAƒf[ƒ^‚ÌCDFƒtƒ@ƒCƒ‹(0.25•bŠÔŠu)‚ğn•b•½‹Ï‚·‚éB
+ *    ‚»‚µ‚ÄA‚»‚ê‚ğV‚µ‚¢CDFƒtƒ@ƒCƒ‹‚É•Û‘¶‚·‚éB
+ *    n •b 1 ƒŒƒR[ƒh‚É‚·‚éB
  *
  *    By Y. Ozaki
  *
  *    2005.11.3
  *
- *    - å®Ÿè¡Œã‚³ãƒãƒ³ãƒ‰ ave yyyy mm dd n
- *    - Epoch ã¯ Spacerecord ã«ã—ã¾ã›ã‚“ã§ã—ãŸ(æç”»ã®éƒ½åˆä¸Š)ã€‚
+ *    - ÀsƒRƒ}ƒ“ƒh ave yyyy mm dd n
+ *    - Epoch ‚Í Spacerecord ‚É‚µ‚Ü‚¹‚ñ‚Å‚µ‚½(•`‰æ‚Ì“s‡ã)B
  *                                                2005.12.19
- *    - å®ŸåŠ¹é•·ã®æ±‚ã‚æ–¹é–“é•ã£ã¦ãŸã®ä¿®æ­£ã—ã¾ã—ãŸã€‚
+ *    - ÀŒø’·‚Ì‹‚ß•ûŠÔˆá‚Á‚Ä‚½‚ÌC³‚µ‚Ü‚µ‚½B
  *                                                2006. 1. 6
- *    - å¸¯åŸŸå¹…ã§å‰²ã£ãŸå€¤ã‚’çµæœã¨ã—ã¾ã™ã€‚
+ *    - ‘Ñˆæ•‚ÅŠ„‚Á‚½’l‚ğŒ‹‰Ê‚Æ‚µ‚Ü‚·B
  *                                                2006. 1.10
  *
- *    hyper access ã‚’å°å…¥ã—ã¦é«˜é€ŸåŒ–ã‚’ã¯ã‹ã‚Šã¾ã—ãŸã€‚
- *    variable attributes ã®ä¸å…·åˆã‚’ç›´ã—ã¾ã—ãŸã€‚
- *    global attributes ã«ST ET ã‚’è¿½åŠ ã—ã¾ã—ãŸã€‚
+ *    hyper access ‚ğ“±“ü‚µ‚Ä‚‘¬‰»‚ğ‚Í‚©‚è‚Ü‚µ‚½B
+ *    variable attributes ‚Ì•s‹ï‡‚ğ’¼‚µ‚Ü‚µ‚½B
+ *    global attributes ‚ÉST ET ‚ğ’Ç‰Á‚µ‚Ü‚µ‚½B
  *
  *                         by Masanori Aoki       2007. 1.31
  *
- *    æœ€çµ‚æ›´æ–°æ—¥ : 2007. 1.31
+ *    ÅIXV“ú : 2007. 1.31
  */
 
 #include <stdio.h>
@@ -31,7 +31,7 @@
 #include <time.h>
 #include "cdf.h"
 #include "average.h"
-// long ave_EmxNum;
+long ave_EmxNum;
 
 CDFid opid;
 CDFid crid;
@@ -39,7 +39,7 @@ CDFstatus status;
 
 char input[ 20 ];
 
-//å„å¤‰æ•°ã®å¤‰æ•°id
+//Še•Ï”‚Ì•Ï”id
 long EmaxNum;
 long EaveNum;
 long BmaxNum;
@@ -60,7 +60,7 @@ float bfact[ NUM_CHANNEL ];
 int main( int argc , char *argv[] )
 {
   clock_t start,end;
-  float sec;
+  int sec;
   int k;
 
   int len_ymd[ 4 ];
@@ -71,7 +71,7 @@ int main( int argc , char *argv[] )
     exit(1);
   }
 
-  //***** å…¥åŠ›ã•ã‚ŒãŸå¹´ æœˆ æ—¥ ã®æ–‡å­—åˆ—ã®é•·ã•ã‚’èª¿ã¹ã‚‹
+  //***** “ü—Í‚³‚ê‚½”N Œ “ú ‚Ì•¶š—ñ‚Ì’·‚³‚ğ’²‚×‚é
   /*
   for( k = 1 ; k < argc ; k++ ) {
     len_ymd[ k - 1 ] = strlen( argv[ k ] );
@@ -94,7 +94,7 @@ int main( int argc , char *argv[] )
   }
   */
   
-  //***** å…¥åŠ›ã•ã‚ŒãŸå¹´ æœˆ æ—¥ ã¨ å¹³å‡ã®ç§’ ã‚’ é…åˆ—ymd[] ã«ä¿å­˜
+  //***** “ü—Í‚³‚ê‚½”N Œ “ú ‚Æ •½‹Ï‚Ì•b ‚ğ ”z—ñymd[] ‚É•Û‘¶
   //year
   strcpy( ymd[ 0 ] ,argv[ 1 ] );
 
@@ -112,8 +112,7 @@ int main( int argc , char *argv[] )
 
   strcpy( ymd[ 3 ] ,argv[ 4 ] );
 
-//  sec = atoi( ymd[ 3 ] );
-  sec = atof( ymd[ 3 ] );
+  sec = atoi( ymd[ 3 ] );
   /*  if( sec < 1 || sec > 60 ){
     printf("!!!!! input error !!!!!\n");
     exit( 1 );
@@ -144,7 +143,7 @@ int main( int argc , char *argv[] )
 
 
 //**************************************************************************
-//openCDF() : MCAãƒ‡ãƒ¼ã‚¿ã®CDFãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ãé–¢æ•°
+//openCDF() : MCAƒf[ƒ^‚ÌCDFƒtƒ@ƒCƒ‹‚ğŠJ‚­ŠÖ”
 void openCDF( ymd )
      char ymd[][ 5 ];
 {
@@ -152,7 +151,7 @@ void openCDF( ymd )
 
   int k;
 
-  //***** ã‚ªãƒ¼ãƒ—ãƒ³ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åã‚’ä½œæˆ
+  //***** ƒI[ƒvƒ“‚·‚éƒtƒ@ƒCƒ‹–¼‚ğì¬
 
   sprintf( fpname , "%s%s/ak_h0_mca_%s%s%s_v01" , OPNAME , ymd[ 0 ] , ymd[ 0 ] , ymd[ 1 ] , ymd[ 2 ] );
 
@@ -167,7 +166,7 @@ void openCDF( ymd )
 }
 
 //**************************************************************************
-//closeCDF() : èª­ã‚“ã CDFãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹é–¢æ•°
+//closeCDF() : “Ç‚ñ‚¾CDFƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚éŠÖ”
 void closeCDF()
 {
   status = CDFclose ( opid );
@@ -181,7 +180,7 @@ void closeCDF()
 }
 
 //**************************************************************************
-//get_VarNum() : èª­ã‚“ã CDFãƒ•ã‚¡ã‚¤ãƒ«ã®å¤‰æ•°idã‚’ã‚²ãƒƒãƒˆã™ã‚‹é–¢æ•°
+//get_VarNum() : “Ç‚ñ‚¾CDFƒtƒ@ƒCƒ‹‚Ì•Ï”id‚ğƒQƒbƒg‚·‚éŠÖ”
 void get_VarNum()
 {
   status = CDFlib( SELECT_ , CDF_ , opid ,
@@ -200,7 +199,7 @@ void get_VarNum()
 }
 
 //**************************************************************************
-//get_Data() : èª­ã‚“ã CDFãƒ•ã‚¡ã‚¤ãƒ«ã® CDF_UINT1å‹å¤‰æ•° ã®å€¤ã‚’ã‚²ãƒƒãƒˆã™ã‚‹é–¢æ•°
+//get_Data() : “Ç‚ñ‚¾CDFƒtƒ@ƒCƒ‹‚Ì CDF_UINT1Œ^•Ï” ‚Ì’l‚ğƒQƒbƒg‚·‚éŠÖ”
 void get_Data( num , record , varNum , data )
      int num;
      long record;
@@ -240,7 +239,7 @@ void get_Data( num , record , varNum , data )
   
 }
 //**************************************************************************
-//get_EB() : èª­ã‚“ã CDFãƒ•ã‚¡ã‚¤ãƒ«ã® é›»ç•Œ,ç£ç•Œ ã®å€¤ã‚’ã‚²ãƒƒãƒˆã™ã‚‹é–¢æ•°
+//get_EB() : “Ç‚ñ‚¾CDFƒtƒ@ƒCƒ‹‚Ì “dŠE,¥ŠE ‚Ì’l‚ğƒQƒbƒg‚·‚éŠÖ”
 void get_EB( num , record , varNum , data )
      int num;
      long record;
@@ -280,7 +279,7 @@ void get_EB( num , record , varNum , data )
 }
 
 //**************************************************************************
-//get_Epoch() : èª­ã‚“ã CDFãƒ•ã‚¡ã‚¤ãƒ«ã®Epochå€¤ã‚’ã‚²ãƒƒãƒˆã™ã‚‹é–¢æ•°
+//get_Epoch() : “Ç‚ñ‚¾CDFƒtƒ@ƒCƒ‹‚ÌEpoch’l‚ğƒQƒbƒg‚·‚éŠÖ”
 double get_Epoch( record )
      long record;
 {
@@ -298,7 +297,7 @@ double get_Epoch( record )
 }
 
 //**************************************************************************
-//get_PostGap() : èª­ã‚“ã CDFãƒ•ã‚¡ã‚¤ãƒ«ã® PostGap ã®å€¤ã‚’ã‚²ãƒƒãƒˆã™ã‚‹é–¢æ•°
+//get_PostGap() : “Ç‚ñ‚¾CDFƒtƒ@ƒCƒ‹‚Ì PostGap ‚Ì’l‚ğƒQƒbƒg‚·‚éŠÖ”
 int get_PostGap( record )
      long record;
 {
@@ -316,7 +315,7 @@ int get_PostGap( record )
 }
 
 //**************************************************************************
-//get_channel() : èª­ã‚“ã CDFãƒ•ã‚¡ã‚¤ãƒ«ã® channel ã®å€¤ã‚’ã‚²ãƒƒãƒˆã™ã‚‹é–¢æ•°
+//get_channel() : “Ç‚ñ‚¾CDFƒtƒ@ƒCƒ‹‚Ì channel ‚Ì’l‚ğƒQƒbƒg‚·‚éŠÖ”
 void get_channel()
 { 
   long record = 0L;
@@ -328,7 +327,7 @@ void get_channel()
   long counts[ 1 ];
   long intervals[ 1 ];
 
-  //å„ãƒãƒ£ãƒ³ãƒãƒ«ã®å‘¨æ³¢æ•°ã‚’å–å¾—(å¤‰æ•° channel ã®å€¤ã‚’ GET ã™ã‚‹)
+  //Šeƒ`ƒƒƒ“ƒlƒ‹‚Ìü”g”‚ğæ“¾(•Ï” channel ‚Ì’l‚ğ GET ‚·‚é)
   indices[0]=0;
   counts[0]=NUM_CHANNEL;
   intervals[0]=1;
@@ -351,7 +350,7 @@ void get_channel()
 }
 
 //**************************************************************************
-//get_wida() : 4chã”ã¨ã«ã‹ãŸã¾ã£ã¦ã„ã‚‹WIDAã‚’1chãšã¤ã«åˆ†ã‘ã‚‹é–¢æ•°
+//get_wida() : 4ch‚²‚Æ‚É‚©‚½‚Ü‚Á‚Ä‚¢‚éWIDA‚ğ1ch‚¸‚Â‚É•ª‚¯‚éŠÖ”
 void get_wida( wida , ws )
      unsigned char wida[];
      unsigned char ws[];
@@ -369,7 +368,7 @@ void get_wida( wida , ws )
 }
 
 //**************************************************************************
-//heffe() : ã‚¢ãƒ³ãƒ†ãƒŠå®ŸåŠ¹é•·ã‚’æ±‚ã‚ã‚‹é–¢æ•°(é›»ç•Œç”¨)
+//heffe() : ƒAƒ“ƒeƒiÀŒø’·‚ğ‹‚ß‚éŠÖ”(“dŠE—p)
 double heffe( i )
      int i;
 {
@@ -384,11 +383,11 @@ double heffe( i )
 
   double omega , denom , real , image;
   /*
-    denom : Z ã®åˆ†æ¯
-    real  : Z ã®å®Ÿéƒ¨
-    image : Z ã®è™šéƒ¨
+    denom : Z ‚Ì•ª•ê
+    real  : Z ‚ÌÀ•”
+    image : Z ‚Ì‹••”
    */
-  double zabs;    // Z ã®å¤§ãã•
+  double zabs;    // Z ‚Ì‘å‚«‚³
   double jwcs , jwcin;
   double pregain;
 
@@ -414,14 +413,14 @@ double heffe( i )
 }
 
 //**************************************************************************
-//heffb() : ã‚¢ãƒ³ãƒ†ãƒŠå®ŸåŠ¹é•·ã‚’æ±‚ã‚ã‚‹é–¢æ•°(ç£ç•Œç”¨)
+//heffb() : ƒAƒ“ƒeƒiÀŒø’·‚ğ‹‚ß‚éŠÖ”(¥ŠE—p)
 double heffb( i )
      int i;
 {
 
   double length , a;
 
-  //å„ãƒãƒ£ãƒ³ãƒãƒ«ã®ã‚¢ãƒ³ãƒ†ãƒŠå®ŸåŠ¹é•·ã‚’æ±‚ã‚ã‚‹
+  //Šeƒ`ƒƒƒ“ƒlƒ‹‚ÌƒAƒ“ƒeƒiÀŒø’·‚ğ‹‚ß‚é
   if( freq[ i ] <= 164.4 ){
     a = ( log10( ( double )freq[ i ] ) - 1.0 ) * 0.8921 - 1.699;
     length = pow( 10 , a );
@@ -446,7 +445,7 @@ double heffb( i )
 }
 
 //**************************************************************************
-//abs_E_dB() : MCAãƒ‡ãƒ¼ã‚¿ã®å€¤ã‹ã‚‰çµ¶å¯¾å€¤ã‚’æ±‚ã‚ã‚‹é–¢æ•°(é›»ç•Œç”¨)
+//abs_E_dB() : MCAƒf[ƒ^‚Ì’l‚©‚çâ‘Î’l‚ğ‹‚ß‚éŠÖ”(“dŠE—p)
 void abs_E_dB( E , ws )
      double E[];
      unsigned char ws[];
@@ -464,7 +463,7 @@ void abs_E_dB( E , ws )
       dBV = 20.0 * log10( E[ i ] ) - 25.0 * (double)ws[ i ] - 48.0 - 20.0;
       abs = pow( 10.0 , dBV / 20.0 ) / heffe( i );
       abs = abs * 1.0e3;
-      //å¸¯åŸŸå¹…ã‚’è€ƒæ…®
+      //‘Ñˆæ•‚ğl—¶
       abs = abs / bfact[ i ];
       E[ i ] = abs * abs;
     } 
@@ -472,7 +471,7 @@ void abs_E_dB( E , ws )
 }
 
 //**************************************************************************
-//abs_B_dB() : MCAãƒ‡ãƒ¼ã‚¿ã®å€¤ã‹ã‚‰çµ¶å¯¾å€¤ã‚’æ±‚ã‚ã‚‹é–¢æ•°(ç£ç•Œç”¨)
+//abs_B_dB() : MCAƒf[ƒ^‚Ì’l‚©‚çâ‘Î’l‚ğ‹‚ß‚éŠÖ”(¥ŠE—p)
 void abs_B_dB( B , ws )
      double B[];
      unsigned char ws[];
@@ -497,7 +496,7 @@ void abs_B_dB( B , ws )
       }
       abs = pow( 10.0 , dBV / 20.0 ) / heffb( i ) / zzz;
       abs = abs * 1.26 * 1.0e6;
-      //å¸¯åŸŸå¹…ã‚’è€ƒæ…®
+      //‘Ñˆæ•‚ğl—¶
       abs = abs / bfact[ i ];
       B[ i ] = abs * abs;
     } 
@@ -505,7 +504,7 @@ void abs_B_dB( B , ws )
 }
 
 //**************************************************************************
-//data_total() : nç§’é–“ã®MCAãƒ‡ãƒ¼ã‚¿ã®åˆè¨ˆã‚’æ±‚ã‚ã‚‹é–¢æ•°
+//data_total() : n•bŠÔ‚ÌMCAƒf[ƒ^‚Ì‡Œv‚ğ‹‚ß‚éŠÖ”
 void data_total( total , data )
      double total[];
      double data[];
@@ -518,7 +517,7 @@ void data_total( total , data )
 }
 
 //**************************************************************************
-//data_ave() : nç§’é–“ã®MCAãƒ‡ãƒ¼ã‚¿ã®å¹³å‡ã‚’æ±‚ã‚ã‚‹é–¢æ•°
+//data_ave() : n•bŠÔ‚ÌMCAƒf[ƒ^‚Ì•½‹Ï‚ğ‹‚ß‚éŠÖ”
 void data_ave( total , ave , recsp )
      double total[];
      unsigned char ave[];
@@ -538,14 +537,15 @@ void data_ave( total , ave , recsp )
 }
 
 //**************************************************************************
-//ave_data() : MCAãƒ‡ãƒ¼ã‚¿ã‚’å¹³å‡ã™ã‚‹é–¢æ•°
+//ave_data() : MCAƒf[ƒ^‚ğ•½‹Ï‚·‚éŠÖ”
 void ave_data( sec )
-     float sec;
+     int sec;
 {
 
   int recsp;
   int half_recsp;
   int i , j , k;
+  int q;
   long m;
   int i_max;
  
@@ -576,24 +576,31 @@ void ave_data( sec )
 
   int flag;
   int MCAflag = 0;
-  int VTLflag = 0;      //ãƒ¬ã‚³ãƒ¼ãƒ‰ãŒ VIRTUAL ãªã‚‚ã®ãŒå«ã¾ã‚Œã¦ã„ãŸã‹
+  int VTLflag = 0;      //ƒŒƒR[ƒh‚ª VIRTUAL ‚È‚à‚Ì‚ªŠÜ‚Ü‚ê‚Ä‚¢‚½‚©
   int BDRflag = 0;
   int SMSflag = 0;
   int BitMflag = 0;
 
-  int brHb = 0 , brHa = 0;    //ä»®æƒ³ãªã‚‰ 1
+  int brHb = 0 , brHa = 0;    //‰¼‘z‚È‚ç 1
 
-  recsp = (int) (SECSPACE * sec);
+  recsp = SECSPACE * sec;
   half_recsp = recsp / 2;
   i_max = DAYSPACE - half_recsp;
 
   /**************************************************************************/
   //  half_recsp = 86400;
   //  i_max = 98400;
- 
+
+  //input_Emax( " " , 0 );
+  //input_Emax( " " , 10799 );
+
   for( i =  half_recsp , m = 0 ; i <= i_max ; i += recsp , m ++ ) {
 
-    //***** å¤‰æ•°ã®åˆæœŸåŒ– *****
+//printf("%d\n",m);
+    //if(m==0) input_Emax( " " , m );
+    //if(m==10799) input_Emax( Emax_ave , m );
+    //else input_Emax( "", m);
+    //***** •Ï”‚Ì‰Šú‰» *****
     rec_vtl = 0;
 
     MCAflag = 0;
@@ -610,11 +617,15 @@ void ave_data( sec )
     }
     //*************************
 
-    //Epoch ãŒä½•å€‹ Virtual ã‹èª¿ã¹ã‚‹  
+    //‘S‘Ì‚ğVirtual‚Å–„‚ß‚é
+    //flag=0x01;
+    //input_PostGap( flag , m );
+
+    //Epoch ‚ª‰½ŒÂ Virtual ‚©’²‚×‚é  
     for( j = ( -1 ) * half_recsp ; j < half_recsp ; j++ ) {
       time = get_Epoch( ( long )( i + j ));
       
-      //ãƒ¬ã‚³ãƒ¼ãƒ‰ãŒ2ã¤ä»¥ä¸Šé€£ç¶šã§ä»®æƒ³ã«ãªã£ã¦ã„ã‚‹ã‹ã‚’èª¿ã¹ã‚‹
+      //ƒŒƒR[ƒh‚ª2‚ÂˆÈã˜A‘±‚Å‰¼‘z‚É‚È‚Á‚Ä‚¢‚é‚©‚ğ’²‚×‚é
       if( time == EPOCH_PAD ) {
 	rec_vtl ++;
 	brHa = 1;
@@ -631,7 +642,7 @@ void ave_data( sec )
     time = ( ( ( double )m + 1.0 ) * ( double )sec ) - ( double )sec / 2.0 ;
     input_Epoch( time , m );
 
-    //PostGapã‚’å–å¾— , åˆ¤å®š
+    //PostGap‚ğæ“¾ , ”»’è
     for( j = ( -1 ) * half_recsp ; j < half_recsp ; j++ ) {
       flag = get_PostGap( ( long )( i + j ) );
 
@@ -642,7 +653,7 @@ void ave_data( sec )
       flag = MCAflag + BDRflag + SMSflag + BitMflag;
     }
     //    printf("%d %d\n",m,flag);
-    //ãƒ“ãƒƒãƒˆãƒ¬ãƒ¼ãƒˆM ãªã®ã«ã€ãƒ¬ã‚³ãƒ¼ãƒ‰ãŒä¸€å€‹ã§ã‚‚ä»®æƒ³ãªã‚‰ ãƒã‚¤ã‚¸ãƒ¼ãƒ•ãƒ©ã‚° ã‚’ç«‹ã¦ã‚‹
+    //ƒrƒbƒgƒŒ[ƒgM ‚È‚Ì‚ÉAƒŒƒR[ƒh‚ªˆêŒÂ‚Å‚à‰¼‘z‚È‚ç ƒmƒCƒW[ƒtƒ‰ƒO ‚ğ—§‚Ä‚é
     if( BitMflag == FLAG_BitM && rec_vtl != 0 )
       VTLflag = 2;
     
@@ -650,15 +661,43 @@ void ave_data( sec )
     flag += VTLflag;
     if((flag & 0x01) == FLAG_MCA) flag=0x01;
 
-    //n ç§’é–“ã®ãƒ¬ã‚³ãƒ¼ãƒ‰ãŒå…¨ã¦ä»®æƒ³ãªã‚‰ continue
+    //n •bŠÔ‚ÌƒŒƒR[ƒh‚ª‘S‚Ä‰¼‘z‚È‚ç continue
     if( rec_vtl == recsp ) {
       flag=0x01;
       input_PostGap( flag , m );
+
+      if(m==10799){
+        for( q = 0 ; q < NUM_CHANNEL ; q ++ ){
+          Emax_ave[q] = 0;
+          Eave_ave[q] = 0;
+          Bmax_ave[q] = 0;
+          Bave_ave[q] = 0;
+        }
+
+        input_Emax( Emax_ave , m );
+        input_Eave( Eave_ave , m );
+        input_Bmax( Bmax_ave , m );
+        input_Bave( Bave_ave , m );
+      }
       //      read_Emax( m );
       continue;
     } 
     else if(flag == FLAG_MCA){
       input_PostGap( flag , m );
+
+       if(m==10799){
+        for( q = 0 ; q < NUM_CHANNEL ; q ++ ){
+          Emax_ave[q] = 0;
+          Eave_ave[q] = 0;
+          Bmax_ave[q] = 0;
+          Bave_ave[q] = 0;
+        }
+
+        input_Emax( Emax_ave , m );
+        input_Eave( Eave_ave , m );
+        input_Bmax( Bmax_ave , m );
+        input_Bave( Bave_ave , m );
+      }
       continue;
     }
     else {
@@ -666,32 +705,32 @@ void ave_data( sec )
     }
     for( j = ( -1 ) * half_recsp ; j < half_recsp ; j++ ) {
 
-      //é›»ç•Œã«ã¤ã„ã¦
-      //E_WIDAã‚’å–å¾—
+      //“dŠE‚É‚Â‚¢‚Ä
+      //E_WIDA‚ğæ“¾
       get_Data( NUM_WIDA , ( long )( i + j ) , E_WIDANum , wida );
       get_wida( wida , ws );
 	
-      //E_maxã‚’å–å¾—
+      //E_max‚ğæ“¾
       get_EB( NUM_CHANNEL , ( long )( i + j ) , EmaxNum , max );
       abs_E_dB( max , ws );
       data_total( Emax_total , max );
       
-      //E_aveã‚’å–å¾—
+      //E_ave‚ğæ“¾
       get_EB( NUM_CHANNEL , ( long )( i + j ) , EaveNum , ave );
       abs_E_dB( ave , ws );
       data_total( Eave_total , ave );
       
-      //ç£ç•Œã«ã¤ã„ã¦
-      //B_WIDAã‚’å–å¾—
+      //¥ŠE‚É‚Â‚¢‚Ä
+      //B_WIDA‚ğæ“¾
       get_Data( NUM_WIDA , ( long )( i + j ) , B_WIDANum , wida );
       get_wida( wida , ws );
       
-      //B_maxã‚’å–å¾—
+      //B_max‚ğæ“¾
       get_EB( NUM_CHANNEL , ( long )( i + j ) , BmaxNum , max );
       abs_B_dB( max , ws );
       data_total( Bmax_total , max );
       
-      //B_aveã‚’å–å¾—
+      //B_ave‚ğæ“¾
       get_EB( NUM_CHANNEL , ( long )( i + j ) , BaveNum , ave );
       abs_B_dB( ave , ws );
       data_total( Bave_total , ave );
@@ -701,7 +740,7 @@ void ave_data( sec )
     data_ave( Eave_total , Eave_ave , recsp );
     data_ave( Bmax_total , Bmax_ave , recsp );
     data_ave( Bave_total , Bave_ave , recsp );
-    
+
     input_Emax( Emax_ave , m );
     input_Eave( Eave_ave , m );
     input_Bmax( Bmax_ave , m );
@@ -716,7 +755,7 @@ void ave_data( sec )
 /******************************************************************************
  * Status handler.
  *
- *    averageç”¨ä»•æ§˜ã«ãªã£ã¦ã¾ã™!!
+ *    average—pd—l‚É‚È‚Á‚Ä‚Ü‚·!!
  ******************************************************************************/
 
 void StatusHandler (status)

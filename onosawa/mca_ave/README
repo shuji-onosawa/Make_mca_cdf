@@ -1,104 +1,104 @@
-mca_ave
+mcs_ave
  
- MCA生CDFからn秒平均CDFファイルを生成する。
- 実行方法は、実行ファイル名 bnd (Makefileに明記)と作成したいファイルの年月日
- と何秒平均するかを指定する。
+ MCA��CDF����n�b����CDF�t�@�C���𐶐�����B
+ ���s���@�́A���s�t�@�C���� bnd (Makefile�ɖ��L)�ƍ쐬�������t�@�C���̔N����
+ �Ɖ��b���ς��邩���w�肷��B
         bnd YYYY MM DD n
- n は 平均したい秒数(1から60秒まで)。
- (例: mkCDF.sh)
- 実行する前に、CDFが生成されるフォルダー内に名前「YYYY」のフォルダーが存在し
- なければならない。
+ n �� ���ς������b��(1����60�b�܂�)�B
+ (tamesi.sh �ɗ�𖾋L)
+ ���s����O�ɁACDF�����������t�H���_�[���ɖ��O�uYYYY�v�̃t�H���_�[�����݂�
+ �Ȃ���΂Ȃ�Ȃ��B
 
-average.h : ヘッダーファイル
-		OPNAME は MCA生データがある場所を定義。
-		CRNAME は 平均CDFファイルを保存する場所を定義。
-		OPEN_LEN は 開くファイルの場所の文字列の文字数(だいたい)。
-		CREATE_LEN は 保存するファイルの場所の文字列の文字数。
-                MAX_ARGC は実行コマンドの単語数を定義。
+average.h : �w�b�_�[�t�@�C��
+		OPNAME �� MCA���f�[�^������ꏊ���`�B
+		CRNAME �� ����CDF�t�@�C����ۑ�����ꏊ���`�B
+		OPEN_LEN �� �J���t�@�C���̏ꏊ�̕�����̕�����(��������)�B
+		CREATE_LEN �� �ۑ�����t�@�C���̏ꏊ�̕�����̕������B
+                MAX_ARGC �͎��s�R�}���h�̒P�ꐔ���`�B
 
 mca_ave.c    : main()
 		
 	       openCDF()
-		平均するMCA生CDFを開く。
+		���ς���MCA��CDF���J���B
 		"remote/raid4/MCADB/CDF-H0/YYYY/ak_h0_mca_YYYYMMDD_v01"
 	       closeCDF()
-		開いたCDFと生成したCDFを閉じる。
+		�J����CDF�Ɛ�������CDF�����B
 	       get_VarNum()
-		開いたCDFの変数idを取得する。
+		�J����CDF�̕ϐ�id���擾����B
 	       get_Data()
-		開いたCDFの CDF_UINT1型変数 の値を取得する。
+		�J����CDF�� CDF_UINT1�^�ϐ� �̒l���擾����B
 	       get_EB()
-		開いたCDFの電界,磁界 の値を取得する。
+		�J����CDF�̓d�E,���E �̒l���擾����B
 	       get_Epoch()
-		開いたCDFのEpochの値を取得する。
+		�J����CDF��Epoch�̒l���擾����B
 	       get_PostGap()
-		開いたCDFのPostGapの値を取得する。
+		�J����CDF��PostGap�̒l���擾����B
 	       get_channel()
-		開いたCDFのchannelの値を取得する。
+		�J����CDF��channel�̒l���擾����B
 	       get_wida()
-		WIDAステータス4ch1バイトで保存されているものを、
-		1chずつにばらす。
-		(1バイトにMLBから 4ch 3ch 2ch 1ch の順に保存されている)
+		WIDA�X�e�[�^�X4ch1�o�C�g�ŕۑ�����Ă�����̂��A
+		1ch���ɂ΂炷�B
+		(1�o�C�g��MLB���� 4ch 3ch 2ch 1ch �̏��ɕۑ�����Ă���)
 	       heffe()
-		電界のアンテナ実効長を求める。
+		�d�E�̃A���e�i�����������߂�B
 	       heffb()
-		磁界のアンテナ実効長を求める。
+		���E�̃A���e�i�����������߂�B
 	       abs_E_dB()
-		MCA電界生データ値を絶対値に較正する(単位[mV/m])。
-		それを帯域幅で割る。
-		さらに、二乗和平均を計算するために、二乗計算をしておく。
+		MCA�d�E���f�[�^�l���Βl�Ɋr������(�P��[mV/m])�B
+		�����ш敝�Ŋ���B
+		����ɁA���a���ς��v�Z���邽�߂ɁA���v�Z�����Ă����B
 	       abs_B_dB()
-		MCA磁界生データ値を絶対値に較正する(単位[pT])。
-		それを帯域幅で割る。
-		さらに、二乗和平均を計算するために、二乗計算をしておく。
+		MCA���E���f�[�^�l���Βl�Ɋr������(�P��[pT])�B
+		�����ш敝�Ŋ���B
+		����ɁA���a���ς��v�Z���邽�߂ɁA���v�Z�����Ă����B
 	       data_total()
-		二乗和平均を計算するために、n秒間の二乗和計算をする。
+		���a���ς��v�Z���邽�߂ɁAn�b�Ԃ̓��a�v�Z������B
 	       data_ave()
-		n秒間のデータの二乗和平均を計算する。
-		さらに、平均した値をdB値に直す。
+		n�b�Ԃ̃f�[�^�̓��a���ς��v�Z����B
+		����ɁA���ς����l��dB�l�ɒ����B
 	       ave_data()
-		平均計算をする関数の大元。
-		生データからn秒分のデータを取得し、平均計算を行う。
-		n秒の中で一部データが欠けていても、PostGapFlagを立てて、
-		平均計算を行う。
+		���όv�Z������֐��̑匳�B
+		���f�[�^����n�b���̃f�[�^���擾���A���όv�Z���s���B
+		n�b�̒��ňꕔ�f�[�^�������Ă��Ă��APostGapFlag�𗧂ĂāA
+		���όv�Z���s���B
 	       StatusHandler()
-		CDFステータスハンドラー。
+		CDF�X�e�[�^�X�n���h���[�B
 		
 create_cdf.c : 
 	       createCDF()
-		平均結果を保存するCDFファイルを作成する
+		���ό��ʂ�ۑ�����CDF�t�@�C�����쐬����
 		"remote/raid4/MCADB/CDF-H30/YYYY/ak_h30_mca_YYYYMMDD_v01"
 	       create_zVAR()
-		z変数を作る。
+		z�ϐ������B
 	       input_channel()
-		z変数 channel に値を格納する。
+		z�ϐ� channel �ɒl���i�[����B
 	       input_Epoch()
-		z変数 Epoch に値を格納する。
+		z�ϐ� Epoch �ɒl���i�[����B
 	       input_Emax()
-		z変数 Emax に値を格納する。
+		z�ϐ� Emax �ɒl���i�[����B
 	       input_Eave()
-		z変数 Eave に値を格納する。
+		z�ϐ� Eave �ɒl���i�[����B
 	       input_Bmax()
-		z変数 Bmax に値を格納する。
+		z�ϐ� Bmax �ɒl���i�[����B
 	       input_Bave()
-		z変数 Bave に値を格納する。
+		z�ϐ� Bave �ɒl���i�[����B
 	       input_PostGap()
-		z変数 PostGap に値を格納する。
+		z�ϐ� PostGap �ɒl���i�[����B
 
 gattr.c : global_attr()
-		グローバル属性と、その属性値が書かれている。
+		�O���[�o�������ƁA���̑����l��������Ă���B
 	       input_gATTR()
-		global_attr()に書かれた属性を作り、その属性値を保存する。
+		global_attr()�ɏ����ꂽ���������A���̑����l��ۑ�����B
 	       get_date()
-		このプログラムを実行したときの年月日を求める。
+		���̃v���O���������s�����Ƃ��̔N���������߂�B
 vattr.c : valiable_attr()
-		変数属性を作る大元。
-	       make・・・()
-		「・・・」という変数属性を作り、各変数のその属性値を書く。
+		�ϐ����������匳�B
+	       make�E�E�E()
+		�u�E�E�E�v�Ƃ����ϐ����������A�e�ϐ��̂��̑����l�������B
 	       input_vATTR()
-		v属性を作る。
-	       input_・・・zENTRY()
-		・・・型の属性値を保存するための関数。
+		v���������B
+	       input_�E�E�EzENTRY()
+		�E�E�E�^�̑����l��ۑ����邽�߂̊֐��B
 
 
 
