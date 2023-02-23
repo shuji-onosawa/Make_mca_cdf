@@ -48,5 +48,9 @@ output_df.to_csv('../execute/output.csv', index=False)
 
 import matplotlib.pyplot as plt
 
-fig, axs = plt.subplots()
-plt.plot(np.arange(angle_btwn_B0_Ey.size), angle_btwn_B0_Ey)
+fig, axs = plt.subplots(ncols=2, nrows=1)
+axs[0].plot(np.arange(angle_btwn_B0_Ey.size), angle_btwn_B0_Ey)
+axs[1].plot(np.arange(angle_btwn_B0_Ey.size), angle_btwn_B0_Ey)
+axs[0].set_xlim([0, 100])
+axs[1].set_xlim([0, 100])
+plt.show()
