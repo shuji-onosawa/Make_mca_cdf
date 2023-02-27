@@ -17,7 +17,7 @@ with open("../execute/compare_8scdf_files.txt", "w") as f:
                 '0211', '0212', '0213', '0214', '0215', '0216', '0217', '0218', '0219', '0220',
                 '0221', '0222', '0223', '0224', '0225', '0226', '0227', '0228']:
 
-        createdcdf_name = '../data/CDF-H1_test/1990/ak_h1_mca_1990' + date + '_v02.cdf'
+        createdcdf_name = '../data/CDF-H1_test1/1990/ak_h1_mca_1990' + date + '_v02.cdf'
         existingcdf_name = '../data/CDF-H1_provided_by_Kasahara/ak_h1_mca_1990' + date + '_v02.cdf'
         print(date)
         f.write(date+'\n')

@@ -3,6 +3,9 @@
 
 Make_mca_cdf ディレクトリに移動します。
 
+./onosawa/mca_ave/average.h 内のCRNAMEを作成したcdfファイルの保存先にします。
+保存先のパスはMake_mca_cdfディレクトリからのパスにします。
+
 シェルスクリプトを実行するには、以下のコマンドを実行します:
 ./run_bnd.sh
 もし以下のように実行した場合make clean を実行します。
@@ -28,6 +31,15 @@ make clean -C $source_directory
 exit 0
 fi
 
-# Run the executable with options
-options="1990 2 11 8"
-$source_directory/bnd $options
+# Define year, month, and options
+year="1990"
+month="2"
+options="$year $month"
+
+# Loop through each day in March 1989
+for day in {1..28}
+do
+  options="$year $month"
+  options+=" $day 8"
+  $source_directory/bnd $options
+done
