@@ -61,7 +61,7 @@ void data_total( double total[] , double data[] );
 void data_ave( double total[] , unsigned char ave[] , int recsp );
 
 //MCA�f�[�^�𕽋ς���
-void ave_data( int sec );
+void ave_data( float sec );
 
 //****** create_cdf.c �Ő錾����Ă���֐�
 //���ς����f�[�^��ۑ�����CDF�t�@�C�����쐬����

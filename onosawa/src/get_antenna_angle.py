@@ -2,21 +2,22 @@ import cdflib
 import numpy as np
 import math
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 def unit_vector(vector):
     """与えられたベクトルの単位ベクトルを計算する関数"""
-    magnitude = np.linalg.norm(vector) # ベクトルの大きさを計算
+    magnitude = np.linalg.norm(vector)  # ベクトルの大きさを計算
     if magnitude == 0:
-        return vector # ベクトルの大きさが0の場合はそのまま返す
-    return vector / magnitude # ベクトルを大きさで除算して単位ベクトルを計算
+        return vector  # ベクトルの大きさが0の場合はそのまま返す
+    return vector / magnitude  # ベクトルを大きさで除算して単位ベクトルを計算
 
 
 def angle_between_vectors(u, v):
     """与えられた二つの単位ベクトルのなす角を計算する関数"""
-    dot_product = np.dot(u, v) # 内積を計算
-    angle = math.acos(np.clip(dot_product, -1.0, 1.0)) # 余弦から逆余弦を取得して角度を計算
-    return np.degrees(angle) # ラジアンから度数に変換して返す
+    dot_product = np.dot(u, v)  # 内積を計算
+    angle = math.acos(np.clip(dot_product, -1.0, 1.0))  # 余弦から逆余弦を取得して角度を計算
+    return np.degrees(angle)  # ラジアンから度数に変換して返す
 
 
 Ey_antenna_vector = np.array([-np.sin(np.deg2rad(35)),
@@ -46,7 +47,6 @@ output_df = pd.DataFrame({'angle_btwn_B0_Ey': angle_btwn_B0_Ey,
                           'angle_btwn_B0_sBy': angle_btwn_B0_sBy})
 output_df.to_csv('../execute/output.csv', index=False)
 
-import matplotlib.pyplot as plt
 
 fig, axs = plt.subplots(ncols=2, nrows=1)
 axs[0].plot(np.arange(angle_btwn_B0_Ey.size), angle_btwn_B0_Ey)

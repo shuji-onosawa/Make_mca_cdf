@@ -112,7 +112,7 @@ int main( int argc , char *argv[] )
 
   strcpy( ymd[ 3 ] ,argv[ 4 ] );
 
-  sec = atoi( ymd[ 3 ] );
+  sec = atof( ymd[ 3 ] );
   /*  if( sec < 1 || sec > 60 ){
     printf("!!!!! input error !!!!!\n");
     exit( 1 );
@@ -539,7 +539,7 @@ void data_ave( total , ave , recsp )
 //**************************************************************************
 //ave_data() : MCA�f�[�^�𕽋ς���֐�
 void ave_data( sec )
-     int sec;
+     float sec;
 {
 
   int recsp;
@@ -583,7 +583,7 @@ void ave_data( sec )
 
   int brHb = 0 , brHa = 0;    //���z�Ȃ� 1
 
-  recsp = SECSPACE * sec;
+  recsp = (int) SECSPACE * sec;
   half_recsp = recsp / 2;
   i_max = DAYSPACE - half_recsp;
 
