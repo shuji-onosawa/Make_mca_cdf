@@ -37,9 +37,9 @@ month="2"
 options="$year $month"
 
 # Loop through each day in March 1989
-for day in {1..28}
+for day in {25..26}
 do
   options="$year $month"
-  options+=" $day 8"
+  options+=" $day 1"
   $source_directory/bnd $options
 done

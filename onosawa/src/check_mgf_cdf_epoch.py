@@ -1,7 +1,7 @@
 import cdflib
 
 # CDFファイルの読み込み
-cdf_name = '../data/mgf_CDF-H0/ak_h0_mgf_19900211_v01.cdf'
+cdf_name = '../data/mgf_CDF-H0/ak_h0_mgf_19900201_v01.cdf'
 created_xary = cdflib.cdf_to_xarray(cdf_name)
 
 # epochをdatetimeに変換し、文字列にフォーマット

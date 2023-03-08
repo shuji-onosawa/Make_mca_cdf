@@ -35,9 +35,12 @@ angle_btwn_B0_Ey = np.empty(B0_ary.shape[0])
 angle_btwn_B0_sBy = np.empty(B0_ary.shape[0])
 
 for i in range(B0_ary.shape[0]):
+    # 0.5秒間の真ん中のデータを使用することを想定しています。
+    # B0_ary[i][*][7]の7の部分を適当な数字に変えることで任意の時刻のデータを取り出せます。
     B0_vector = np.array([B0_ary[i][0][7],
                           B0_ary[i][1][7],
                           B0_ary[i][2][7]])
+
     B0_unit_vector = unit_vector(B0_vector)
     angle_btwn_B0_Ey[i] = angle_between_vectors(B0_unit_vector, Ey_antenna_vector)
     angle_btwn_B0_sBy[i] = angle_between_vectors(B0_unit_vector, sBy_antenna_vector)
