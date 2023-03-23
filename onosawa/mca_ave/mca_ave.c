@@ -616,15 +616,15 @@ void ave_data( sec )
       
       //レコードが2つ以上連続で仮想になっているかを調べる
       if( time == EPOCH_PAD ) {
-	rec_vtl ++;
-	brHa = 1;
+        rec_vtl ++;
+        brHa = 1;
       }
       else{
-	brHa = 0;
+	      brHa = 0;
       }
       if( brHb == 1 && brHa == 1 )
-	VTLflag = 2;
-      brHb = brHa;
+	      VTLflag = 2;
+        brHb = brHa;
     }
 
     //Epoch

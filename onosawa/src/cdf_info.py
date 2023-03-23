@@ -51,5 +51,5 @@ def write_cdf_info(cdf_template, output_file):
 # write_cdf_info(cdf_template='/home/onosawa/Document/Make_mca_cdf/onosawa/data/CDF-H0/1990/ak_h0_mca_1990{}_v01.cdf',
 #                output_file='h0cdf_info.csv')
 
-write_cdf_info(cdf_template='/home/onosawa/Document/Make_mca_cdf/onosawa/data/CDF-H1_test/1990/ak_h1_mca_1990{}_v02.cdf',
-               output_file='created_h0cdf_info.csv')
+write_cdf_info(cdf_template='../data/CDF-H1_ave1s/1990/ak_h1_mca_1990{}_v02.cdf',
+               output_file='created_h1cdf_info_ave1s.csv')

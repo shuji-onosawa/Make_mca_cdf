@@ -3,6 +3,8 @@
 
 Make_mca_cdf ディレクトリに移動します。
 
+average.h内の変数CRNAMEに作成したCDFファイルを入れるディレクトリを指定します。
+
 シェルスクリプトを実行するには、以下のコマンドを実行します:
 ./run_bnd.sh
 もし以下のように実行した場合make clean を実行します。
@@ -29,5 +31,7 @@ exit 0
 fi
 
 # Run the executable with options
-options="1990 2 11 8"
-$source_directory/bnd $options
+for day in {1..28}; do
+    options="1990 2 $day 1"
+    $source_directory/bnd $options
+done
