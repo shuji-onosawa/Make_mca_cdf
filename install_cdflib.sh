@@ -17,5 +17,8 @@ fi
 # Install CDF library
 echo "Installing CDF library..."
 cd ".venv/$cdf_version"
-make OS=linux ENV=gnu
+make OS=linux ENV=gnu all
 sudo make install
+
+# Return to the root directory
+cd ../../

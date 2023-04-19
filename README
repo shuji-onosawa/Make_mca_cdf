@@ -20,11 +20,11 @@ $ source .venv/bin/activate
 ```
 - install python libraries
 ```
-$ python3 -m pip install -r requirements.txt
+$ python3 -m pip install -r requirement.txt
 ```
 - install CDF distribution
 ```
-$ source install_cdf.sh
+$ source install_cdflib.sh
 ```
 
 ## How to run the program

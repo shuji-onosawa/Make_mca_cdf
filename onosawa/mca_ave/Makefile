@@ -8,7 +8,7 @@ HEADER = average.h
 #INCDIR = /home/local/centos.local/include
 
 $(PROGRAM):	$(OBJS)
- 	gcc -o $(PROGRAM) $(OBJS) -lcdf -lm -lc -L ../../.venv/cdf38_1-dist/src/lib
+	gcc -o $(PROGRAM) $(OBJS) -lcdf -lm -lc -L ../../.venv/cdf38_1-dist/src/lib
 $(OBJS):        $(HEADER)
 .c.o:
 	gcc -c $<
