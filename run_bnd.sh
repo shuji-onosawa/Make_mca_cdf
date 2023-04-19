@@ -15,7 +15,7 @@ optionsはオプションです。必ずこのファイル内で入力してく�
 README
 
 # Add path for shared library
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cdf/lib/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.venv/cdf38_1-dist/src/lib
 
 # Specify directory path
 source_directory="./onosawa/mca_ave"
@@ -31,7 +31,7 @@ exit 0
 fi
 
 # Run the executable with options
-for day in {1..28}; do
+for day in {1..2}; do
     options="1990 2 $day 1"
     $source_directory/bnd $options
 done

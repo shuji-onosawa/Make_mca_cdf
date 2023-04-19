@@ -1,0 +1,34 @@
+# make_cdf
+
+## Environment for C programs
+- gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04)
+- CDF Sowtware Distribution Version 3.8.1
+
+## Environment for Python programs
+- Python version 3.10.6
+- Library: cdflib, pytplot
+
+## How to set up the environment
+- make vertual environment. The name of the environment is "venv". If you want to change the name, please change the name in ./onosawa/mca_ave/Makefile and run_bnd.sh.
+At Make_mca_cdf directory, run the following command.
+```
+$ python3 -m venv .venv
+```
+- activate the environment
+```
+$ source .venv/bin/activate
+```
+- install python libraries
+```
+$ python3 -m pip install -r requirements.txt
+```
+- install CDF distribution
+```
+$ source install_cdf.sh
+```
+
+## How to run the program
+- run the following command at Make_mca_cdf directory. Before running the program, see README in run_bnd.sh.
+```
+$ ./run_bnd.sh
+```

@@ -90,7 +90,7 @@ void input_Bave( unsigned char result[] , long record );
 
 //input_PostGap() : z変数 PostGap に値を格納する関数
 void input_PostGap( int flag , long record );
-  
+
 //z変数 Emax に値をよむ 関数
 //void read_Emax( long record );
 /*******************************************************************/
@@ -154,11 +154,11 @@ void input_EPOCHzENTRY( long varNum , long vAttrNum , long zEntryLen , double* z
 //***** 定数宣言 *****
 #define OPNAME "./onosawa/data/CDF-H0/"
 
-#define CRNAME "./onosawa/data/CDF-H1_ave1s/"
+#define CRNAME "./onosawa/data/CDF-H1_test1/"
 
 #define RESOLUTION       "h"
 #define RESOLUTION_LARGE "H"
-#define RESOLUTION_NUM    1 
+#define RESOLUTION_NUM    1
 #define VERSION           2
 
 /* open cdf file name length */
