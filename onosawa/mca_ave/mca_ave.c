@@ -548,7 +548,8 @@ void ave_data( sec )
   int q;
   long m;
   int i_max;
- 
+  int day_divided_by_n_seconds;
+
   double max[ NUM_CHANNEL ];
   double ave[ NUM_CHANNEL ];
   unsigned char wida[ NUM_WIDA ];
@@ -586,6 +587,7 @@ void ave_data( sec )
   recsp = SECSPACE * sec;
   half_recsp = recsp / 2;
   i_max = DAYSPACE - half_recsp;
+  day_divided_by_n_seconds = 86400 / sec;
 
   /**************************************************************************/
   //  half_recsp = 86400;
@@ -655,7 +657,7 @@ void ave_data( sec )
       flag=0x01;
       input_PostGap( flag , m );
 
-      if(m==10799){
+      if(m==day_divided_by_n_seconds-1){
         for( q = 0 ; q < NUM_CHANNEL ; q ++ ){
           Emax_ave[q] = 0;
           Eave_ave[q] = 0;
@@ -674,7 +676,7 @@ void ave_data( sec )
     else if(flag == FLAG_MCA){
       input_PostGap( flag , m );
 
-       if(m==10799){
+       if(m==day_divided_by_n_seconds-1){
         for( q = 0 ; q < NUM_CHANNEL ; q ++ ){
           Emax_ave[q] = 0;
           Eave_ave[q] = 0;

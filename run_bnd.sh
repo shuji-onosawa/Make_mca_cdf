@@ -31,7 +31,7 @@ exit 0
 fi
 
 # Run the executable with options
-for day in {1..2}; do
+for day in 6 7; do
     options="1990 2 $day 1"
     $source_directory/bnd $options
 done
