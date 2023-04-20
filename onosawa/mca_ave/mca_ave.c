@@ -60,7 +60,7 @@ float bfact[ NUM_CHANNEL ];
 int main( int argc , char *argv[] )
 {
   clock_t start,end;
-  int sec;
+  float sec;
   int k;
 
   int len_ymd[ 4 ];
@@ -75,7 +75,7 @@ int main( int argc , char *argv[] )
   /*
   for( k = 1 ; k < argc ; k++ ) {
     len_ymd[ k - 1 ] = strlen( argv[ k ] );
-  } 
+  }
   if( len_ymd[ 0 ] != 4 ) {
     printf("Input ERROR of YEAR.\n");
     exit(1);
@@ -93,7 +93,7 @@ int main( int argc , char *argv[] )
     exit(1);
   }
   */
-  
+
   //***** 入力された年 月 日 と 平均の秒 を 配列ymd[] に保存
   //year
   strcpy( ymd[ 0 ] ,argv[ 1 ] );
@@ -112,7 +112,7 @@ int main( int argc , char *argv[] )
 
   strcpy( ymd[ 3 ] ,argv[ 4 ] );
 
-  sec = atoi( ymd[ 3 ] );
+  sec = atof( ymd[ 3 ] );
   /*  if( sec < 1 || sec > 60 ){
     printf("!!!!! input error !!!!!\n");
     exit( 1 );
@@ -229,14 +229,14 @@ void get_Data( num , record , varNum , data )
 		   zVAR_DIMINDICES_  , indices ,
 		   zVAR_DIMCOUNTS_   , counts ,
 		   zVAR_DIMINTERVALS_, intervals ,
-		   GET_    , zVAR_HYPERDATA_   , &value , 
+		   GET_    , zVAR_HYPERDATA_   , &value ,
 		   NULL_ );
   if ( status != CDF_OK ) StatusHandler( status );
   for(k=0;k<num;k++){
     data[k]=value[k];
   }
-  
-  
+
+
 }
 //**************************************************************************
 //get_EB() : 読んだCDFファイルの 電界,磁界 の値をゲットする関数
@@ -261,7 +261,7 @@ void get_EB( num , record , varNum , data )
   indices[0]=0;
   counts[0]=(long)num;
   intervals[0]=1;
-  
+
   status = CDFlib( SELECT_ , CDF_              , opid ,
 		   zVAR_             , varNum ,
 		   zVAR_RECNUMBER_   , recS ,
@@ -270,7 +270,7 @@ void get_EB( num , record , varNum , data )
 		   zVAR_DIMINDICES_  , indices ,
 		   zVAR_DIMCOUNTS_   , counts ,
 		   zVAR_DIMINTERVALS_, intervals ,
-		   GET_    , zVAR_HYPERDATA_   , &value , 
+		   GET_    , zVAR_HYPERDATA_   , &value ,
 		   NULL_ );
   if ( status != CDF_OK ) StatusHandler( status );
   for( k = 0 ; k < num ; k++ ) {
@@ -288,11 +288,11 @@ double get_Epoch( record )
   status = CDFlib( SELECT_ , CDF_            , opid ,
 		             zVAR_           , EpochNum ,
 		             zVAR_RECNUMBER_ , record ,
-		   GET_    , zVAR_DATA_      , &time, 
+		   GET_    , zVAR_DATA_      , &time,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
-  
+
   return time;
 }
 
@@ -306,18 +306,18 @@ int get_PostGap( record )
   status = CDFlib( SELECT_ , CDF_            , opid ,
 		             zVAR_           , PostGapNum ,
 		             zVAR_RECNUMBER_ , record ,
-		   GET_    , zVAR_DATA_      , &flag, 
+		   GET_    , zVAR_DATA_      , &flag,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
-  
+
   return flag;
 }
 
 //**************************************************************************
 //get_channel() : 読んだCDFファイルの channel の値をゲットする関数
 void get_channel()
-{ 
+{
   long record = 0L;
   int k;
   long recS = 0L;
@@ -339,7 +339,7 @@ void get_channel()
 		   zVAR_DIMINDICES_  , indices ,
 		   zVAR_DIMCOUNTS_   , counts ,
 		   zVAR_DIMINTERVALS_, intervals ,
-		   GET_    , zVAR_HYPERDATA_   , &freq , 
+		   GET_    , zVAR_HYPERDATA_   , &freq ,
 		   NULL_ );
   if ( status != CDF_OK ) StatusHandler( status );
   printf("\n");
@@ -466,7 +466,7 @@ void abs_E_dB( E , ws )
       //帯域幅を考慮
       abs = abs / bfact[ i ];
       E[ i ] = abs * abs;
-    } 
+    }
   }
 }
 
@@ -499,7 +499,7 @@ void abs_B_dB( B , ws )
       //帯域幅を考慮
       abs = abs / bfact[ i ];
       B[ i ] = abs * abs;
-    } 
+    }
   }
 }
 
@@ -592,7 +592,7 @@ void ave_data( sec )
   /**************************************************************************/
   //  half_recsp = 86400;
   //  i_max = 98400;
- 
+
   for( i =  half_recsp , m = 0 ; i <= i_max ; i += recsp , m ++ ) {
 
     //***** 変数の初期化 *****
@@ -612,10 +612,10 @@ void ave_data( sec )
     }
     //*************************
 
-    //Epoch が何個 Virtual か調べる  
+    //Epoch が何個 Virtual か調べる
     for( j = ( -1 ) * half_recsp ; j < half_recsp ; j++ ) {
       time = get_Epoch( ( long )( i + j ));
-      
+
       //レコードが2つ以上連続で仮想になっているかを調べる
       if( time == EPOCH_PAD ) {
         rec_vtl ++;
@@ -647,7 +647,7 @@ void ave_data( sec )
     //ビットレートM なのに、レコードが一個でも仮想なら ノイジーフラグ を立てる
     if( BitMflag == FLAG_BitM && rec_vtl != 0 )
       VTLflag = 2;
-    
+
     //PostGap
     flag += VTLflag;
     if((flag & 0x01) == FLAG_MCA) flag=0x01;
@@ -672,7 +672,7 @@ void ave_data( sec )
       }
       //      read_Emax( m );
       continue;
-    } 
+    }
     else if(flag == FLAG_MCA){
       input_PostGap( flag , m );
 
@@ -700,27 +700,27 @@ void ave_data( sec )
       //E_WIDAを取得
       get_Data( NUM_WIDA , ( long )( i + j ) , E_WIDANum , wida );
       get_wida( wida , ws );
-	
+
       //E_maxを取得
       get_EB( NUM_CHANNEL , ( long )( i + j ) , EmaxNum , max );
       abs_E_dB( max , ws );
       data_total( Emax_total , max );
-      
+
       //E_aveを取得
       get_EB( NUM_CHANNEL , ( long )( i + j ) , EaveNum , ave );
       abs_E_dB( ave , ws );
       data_total( Eave_total , ave );
-      
+
       //磁界について
       //B_WIDAを取得
       get_Data( NUM_WIDA , ( long )( i + j ) , B_WIDANum , wida );
       get_wida( wida , ws );
-      
+
       //B_maxを取得
       get_EB( NUM_CHANNEL , ( long )( i + j ) , BmaxNum , max );
       abs_B_dB( max , ws );
       data_total( Bmax_total , max );
-      
+
       //B_aveを取得
       get_EB( NUM_CHANNEL , ( long )( i + j ) , BaveNum , ave );
       abs_B_dB( ave , ws );
@@ -731,12 +731,12 @@ void ave_data( sec )
     data_ave( Eave_total , Eave_ave , recsp );
     data_ave( Bmax_total , Bmax_ave , recsp );
     data_ave( Bave_total , Bave_ave , recsp );
-    
+
     input_Emax( Emax_ave , m );
     input_Eave( Eave_ave , m );
     input_Bmax( Bmax_ave , m );
     input_Bave( Bave_ave , m );
-    
+
 
     //    if( ( i % 100 < 10 ) )printf("continue...%d\n",i);
 
@@ -753,7 +753,7 @@ void StatusHandler (status)
      CDFstatus status;
 {
   char message[CDF_ERRTEXT_LEN+1];
-  
+
   if (status < CDF_WARN) {
     printf ("An error has occurred, halting...\n");
     CDFerror (status, message);
@@ -776,6 +776,6 @@ void StatusHandler (status)
 	  CDFerror (status, message);
 	  printf ("%s\n", message);
 	}
-      }       
+      }
   return;
 }
