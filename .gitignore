@@ -1,3 +1,4 @@
 # specify ignored directory "data"
 /onosawa/data/CDF-H0/
+/onosawa/data/CDF-H1_ave0.5s/
 .venv
