@@ -49,6 +49,7 @@ long B_WIDANum;
 long PostGapNum;
 long EpochNum;
 long channelNum;
+long E_axisNum;
 
 long f_year;
 long f_month;
@@ -193,6 +194,7 @@ void get_VarNum()
 		          zVAR_NUMBER_ , "PostGap" , &PostGapNum ,
 		          zVAR_NUMBER_ , "Epoch"   , &EpochNum ,
 		          zVAR_NUMBER_ , "channel" , &channelNum ,
+              zVAR_NUMBER_ , "E_axis"  , &E_axisNum ,
 		   NULL_ );
 
   if (status != CDF_OK) StatusHandler (status);

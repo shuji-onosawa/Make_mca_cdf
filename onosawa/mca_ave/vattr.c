@@ -26,6 +26,7 @@ extern long ave_EavNum;
 extern long ave_BmxNum;
 extern long ave_BavNum;
 extern long ave_PGapNum;
+extern long ave_EaxisNum;
 extern long ave_EphNum;
 extern long ave_chNum;
 
@@ -82,7 +83,7 @@ int valiable_attr()
 
   //===== VAR_TYPE =================================================
   makeVAR_TYPE();
-   
+
 }
 
 //**************************************************************************
@@ -105,7 +106,7 @@ void makeAVG_TYPE()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "log" );
 
-  input_CHARzENTRY( ave_EmxNum , Avg_typeNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EmxNum , Avg_typeNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -114,7 +115,7 @@ void makeAVG_TYPE()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "log" );
 
-  input_CHARzENTRY( ave_EavNum , Avg_typeNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EavNum , Avg_typeNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -123,7 +124,7 @@ void makeAVG_TYPE()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "log" );
 
-  input_CHARzENTRY( ave_BmxNum , Avg_typeNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_BmxNum , Avg_typeNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -157,7 +158,7 @@ void makeCATDESC()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "Electric field maximum intensity" );
 
-  input_CHARzENTRY( ave_EmxNum , CatdescNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EmxNum , CatdescNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -166,7 +167,7 @@ void makeCATDESC()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "Electric field average intensity" );
 
-  input_CHARzENTRY( ave_EavNum , CatdescNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EavNum , CatdescNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -175,7 +176,7 @@ void makeCATDESC()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "Magnetic field maximum intensity" );
 
-  input_CHARzENTRY( ave_BmxNum , CatdescNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_BmxNum , CatdescNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -215,6 +216,13 @@ void makeCATDESC()
   free( zEntryValue );
   //================================================================
 
+  //===== Eaxis ===================================================
+  zEntryLen = ( long )strlen( "Electric field anntena axis Flag" );
+  zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
+  strcpy( zEntryValue , "Electric field anntena axis Flag" );
+
+  input_CHARzENTRY( ave_EaxisNum , CatdescNum , zEntryLen , zEntryValue );
+  free( zEntryValue );
 }
 
 //**************************************************************************
@@ -237,7 +245,7 @@ void makeDEPEND_0()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "Epoch" );
 
-  input_CHARzENTRY( ave_EmxNum , DEPEND0Num , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EmxNum , DEPEND0Num , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -246,7 +254,7 @@ void makeDEPEND_0()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "Epoch" );
 
-  input_CHARzENTRY( ave_EavNum , DEPEND0Num , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EavNum , DEPEND0Num , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -255,7 +263,7 @@ void makeDEPEND_0()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "Epoch" );
 
-  input_CHARzENTRY( ave_BmxNum , DEPEND0Num , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_BmxNum , DEPEND0Num , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -276,6 +284,14 @@ void makeDEPEND_0()
   input_CHARzENTRY( ave_PGapNum , DEPEND0Num , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
+
+  //===== Eaxis ===================================================
+  zEntryLen = ( long )strlen( "Epoch" );
+  zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
+  strcpy( zEntryValue , "Epoch" );
+
+  input_CHARzENTRY( ave_EaxisNum , DEPEND0Num , zEntryLen , zEntryValue );
+  free( zEntryValue );
 }
 
 
@@ -299,7 +315,7 @@ void makeDEPEND_1()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "channel" );
 
-  input_CHARzENTRY( ave_EmxNum , DEPEND1Num , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EmxNum , DEPEND1Num , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -308,7 +324,7 @@ void makeDEPEND_1()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "channel" );
 
-  input_CHARzENTRY( ave_EavNum , DEPEND1Num , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EavNum , DEPEND1Num , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -317,7 +333,7 @@ void makeDEPEND_1()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "channel" );
 
-  input_CHARzENTRY( ave_BmxNum , DEPEND1Num , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_BmxNum , DEPEND1Num , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -352,7 +368,7 @@ void makeDICT_KEY()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "ELECTRIC_FIELD > antenna" );
 
-  input_CHARzENTRY( ave_EmxNum , DictkeyNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EmxNum , DictkeyNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -361,7 +377,7 @@ void makeDICT_KEY()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "ELECTRIC_FIELD > antenna" );
 
-  input_CHARzENTRY( ave_EavNum , DictkeyNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EavNum , DictkeyNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -370,7 +386,7 @@ void makeDICT_KEY()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "MAGNETIC_FIELD > antenna" );
 
-  input_CHARzENTRY( ave_BmxNum , DictkeyNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_BmxNum , DictkeyNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -431,7 +447,7 @@ void makeDISPLAY_TYPE()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "time_series" );
 
-  input_CHARzENTRY( ave_EmxNum ,  DisplaytypeNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EmxNum ,  DisplaytypeNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -440,7 +456,7 @@ void makeDISPLAY_TYPE()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "time_series" );
 
-  input_CHARzENTRY( ave_EavNum , DisplaytypeNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EavNum , DisplaytypeNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -449,7 +465,7 @@ void makeDISPLAY_TYPE()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "time_series" );
 
-  input_CHARzENTRY( ave_BmxNum , DisplaytypeNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_BmxNum , DisplaytypeNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -470,6 +486,14 @@ void makeDISPLAY_TYPE()
   input_CHARzENTRY( ave_PGapNum , DisplaytypeNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
+
+  //===== Eaxis ====================================================
+  zEntryLen = ( long )strlen( "time_series" );
+  zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
+  strcpy( zEntryValue , "time_series" );
+
+  input_CHARzENTRY( ave_EaxisNum , DisplaytypeNum , zEntryLen , zEntryValue );
+  free( zEntryValue );
 
 }
 
@@ -493,7 +517,7 @@ void makeFIELDNAM()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "electric field maximum intensity" );
 
-  input_CHARzENTRY( ave_EmxNum , FieldnamNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EmxNum , FieldnamNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -502,7 +526,7 @@ void makeFIELDNAM()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "electric field average intensity" );
 
-  input_CHARzENTRY( ave_EavNum , FieldnamNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EavNum , FieldnamNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -511,7 +535,7 @@ void makeFIELDNAM()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "magnetic field maximum intensity" );
 
-  input_CHARzENTRY( ave_BmxNum , FieldnamNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_BmxNum , FieldnamNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -551,6 +575,15 @@ void makeFIELDNAM()
   free( zEntryValue );
   //================================================================
 
+  //===== Eaxis ====================================================
+  zEntryLen = ( long )strlen( "Electric field anntena axis Flag" );
+  zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
+  strcpy( zEntryValue , "Electric field anntena axis Flag" );
+
+  input_CHARzENTRY( ave_EaxisNum ,FieldnamNum , zEntryLen , zEntryValue );
+  free( zEntryValue );
+  //================================================================
+
 }
 
 //**************************************************************************
@@ -568,6 +601,7 @@ void makeFILLVAL()
   double EpochValue[ 1 ];
   float channelValue[ 1 ];
   int PostgapValue[ 1 ];
+  int EaxisflagValue[ 1 ];
 
   //***** v属性を作る関数を呼ぶ
   input_vATTR( "FILLVAL" , &FillvalNum );
@@ -576,21 +610,21 @@ void makeFILLVAL()
   zEntryLen = 1;
   zEntryValue[ 0 ] = ( unsigned char )255;
 
-  input_UINT1zENTRY( ave_EmxNum , FillvalNum , zEntryLen , zEntryValue );  
+  input_UINT1zENTRY( ave_EmxNum , FillvalNum , zEntryLen , zEntryValue );
   //================================================================
 
   //===== Eave =====================================================
   //  zEntryLen = 1;
   //  zEntryValue[ 0 ] = ( unsigned char )255;
 
-  input_UINT1zENTRY( ave_EavNum , FillvalNum , zEntryLen , zEntryValue );  
+  input_UINT1zENTRY( ave_EavNum , FillvalNum , zEntryLen , zEntryValue );
   //================================================================
 
   //===== Bmax =====================================================
   //  zEntryLen = 1;
   //  zEntryValue[ 0 ] = ( unsigned char )255;
 
-  input_UINT1zENTRY( ave_BmxNum , FillvalNum , zEntryLen , zEntryValue );  
+  input_UINT1zENTRY( ave_BmxNum , FillvalNum , zEntryLen , zEntryValue );
   //================================================================
 
   //===== Bave =====================================================
@@ -621,6 +655,13 @@ void makeFILLVAL()
 
   input_UINT4zENTRY( ave_PGapNum , FillvalNum , zEntryLen , PostgapValue );
   //================================================================
+
+  //===== Eaxis ====================================================
+  zEntryLen = 1;
+  // EaxisflagValueにNot a numberを入れる
+  EaxisflagValue[ 0 ] = 2;
+
+  input_UINT1zENTRY( ave_EaxisNum , FillvalNum , zEntryLen , EaxisflagValue );
 }
 
 //**************************************************************************
@@ -643,7 +684,7 @@ void makeFORMAT()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "%3d" );
 
-  input_CHARzENTRY( ave_EmxNum , FormatNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EmxNum , FormatNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -652,7 +693,7 @@ void makeFORMAT()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "%3d" );
 
-  input_CHARzENTRY( ave_EavNum , FormatNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EavNum , FormatNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -661,7 +702,7 @@ void makeFORMAT()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "%3d" );
 
-  input_CHARzENTRY( ave_BmxNum , FormatNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_BmxNum , FormatNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -692,6 +733,15 @@ void makeFORMAT()
   free( zEntryValue );
   //================================================================
 
+  //===== Eaxis ====================================================
+  zEntryLen = ( long )strlen( "%1u" );
+  zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
+  strcpy( zEntryValue , "%1u" );
+
+  input_CHARzENTRY( ave_EaxisNum , FormatNum , zEntryLen , zEntryValue );
+  free( zEntryValue );
+  //================================================================
+
 }
 
 //**************************************************************************
@@ -714,7 +764,7 @@ void makeLABLAXIS()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "E field" );
 
-  input_CHARzENTRY( ave_EmxNum , LablaxisNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EmxNum , LablaxisNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -723,7 +773,7 @@ void makeLABLAXIS()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "E field" );
 
-  input_CHARzENTRY( ave_EavNum , LablaxisNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EavNum , LablaxisNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -732,7 +782,7 @@ void makeLABLAXIS()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "B field" );
 
-  input_CHARzENTRY( ave_BmxNum , LablaxisNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_BmxNum , LablaxisNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -771,6 +821,16 @@ void makeLABLAXIS()
   input_CHARzENTRY( ave_PGapNum , LablaxisNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
+
+  //===== Eaxis ====================================================
+  zEntryLen = ( long )strlen( "Eaxis" );
+  zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
+  strcpy( zEntryValue , "Eaxis" );
+
+  input_CHARzENTRY( ave_EaxisNum , LablaxisNum , zEntryLen , zEntryValue );
+  free( zEntryValue );
+  //================================================================
+
 }
 
 //**************************************************************************
@@ -864,7 +924,7 @@ void makeUNITS()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "dB" );
 
-  input_CHARzENTRY( ave_EmxNum , UnitsNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EmxNum , UnitsNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -873,7 +933,7 @@ void makeUNITS()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "dB" );
 
-  input_CHARzENTRY( ave_EavNum , UnitsNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EavNum , UnitsNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -882,7 +942,7 @@ void makeUNITS()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "dB" );
 
-  input_CHARzENTRY( ave_BmxNum , UnitsNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_BmxNum , UnitsNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -931,7 +991,7 @@ void makeVALIDMAX()
   double EpochValue[ 1 ];
   float channelValue[ 1 ];
   int PostgapValue[ 1 ];
-
+  int Eaxisflag_valid_max_value[ 1 ];
 
   //***** v属性を作る関数を呼ぶ
   input_vATTR( "VALIDMAX" , &ValidmaxNum );
@@ -986,6 +1046,13 @@ void makeVALIDMAX()
   input_UINT4zENTRY( ave_PGapNum , ValidmaxNum , zEntryLen , PostgapValue );
   //================================================================
 
+  //===== Eaxis ===================================================
+  zEntryLen = 1;
+  Eaxisflag_valid_max_value[ 0 ] = 1;
+
+  input_UINT1zENTRY( ave_EaxisNum , ValidmaxNum , zEntryLen , Eaxisflag_valid_max_value );
+  //================================================================
+
 }
 
 //**************************************************************************
@@ -1004,6 +1071,7 @@ void makeVALIDMIN()
   double EpochValue[ 1 ];
   float channelValue[ 1 ];
   int PostgapValue[ 1 ];
+  int Eaxisflag_valid_min_value[ 1 ];
 
 
   //***** v属性を作る関数を呼ぶ
@@ -1058,6 +1126,14 @@ void makeVALIDMIN()
 
   input_UINT4zENTRY( ave_PGapNum , ValidminNum , zEntryLen , PostgapValue );
   //================================================================
+
+  //===== Eaxis ===================================================
+  zEntryLen = 1;
+  Eaxisflag_valid_min_value[ 0 ] = 0;
+
+  input_UINT1zENTRY( ave_EaxisNum , ValidminNum , zEntryLen , Eaxisflag_valid_min_value );
+  //================================================================
+
 }
 
 //**************************************************************************
@@ -1082,7 +1158,7 @@ void makeVAR_NOTE()
 
   strcpy( zEntryValue , "dB" );
 
-  input_CHARzENTRY( ave_EmxNum , VarnoteNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EmxNum , VarnoteNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -1093,7 +1169,7 @@ void makeVAR_NOTE()
 
   strcpy( zEntryValue , "dB" );
 
-  input_CHARzENTRY( ave_EavNum , VarnoteNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EavNum , VarnoteNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -1104,7 +1180,7 @@ void makeVAR_NOTE()
 
   strcpy( zEntryValue , "dB" );
 
-  input_CHARzENTRY( ave_BmxNum , VarnoteNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_BmxNum , VarnoteNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -1129,6 +1205,18 @@ void makeVAR_NOTE()
   input_CHARzENTRY( ave_PGapNum , VarnoteNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
+
+  //===== Eaxis =====================================================
+  zEntryLen = ( long )strlen( "The flag indicating which component of the electric field in the satellite coordinate was measured\n 0  : x sensor\n 1  : y sensor\n 2  : none\n 3  : sensor switched within an average second." );
+
+  zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
+
+  strcpy( zEntryValue , "The flag indicating which component of the electric field in the satellite coordinate was measured\n 0  : x sensor\n 1  : y sensor\n 2  : none\n 3  : sensor switched within an average second." );
+
+  input_CHARzENTRY( ave_EaxisNum , VarnoteNum , zEntryLen , zEntryValue );
+  free( zEntryValue );
+  //================================================================
+
 }
 
 //**************************************************************************
@@ -1151,7 +1239,7 @@ void makeVAR_TYPE()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "data" );
 
-  input_CHARzENTRY( ave_EmxNum , VartypeNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EmxNum , VartypeNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -1160,7 +1248,7 @@ void makeVAR_TYPE()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "data" );
 
-  input_CHARzENTRY( ave_EavNum , VartypeNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_EavNum , VartypeNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -1169,7 +1257,7 @@ void makeVAR_TYPE()
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
   strcpy( zEntryValue , "data" );
 
-  input_CHARzENTRY( ave_BmxNum , VartypeNum , zEntryLen , zEntryValue );  
+  input_CHARzENTRY( ave_BmxNum , VartypeNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 
@@ -1208,6 +1296,16 @@ void makeVAR_TYPE()
   input_CHARzENTRY( ave_PGapNum , VartypeNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
+
+  //===== Eaxis =====================================================
+  zEntryLen = ( long )strlen( "support_data" );
+  zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
+  strcpy( zEntryValue , "support_data" );
+
+  input_CHARzENTRY( ave_EaxisNum , VartypeNum , zEntryLen , zEntryValue );
+  free( zEntryValue );
+  //================================================================
+
 }
 
 //***************************************************************
@@ -1230,7 +1328,7 @@ void input_vATTR( vAttrName , vAttrNum )
   //***** g属性を作る
   status = CDFlib( CREATE_ , ATTR_ , vAttrName , v_scope , vAttrNum ,
 		   NULL_ );
-  
+
   if ( status != CDF_OK ) StatusHandler( status );
 
 }
@@ -1246,7 +1344,7 @@ void input_CHARzENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
 {
 
   char res[ 1000 ];
-  
+
   //***** 書き込みたいCDFファイルを選択
   status = CDFlib( SELECT_ , CDF_ , crid ,
 		   NULL_ );
@@ -1261,7 +1359,7 @@ void input_CHARzENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
                     NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
-  
+
   //  printf("%s \n",res);
 
 }
@@ -1277,7 +1375,7 @@ void input_FLOATzENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
 {
 
   float res[ 1 ];
-  
+
   //***** 書き込みたいCDFファイルを選択
   status = CDFlib( SELECT_ , CDF_ , crid ,
 		   NULL_ );
@@ -1292,7 +1390,7 @@ void input_FLOATzENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
                     NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
-  
+
   //  printf("%f \n",res[ 0 ] );
 
 }
@@ -1308,7 +1406,7 @@ void input_UINT1zENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
 {
 
   unsigned char res[ 1 ];
-  
+
   //***** 書き込みたいCDFファイルを選択
   status = CDFlib( SELECT_ , CDF_ , crid ,
 		   NULL_ );
@@ -1323,7 +1421,7 @@ void input_UINT1zENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
                     NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
-  
+
   //  printf("%d \n",res[ 0 ] );
 
 }
@@ -1339,7 +1437,7 @@ void input_UINT4zENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
 {
 
   int res[ 1 ];
-  
+
   //***** 書き込みたいCDFファイルを選択
   status = CDFlib( SELECT_ , CDF_ , crid ,
 		   NULL_ );
@@ -1354,7 +1452,7 @@ void input_UINT4zENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
                     NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
-  
+
   //  printf("%d \n",res[ 0 ] );
 
 }
@@ -1378,8 +1476,8 @@ void input_EPOCHzENTRY( zEntryNum , vAttrNum , zEntryLen , zEntryValue )
   long min;
   long sec;
   long msec;
-  
-  
+
+
   //***** 書き込みたいCDFファイルを選択
   status = CDFlib( SELECT_ , CDF_ , crid ,
 		   NULL_ );
