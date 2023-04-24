@@ -1,10 +1,10 @@
 /*
- *    MCA—pCDFƒtƒ@ƒCƒ‹‚Ì n•b•½‹ÏCDFƒtƒ@ƒCƒ‹ ‚Ìglobal Attribute‚ğì‚éƒvƒƒOƒ‰ƒ€
- *    - global Attribute ‚Í 20ŒÂ ‚ ‚è‚Ü‚·B
+ *    MCAç”¨CDFãƒ•ã‚¡ã‚¤ãƒ«ã® nç§’å¹³å‡CDFãƒ•ã‚¡ã‚¤ãƒ« ã®global Attributeã‚’ä½œã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
+ *    - global Attribute ã¯ 20å€‹ ã‚ã‚Šã¾ã™ã€‚
  *
  *    By Y. Ozaki     2005.11.04
  *
- *    ÅIXV“ú : 2005.11.04
+ *    æœ€çµ‚æ›´æ–°æ—¥ : 2005.11.04
  */
 
 #include <stdio.h>
@@ -15,7 +15,7 @@
 #include "cdf.h"
 #include "average.h"
 //**************************************************************************
-//global_attr() : gloal attribute ‚ğì‚éŠÖ”‚Ìmain
+//global_attr() : gloal attribute ã‚’ä½œã‚‹é–¢æ•°ã®main
 
 extern CDFid crid;
 extern CDFstatus status;
@@ -29,27 +29,27 @@ int global_attr( ymd )
   char date[ 3 ][ 5 ];
   int i;
 
-  //gƒGƒ“ƒgƒŠ[‚É•K—v‚È•Ï”
-  long data_char = CDF_CHAR;     // ƒf[ƒ^Œ^
-  long gEntryLen = 0;            // ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”
-  char gEntryValue[ 150 ] = "";  // ‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
-  char* Rule;                    // Rules_of_use —p‘ã“ü‚·‚é•¶š—ñ‚ğ‚¢‚ê‚é”z—ñ
-                                 // - •¶š”‚ª‘½‚¢‚©‚ç
+  //gã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å¿…è¦ãªå¤‰æ•°
+  long data_char = CDF_CHAR;     // ãƒ‡ãƒ¼ã‚¿å‹
+  long gEntryLen = 0;            // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°
+  char gEntryValue[ 150 ] = "";  // ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+  char* Rule;                    // Rules_of_use ç”¨ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã‚’ã„ã‚Œã‚‹é…åˆ—
+                                 // - æ–‡å­—æ•°ãŒå¤šã„ã‹ã‚‰
 
   //===== Acknowledgement =========================================
 
-  //***** g‘®«–¼‚ğgAttrName[]‚É‘ã“ü
+  //***** gå±æ€§åã‚’gAttrName[]ã«ä»£å…¥
   strcpy( gAttrName , "Acknowledgement" );
 
-  //***** gƒGƒ“ƒgƒŠ[‚ğgEntryValue[]‚É‘ã“ü
+  //***** gã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’gEntryValue[]ã«ä»£å…¥
   strcpy( gEntryValue , "AKEBONO VLF-MCA data were provided by Akebono VLF team through the data archive system at Kanazawa University in Japan." );
 
-  //***** ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”‚ğ’²‚×‚é
+  //***** ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°ã‚’èª¿ã¹ã‚‹
   gEntryLen = ( long )strlen( gEntryValue );
 
   if( gEntryLen > 150 ) printf("over string!!\n");
 
-  //***** g‘®«‚ğì‚Á‚ÄA‚»‚ÌgƒGƒ“ƒgƒŠ[‚É’l‚ğŠi”[‚·‚éŠÖ”‚ğŒÄ‚Ô
+  //***** gå±æ€§ã‚’ä½œã£ã¦ã€ãã®gã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°ã‚’å‘¼ã¶
   input_gATTR( gAttrName , gEntryValue , gEntryLen , data_char );
 
   //================================================================
@@ -65,18 +65,18 @@ int global_attr( ymd )
 
   //===== Data_type ================================================
 
-  //***** g‘®«–¼‚ğgAttrName[]‚É‘ã“ü
+  //***** gå±æ€§åã‚’gAttrName[]ã«ä»£å…¥
   strcpy( gAttrName , "Data_type" );
 
-  //***** gƒGƒ“ƒgƒŠ[‚ğgEntryValue[]‚É‘ã“ü
+  //***** gã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’gEntryValue[]ã«ä»£å…¥
   sprintf( gEntryValue , "%s%d > High Resolution data" , RESOLUTION_LARGE , RESOLUTION_NUM );
 
-  //***** ‘ã“ü‚·‚é•¶š—ñ‚Ì•¶š”‚ğ’²‚×‚é
+  //***** ä»£å…¥ã™ã‚‹æ–‡å­—åˆ—ã®æ–‡å­—æ•°ã‚’èª¿ã¹ã‚‹
   gEntryLen = ( long )strlen( gEntryValue );
 
   if( gEntryLen > 150 ) printf("over string!!\n");
 
-  //***** g‘®«‚ğì‚Á‚ÄA‚»‚ÌgƒGƒ“ƒgƒŠ[‚É’l‚ğŠi”[‚·‚éŠÖ”‚ğŒÄ‚Ô
+  //***** gå±æ€§ã‚’ä½œã£ã¦ã€ãã®gã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°ã‚’å‘¼ã¶
   input_gATTR( gAttrName , gEntryValue , gEntryLen , data_char );
 
   //================================================================
@@ -84,7 +84,7 @@ int global_attr( ymd )
   //===== Data_version =============================================
   strcpy( gAttrName , "Data_version" );
 
-  //***** CDFƒtƒ@ƒCƒ‹ì¬“ú(¡“ú‚Ì“ú•t)‚ğ’²‚×‚é
+  //***** CDFãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆæ—¥(ä»Šæ—¥ã®æ—¥ä»˜)ã‚’èª¿ã¹ã‚‹
 
   sprintf( gEntryValue , "%d" , VERSION ); 
 
@@ -123,7 +123,7 @@ int global_attr( ymd )
   //===== Generation_date ==========================================
   strcpy( gAttrName , "Generation_date" );
 
-  //***** CDFƒtƒ@ƒCƒ‹ì¬“ú(¡“ú‚Ì“ú•t)‚ğ’²‚×‚é
+  //***** CDFãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆæ—¥(ä»Šæ—¥ã®æ—¥ä»˜)ã‚’èª¿ã¹ã‚‹
   get_date( date );
 
   strcpy( gEntryValue , date[ 0 ]);
@@ -301,7 +301,7 @@ int global_attr( ymd )
 
 
 //***************************************************************
-//input_gATTR() : g‘®«‚ğì‚Á‚ÄA‚»‚ÌgƒGƒ“ƒgƒŠ[‚É’l‚ğŠi”[‚·‚éŠÖ”
+//input_gATTR() : gå±æ€§ã‚’ä½œã£ã¦ã€ãã®gã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«å€¤ã‚’æ ¼ç´ã™ã‚‹é–¢æ•°
 
 void input_gATTR( gAttrName , gEntryValue , gEntryLen , dataType )
      char* gAttrName;
@@ -311,7 +311,7 @@ void input_gATTR( gAttrName , gEntryValue , gEntryLen , dataType )
 {
   CDFstatus status;
 
-  //g‘®«‚ğì‚é‚½‚ß‚Ì•Ï”
+  //gå±æ€§ã‚’ä½œã‚‹ãŸã‚ã®å¤‰æ•°
   long g_scope = GLOBAL_SCOPE;
   long gAttrNum;
 
@@ -319,27 +319,27 @@ void input_gATTR( gAttrName , gEntryValue , gEntryLen , dataType )
 
   char res[ 1000 ];
 
-  //***** ‘‚«‚İ‚½‚¢CDFƒtƒ@ƒCƒ‹‚ğ‘I‘ğ
+  //***** æ›¸ãè¾¼ã¿ãŸã„CDFãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠ
   status = CDFlib( SELECT_ , CDF_ , crid ,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
 
-  //***** g‘®«‚ğì‚é
+  //***** gå±æ€§ã‚’ä½œã‚‹
   status = CDFlib( CREATE_ , ATTR_ , gAttrName , g_scope , &gAttrNum ,
 		   NULL_ );
   
   if ( status != CDF_OK ) StatusHandler( status );
 
 
-  //***** ƒfƒtƒHƒ‹ƒg‚Ìg‘®«ƒGƒ“ƒgƒŠ[‚ğ‘I‘ğ‚µAgƒGƒ“ƒgƒŠ[”Ô†‚ğŠl“¾‚·‚é
+  //***** ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®gå±æ€§ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’é¸æŠã—ã€gã‚¨ãƒ³ãƒˆãƒªãƒ¼ç•ªå·ã‚’ç²å¾—ã™ã‚‹
   status = CDFlib( SELECT_ , gENTRY_ , gEntryNum ,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
 
-  //***** g‘®«‚ğ‘I‘ğ‚µ‚ÄAgƒGƒ“ƒgƒŠ[‚Éƒf[ƒ^‚ğ‘ã“ü‚·‚é
-  //- GET‚Í•K—v‚È‚¢‚Ì‚ÅAÅI“I‚ÉÁ‚·!!
+  //***** gå±æ€§ã‚’é¸æŠã—ã¦ã€gã‚¨ãƒ³ãƒˆãƒªãƒ¼ã«ãƒ‡ãƒ¼ã‚¿ã‚’ä»£å…¥ã™ã‚‹
+  //- GETã¯å¿…è¦ãªã„ã®ã§ã€æœ€çµ‚çš„ã«æ¶ˆã™!!
   status = CDFlib(  SELECT_ , ATTR_ , gAttrNum ,
 		              gENTRY_ , gEntryNum ,
 		    PUT_ , gENTRY_DATA_ , dataType , gEntryLen , gEntryValue ,
@@ -353,7 +353,7 @@ void input_gATTR( gAttrName , gEntryValue , gEntryLen , dataType )
 }
 
 //***************************************************************
-//get_date() : Œ»İ‚Ì”NŒ“ú‚ğ’m‚é
+//get_date() : ç¾åœ¨ã®å¹´æœˆæ—¥ã‚’çŸ¥ã‚‹
 void get_date( date )
      char date[][ 5 ];
 {
@@ -367,15 +367,15 @@ void get_date( date )
   month = lt -> tm_mon + 1;
   day = lt -> tm_mday;
 
-  //***** year ‚ğ intŒ^ ‚©‚ç charŒ^ ‚É•ÏŠ·‚·‚é
+  //***** year ã‚’ intå‹ ã‹ã‚‰ charå‹ ã«å¤‰æ›ã™ã‚‹
   sprintf( date[ 0 ] , "%4d" , year );
 
-  //***** month ‚ğ intŒ^ ‚©‚ç charŒ^ ‚É•ÏŠ·‚·‚é
+  //***** month ã‚’ intå‹ ã‹ã‚‰ charå‹ ã«å¤‰æ›ã™ã‚‹
   date[ 1 ][ 0 ] = ( int )( month / 10 ) + '0';
   date[ 1 ][ 1 ] = ( int )( month % 10 ) + '0';
   date[ 1 ][ 2 ] = '\0';
 
-  //***** day ‚ğ intŒ^ ‚©‚ç charŒ^ ‚É•ÏŠ·‚·‚é
+  //***** day ã‚’ intå‹ ã‹ã‚‰ charå‹ ã«å¤‰æ›ã™ã‚‹
   date[ 2 ][ 0 ] = ( int )( day / 10 ) + '0';
   date[ 2 ][ 1 ] = ( int )( day % 10 ) + '0';
   date[ 2 ][ 2 ] = '\0';

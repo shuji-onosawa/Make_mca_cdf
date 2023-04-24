@@ -1,0 +1,80 @@
+Acknowledgement,AKEBONO VLF-MCA data were provided by Akebono VLF team through the data archive system at Kanazawa University in Japan.
+ADID_ref,NSSD0241 
+Data_type,H1 > High Resolution data
+Data_version,2
+Descriptor,MCA > multi channel analyzer
+Discipline,Space Physics > Magnetospheric Science
+Generated_by,KANAZAWA University
+Generation_date,20230322
+Instrument_type,Radio and Plasma Waves(space)
+Logical_file_id,AK_H1_MCA_19900201_V02
+Logical_source,AK_H1_MCA
+Logical_source_description,Akebono Radio and Plasma Waves High Resolution data
+Mission_group,Akebono
+MODS, 
+PI_affiliation,KANAZAWA University
+PI_name,I. Nagano
+Project, 
+Rules_of_use," In order to confirm the reliability of the data, you are requested to contact the VLF PI, Prof. Isamu Nagano before using the VLF-MCA data in oral/poster presentations. In the publishment, you should contact to the VLF PI and contact person before the submission for the confirmation of the principle of authorship/aknowledgement. You are also requested to send reprints to AKEBONO Project Office and the VLF PI:
+
+AKEBONO Project Office:
+  Dr. Ayako Matsuoka (Project Scientist),
+  Institute of Space and Astronautical Science,
+  3-1-1 Yoshinodai, Sagamihara, Kanagawa 252-0222, Japan
+  E-mail: matsuoka@isas.jaxa.jp
+  FAX: +81-42-759-8456
+
+VLF PI:
+  Prof. Isamu Nagano,
+  Kanazawa University,
+  Kakuma, Kanazawa 920-1192, Japan
+  E-mail: nagano@is.t.kanazawa-u.ac.jp
+  FAX: +81-76-234-4859
+
+For further information, please contact with:
+  Prof. Yoshiya Kasahara
+  Kanazawa University,
+  Kakuma, Kanazawa 920-1192, Japan
+  E-mail: kasahara@is.t.kanazawa-u.ac.jp
+  FAX: +81-76-234-4952
+"
+source_name,Akebono > Akebono satellite
+TEXT,"Kimura, I., K. Hashimoto, I. Nagano, T. Okada, M. Yamamoto, T. Yoshino, H. Matsumoto, M. Ejiri, and K. Hayashi,
+VLF observations by the Akebono (EXOS-D) satellite,
+J. Geomagn. Geoelectr., 42(4), pp.459-478, 1990
+"
+Time_resolution,8s
+TITLE,Akebono MCA High resolution data
+Start_time,1990_02/01_0:0:0:0
+End_time,1990_02/01_23:59:59:999
+"
+"
+date,Emax,Eave,Bmax,Bave,PostGap,Epoch,channel
+0201,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0202,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0203,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0204,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0205,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0206,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0207,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0208,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0209,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0210,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0211,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0212,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0213,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0214,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0215,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0216,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0217,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0218,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0219,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0220,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0221,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0222,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0223,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0224,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0225,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0226,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0227,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"
+0228,"(10800, 16)","(10800, 16)","(10800, 16)","(10800, 16)","(10800,)","(10800,)","(16,)"

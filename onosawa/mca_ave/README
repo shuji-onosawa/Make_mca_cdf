@@ -1,11 +1,11 @@
-mcs_ave
- 
+mca_ave
+
  MCA生CDFからn秒平均CDFファイルを生成する。
  実行方法は、実行ファイル名 bnd (Makefileに明記)と作成したいファイルの年月日
  と何秒平均するかを指定する。
         bnd YYYY MM DD n
  n は 平均したい秒数(1から60秒まで)。
- (tamesi.sh に例を明記)
+ (例: mkCDF.sh)
  実行する前に、CDFが生成されるフォルダー内に名前「YYYY」のフォルダーが存在し
  なければならない。
 
@@ -17,7 +17,7 @@ average.h : ヘッダーファイル
                 MAX_ARGC は実行コマンドの単語数を定義。
 
 mca_ave.c    : main()
-		
+
 	       openCDF()
 		平均するMCA生CDFを開く。
 		"remote/raid4/MCADB/CDF-H0/YYYY/ak_h0_mca_YYYYMMDD_v01"
@@ -63,8 +63,8 @@ mca_ave.c    : main()
 		平均計算を行う。
 	       StatusHandler()
 		CDFステータスハンドラー。
-		
-create_cdf.c : 
+
+create_cdf.c :
 	       createCDF()
 		平均結果を保存するCDFファイルを作成する
 		"remote/raid4/MCADB/CDF-H30/YYYY/ak_h30_mca_YYYYMMDD_v01"

@@ -1,27 +1,27 @@
  /*
- *    MCA�f�[�^��CDF�t�@�C��(0.25�b�Ԋu)��n�b���ς���B
- *    �����āA�����V����CDF�t�@�C���ɕۑ�����B
- *    n �b 1 ���R�[�h�ɂ���B
+ *    MCAデータのCDFファイル(0.25秒間隔)をn秒平均する。
+ *    そして、それを新しいCDFファイルに保存する。
+ *    n 秒 1 レコードにする。
  *
  *    By Y. Ozaki
  *
  *    2005.11.3
  *
- *    - ���s�R�}���h ave yyyy mm dd n
- *    - Epoch �� Spacerecord �ɂ��܂���ł���(�`��̓s����)�B
+ *    - 実行コマンド ave yyyy mm dd n
+ *    - Epoch は Spacerecord にしませんでした(描画の都合上)。
  *                                                2005.12.19
- *    - �������̋��ߕ��Ԉ���Ă��̏C�����܂����B
+ *    - 実効長の求め方間違ってたの修正しました。
  *                                                2006. 1. 6
- *    - �ш敝�Ŋ������l�����ʂƂ��܂��B
+ *    - 帯域幅で割った値を結果とします。
  *                                                2006. 1.10
  *
- *    hyper access �𓱓����č��������͂���܂����B
- *    variable attributes �̕s��𒼂��܂����B
- *    global attributes ��ST ET ��ǉ����܂����B
+ *    hyper access を導入して高速化をはかりました。
+ *    variable attributes の不具合を直しました。
+ *    global attributes にST ET を追加しました。
  *
  *                         by Masanori Aoki       2007. 1.31
  *
- *    �ŏI�X�V�� : 2007. 1.31
+ *    最終更新日 : 2007. 1.31
  */
 
 #include <stdio.h>
@@ -39,7 +39,7 @@ CDFstatus status;
 
 char input[ 20 ];
 
-//�e�ϐ��̕ϐ�id
+//各変数の変数id
 long EmaxNum;
 long EaveNum;
 long BmaxNum;
@@ -60,7 +60,7 @@ float bfact[ NUM_CHANNEL ];
 int main( int argc , char *argv[] )
 {
   clock_t start,end;
-  int sec;
+  float sec;
   int k;
 
   int len_ymd[ 4 ];
@@ -71,11 +71,11 @@ int main( int argc , char *argv[] )
     exit(1);
   }
 
-  //***** ���͂��ꂽ�N �� �� �̕�����̒����𒲂ׂ�
+  //***** 入力された年 月 日 の文字列の長さを調べる
   /*
   for( k = 1 ; k < argc ; k++ ) {
     len_ymd[ k - 1 ] = strlen( argv[ k ] );
-  } 
+  }
   if( len_ymd[ 0 ] != 4 ) {
     printf("Input ERROR of YEAR.\n");
     exit(1);
@@ -93,8 +93,8 @@ int main( int argc , char *argv[] )
     exit(1);
   }
   */
-  
-  //***** ���͂��ꂽ�N �� �� �� ���ς̕b �� �z��ymd[] �ɕۑ�
+
+  //***** 入力された年 月 日 と 平均の秒 を 配列ymd[] に保存
   //year
   strcpy( ymd[ 0 ] ,argv[ 1 ] );
 
@@ -143,7 +143,7 @@ int main( int argc , char *argv[] )
 
 
 //**************************************************************************
-//openCDF() : MCA�f�[�^��CDF�t�@�C�����J���֐�
+//openCDF() : MCAデータのCDFファイルを開く関数
 void openCDF( ymd )
      char ymd[][ 5 ];
 {
@@ -151,7 +151,7 @@ void openCDF( ymd )
 
   int k;
 
-  //***** �I�[�v������t�@�C�������쐬
+  //***** オープンするファイル名を作成
 
   sprintf( fpname , "%s%s/ak_h0_mca_%s%s%s_v01" , OPNAME , ymd[ 0 ] , ymd[ 0 ] , ymd[ 1 ] , ymd[ 2 ] );
 
@@ -166,7 +166,7 @@ void openCDF( ymd )
 }
 
 //**************************************************************************
-//closeCDF() : �ǂ�CDF�t�@�C�������֐�
+//closeCDF() : 読んだCDFファイルを閉じる関数
 void closeCDF()
 {
   status = CDFclose ( opid );
@@ -180,7 +180,7 @@ void closeCDF()
 }
 
 //**************************************************************************
-//get_VarNum() : �ǂ�CDF�t�@�C���̕ϐ�id���Q�b�g����֐�
+//get_VarNum() : 読んだCDFファイルの変数idをゲットする関数
 void get_VarNum()
 {
   status = CDFlib( SELECT_ , CDF_ , opid ,
@@ -199,7 +199,7 @@ void get_VarNum()
 }
 
 //**************************************************************************
-//get_Data() : �ǂ�CDF�t�@�C���� CDF_UINT1�^�ϐ� �̒l���Q�b�g����֐�
+//get_Data() : 読んだCDFファイルの CDF_UINT1型変数 の値をゲットする関数
 void get_Data( num , record , varNum , data )
      int num;
      long record;
@@ -229,17 +229,17 @@ void get_Data( num , record , varNum , data )
 		   zVAR_DIMINDICES_  , indices ,
 		   zVAR_DIMCOUNTS_   , counts ,
 		   zVAR_DIMINTERVALS_, intervals ,
-		   GET_    , zVAR_HYPERDATA_   , &value , 
+		   GET_    , zVAR_HYPERDATA_   , &value ,
 		   NULL_ );
   if ( status != CDF_OK ) StatusHandler( status );
   for(k=0;k<num;k++){
     data[k]=value[k];
   }
-  
-  
+
+
 }
 //**************************************************************************
-//get_EB() : �ǂ�CDF�t�@�C���� �d�E,���E �̒l���Q�b�g����֐�
+//get_EB() : 読んだCDFファイルの 電界,磁界 の値をゲットする関数
 void get_EB( num , record , varNum , data )
      int num;
      long record;
@@ -261,7 +261,7 @@ void get_EB( num , record , varNum , data )
   indices[0]=0;
   counts[0]=(long)num;
   intervals[0]=1;
-  
+
   status = CDFlib( SELECT_ , CDF_              , opid ,
 		   zVAR_             , varNum ,
 		   zVAR_RECNUMBER_   , recS ,
@@ -270,7 +270,7 @@ void get_EB( num , record , varNum , data )
 		   zVAR_DIMINDICES_  , indices ,
 		   zVAR_DIMCOUNTS_   , counts ,
 		   zVAR_DIMINTERVALS_, intervals ,
-		   GET_    , zVAR_HYPERDATA_   , &value , 
+		   GET_    , zVAR_HYPERDATA_   , &value ,
 		   NULL_ );
   if ( status != CDF_OK ) StatusHandler( status );
   for( k = 0 ; k < num ; k++ ) {
@@ -279,7 +279,7 @@ void get_EB( num , record , varNum , data )
 }
 
 //**************************************************************************
-//get_Epoch() : �ǂ�CDF�t�@�C����Epoch�l���Q�b�g����֐�
+//get_Epoch() : 読んだCDFファイルのEpoch値をゲットする関数
 double get_Epoch( record )
      long record;
 {
@@ -288,16 +288,16 @@ double get_Epoch( record )
   status = CDFlib( SELECT_ , CDF_            , opid ,
 		             zVAR_           , EpochNum ,
 		             zVAR_RECNUMBER_ , record ,
-		   GET_    , zVAR_DATA_      , &time, 
+		   GET_    , zVAR_DATA_      , &time,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
-  
+
   return time;
 }
 
 //**************************************************************************
-//get_PostGap() : �ǂ�CDF�t�@�C���� PostGap �̒l���Q�b�g����֐�
+//get_PostGap() : 読んだCDFファイルの PostGap の値をゲットする関数
 int get_PostGap( record )
      long record;
 {
@@ -306,18 +306,18 @@ int get_PostGap( record )
   status = CDFlib( SELECT_ , CDF_            , opid ,
 		             zVAR_           , PostGapNum ,
 		             zVAR_RECNUMBER_ , record ,
-		   GET_    , zVAR_DATA_      , &flag, 
+		   GET_    , zVAR_DATA_      , &flag,
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
-  
+
   return flag;
 }
 
 //**************************************************************************
-//get_channel() : �ǂ�CDF�t�@�C���� channel �̒l���Q�b�g����֐�
+//get_channel() : 読んだCDFファイルの channel の値をゲットする関数
 void get_channel()
-{ 
+{
   long record = 0L;
   int k;
   long recS = 0L;
@@ -327,7 +327,7 @@ void get_channel()
   long counts[ 1 ];
   long intervals[ 1 ];
 
-  //�e�`�����l���̎��g�����擾(�ϐ� channel �̒l�� GET ����)
+  //各チャンネルの周波数を取得(変数 channel の値を GET する)
   indices[0]=0;
   counts[0]=NUM_CHANNEL;
   intervals[0]=1;
@@ -339,7 +339,7 @@ void get_channel()
 		   zVAR_DIMINDICES_  , indices ,
 		   zVAR_DIMCOUNTS_   , counts ,
 		   zVAR_DIMINTERVALS_, intervals ,
-		   GET_    , zVAR_HYPERDATA_   , &freq , 
+		   GET_    , zVAR_HYPERDATA_   , &freq ,
 		   NULL_ );
   if ( status != CDF_OK ) StatusHandler( status );
   printf("\n");
@@ -350,7 +350,7 @@ void get_channel()
 }
 
 //**************************************************************************
-//get_wida() : 4ch���Ƃɂ����܂��Ă���WIDA��1ch���ɕ�����֐�
+//get_wida() : 4chごとにかたまっているWIDAを1chずつに分ける関数
 void get_wida( wida , ws )
      unsigned char wida[];
      unsigned char ws[];
@@ -368,7 +368,7 @@ void get_wida( wida , ws )
 }
 
 //**************************************************************************
-//heffe() : �A���e�i�����������߂�֐�(�d�E�p)
+//heffe() : アンテナ実効長を求める関数(電界用)
 double heffe( i )
      int i;
 {
@@ -383,11 +383,11 @@ double heffe( i )
 
   double omega , denom , real , image;
   /*
-    denom : Z �̕���
-    real  : Z �̎���
-    image : Z �̋���
+    denom : Z の分母
+    real  : Z の実部
+    image : Z の虚部
    */
-  double zabs;    // Z �̑傫��
+  double zabs;    // Z の大きさ
   double jwcs , jwcin;
   double pregain;
 
@@ -413,14 +413,14 @@ double heffe( i )
 }
 
 //**************************************************************************
-//heffb() : �A���e�i�����������߂�֐�(���E�p)
+//heffb() : アンテナ実効長を求める関数(磁界用)
 double heffb( i )
      int i;
 {
 
   double length , a;
 
-  //�e�`�����l���̃A���e�i�����������߂�
+  //各チャンネルのアンテナ実効長を求める
   if( freq[ i ] <= 164.4 ){
     a = ( log10( ( double )freq[ i ] ) - 1.0 ) * 0.8921 - 1.699;
     length = pow( 10 , a );
@@ -445,7 +445,7 @@ double heffb( i )
 }
 
 //**************************************************************************
-//abs_E_dB() : MCA�f�[�^�̒l�����Βl�����߂�֐�(�d�E�p)
+//abs_E_dB() : MCAデータの値から絶対値を求める関数(電界用)
 void abs_E_dB( E , ws )
      double E[];
      unsigned char ws[];
@@ -463,15 +463,15 @@ void abs_E_dB( E , ws )
       dBV = 20.0 * log10( E[ i ] ) - 25.0 * (double)ws[ i ] - 48.0 - 20.0;
       abs = pow( 10.0 , dBV / 20.0 ) / heffe( i );
       abs = abs * 1.0e3;
-      //�ш敝���l��
+      //帯域幅を考慮
       abs = abs / bfact[ i ];
       E[ i ] = abs * abs;
-    } 
+    }
   }
 }
 
 //**************************************************************************
-//abs_B_dB() : MCA�f�[�^�̒l�����Βl�����߂�֐�(���E�p)
+//abs_B_dB() : MCAデータの値から絶対値を求める関数(磁界用)
 void abs_B_dB( B , ws )
      double B[];
      unsigned char ws[];
@@ -496,15 +496,15 @@ void abs_B_dB( B , ws )
       }
       abs = pow( 10.0 , dBV / 20.0 ) / heffb( i ) / zzz;
       abs = abs * 1.26 * 1.0e6;
-      //�ш敝���l��
+      //帯域幅を考慮
       abs = abs / bfact[ i ];
       B[ i ] = abs * abs;
-    } 
+    }
   }
 }
 
 //**************************************************************************
-//data_total() : n�b�Ԃ�MCA�f�[�^�̍��v�����߂�֐�
+//data_total() : n秒間のMCAデータの合計を求める関数
 void data_total( total , data )
      double total[];
      double data[];
@@ -517,7 +517,7 @@ void data_total( total , data )
 }
 
 //**************************************************************************
-//data_ave() : n�b�Ԃ�MCA�f�[�^�̕��ς����߂�֐�
+//data_ave() : n秒間のMCAデータの平均を求める関数
 void data_ave( total , ave , recsp )
      double total[];
      unsigned char ave[];
@@ -537,7 +537,7 @@ void data_ave( total , ave , recsp )
 }
 
 //**************************************************************************
-//ave_data() : MCA�f�[�^�𕽋ς���֐�
+//ave_data() : MCAデータを平均する関数
 void ave_data( sec )
      float sec;
 {
@@ -548,7 +548,8 @@ void ave_data( sec )
   int q;
   long m;
   int i_max;
- 
+  int day_divided_by_n_seconds;
+
   double max[ NUM_CHANNEL ];
   double ave[ NUM_CHANNEL ];
   unsigned char wida[ NUM_WIDA ];
@@ -576,31 +577,25 @@ void ave_data( sec )
 
   int flag;
   int MCAflag = 0;
-  int VTLflag = 0;      //���R�[�h�� VIRTUAL �Ȃ��̂��܂܂�Ă�����
+  int VTLflag = 0;      //レコードが VIRTUAL なものが含まれていたか
   int BDRflag = 0;
   int SMSflag = 0;
   int BitMflag = 0;
 
-  int brHb = 0 , brHa = 0;    //���z�Ȃ� 1
+  int brHb = 0 , brHa = 0;    //仮想なら 1
 
   recsp = (int) SECSPACE * sec;
   half_recsp = recsp / 2;
   i_max = DAYSPACE - half_recsp;
+  day_divided_by_n_seconds = 86400 / sec;
 
   /**************************************************************************/
   //  half_recsp = 86400;
   //  i_max = 98400;
 
-  //input_Emax( " " , 0 );
-  //input_Emax( " " , 10799 );
-
   for( i =  half_recsp , m = 0 ; i <= i_max ; i += recsp , m ++ ) {
 
-//printf("%d\n",m);
-    //if(m==0) input_Emax( " " , m );
-    //if(m==10799) input_Emax( Emax_ave , m );
-    //else input_Emax( "", m);
-    //***** �ϐ��̏����� *****
+    //***** 変数の初期化 *****
     rec_vtl = 0;
 
     MCAflag = 0;
@@ -617,32 +612,28 @@ void ave_data( sec )
     }
     //*************************
 
-    //�S�̂�Virtual�Ŗ��߂�
-    //flag=0x01;
-    //input_PostGap( flag , m );
-
-    //Epoch ������ Virtual �����ׂ�  
+    //Epoch が何個 Virtual か調べる
     for( j = ( -1 ) * half_recsp ; j < half_recsp ; j++ ) {
       time = get_Epoch( ( long )( i + j ));
-      
-      //���R�[�h��2�ȏ�A���ŉ��z�ɂȂ��Ă��邩�𒲂ׂ�
+
+      //レコードが2つ以上連続で仮想になっているかを調べる
       if( time == EPOCH_PAD ) {
-	rec_vtl ++;
-	brHa = 1;
+        rec_vtl ++;
+        brHa = 1;
       }
       else{
-	brHa = 0;
+	      brHa = 0;
       }
       if( brHb == 1 && brHa == 1 )
-	VTLflag = 2;
-      brHb = brHa;
+	      VTLflag = 2;
+        brHb = brHa;
     }
 
     //Epoch
     time = ( ( ( double )m + 1.0 ) * ( double )sec ) - ( double )sec / 2.0 ;
     input_Epoch( time , m );
 
-    //PostGap���擾 , ����
+    //PostGapを取得 , 判定
     for( j = ( -1 ) * half_recsp ; j < half_recsp ; j++ ) {
       flag = get_PostGap( ( long )( i + j ) );
 
@@ -653,20 +644,20 @@ void ave_data( sec )
       flag = MCAflag + BDRflag + SMSflag + BitMflag;
     }
     //    printf("%d %d\n",m,flag);
-    //�r�b�g���[�gM �Ȃ̂ɁA���R�[�h����ł����z�Ȃ� �m�C�W�[�t���O �𗧂Ă�
+    //ビットレートM なのに、レコードが一個でも仮想なら ノイジーフラグ を立てる
     if( BitMflag == FLAG_BitM && rec_vtl != 0 )
       VTLflag = 2;
-    
+
     //PostGap
     flag += VTLflag;
     if((flag & 0x01) == FLAG_MCA) flag=0x01;
 
-    //n �b�Ԃ̃��R�[�h���S�ĉ��z�Ȃ� continue
+    //n 秒間のレコードが全て仮想なら continue
     if( rec_vtl == recsp ) {
       flag=0x01;
       input_PostGap( flag , m );
 
-      if(m==10799){
+      if(m==day_divided_by_n_seconds-1){
         for( q = 0 ; q < NUM_CHANNEL ; q ++ ){
           Emax_ave[q] = 0;
           Eave_ave[q] = 0;
@@ -681,11 +672,11 @@ void ave_data( sec )
       }
       //      read_Emax( m );
       continue;
-    } 
+    }
     else if(flag == FLAG_MCA){
       input_PostGap( flag , m );
 
-       if(m==10799){
+       if(m==day_divided_by_n_seconds-1){
         for( q = 0 ; q < NUM_CHANNEL ; q ++ ){
           Emax_ave[q] = 0;
           Eave_ave[q] = 0;
@@ -705,32 +696,32 @@ void ave_data( sec )
     }
     for( j = ( -1 ) * half_recsp ; j < half_recsp ; j++ ) {
 
-      //�d�E�ɂ���
-      //E_WIDA���擾
+      //電界について
+      //E_WIDAを取得
       get_Data( NUM_WIDA , ( long )( i + j ) , E_WIDANum , wida );
       get_wida( wida , ws );
-	
-      //E_max���擾
+
+      //E_maxを取得
       get_EB( NUM_CHANNEL , ( long )( i + j ) , EmaxNum , max );
       abs_E_dB( max , ws );
       data_total( Emax_total , max );
-      
-      //E_ave���擾
+
+      //E_aveを取得
       get_EB( NUM_CHANNEL , ( long )( i + j ) , EaveNum , ave );
       abs_E_dB( ave , ws );
       data_total( Eave_total , ave );
-      
-      //���E�ɂ���
-      //B_WIDA���擾
+
+      //磁界について
+      //B_WIDAを取得
       get_Data( NUM_WIDA , ( long )( i + j ) , B_WIDANum , wida );
       get_wida( wida , ws );
-      
-      //B_max���擾
+
+      //B_maxを取得
       get_EB( NUM_CHANNEL , ( long )( i + j ) , BmaxNum , max );
       abs_B_dB( max , ws );
       data_total( Bmax_total , max );
-      
-      //B_ave���擾
+
+      //B_aveを取得
       get_EB( NUM_CHANNEL , ( long )( i + j ) , BaveNum , ave );
       abs_B_dB( ave , ws );
       data_total( Bave_total , ave );
@@ -745,7 +736,7 @@ void ave_data( sec )
     input_Eave( Eave_ave , m );
     input_Bmax( Bmax_ave , m );
     input_Bave( Bave_ave , m );
-    
+
 
     //    if( ( i % 100 < 10 ) )printf("continue...%d\n",i);
 
@@ -755,14 +746,14 @@ void ave_data( sec )
 /******************************************************************************
  * Status handler.
  *
- *    average�p�d�l�ɂȂ��Ă܂�!!
+ *    average用仕様になってます!!
  ******************************************************************************/
 
 void StatusHandler (status)
      CDFstatus status;
 {
   char message[CDF_ERRTEXT_LEN+1];
-  
+
   if (status < CDF_WARN) {
     printf ("An error has occurred, halting...\n");
     CDFerror (status, message);
@@ -785,6 +776,6 @@ void StatusHandler (status)
 	  CDFerror (status, message);
 	  printf ("%s\n", message);
 	}
-      }       
+      }
   return;
 }

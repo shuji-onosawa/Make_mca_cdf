@@ -16,7 +16,7 @@ optionsはオプションです。必ずこのファイル内で入力してく�
 README
 
 # Add path for shared library
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cdf/lib/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.venv/cdf38_1-dist/src/lib
 
 # Specify directory path
 source_directory="./onosawa/mca_ave"
