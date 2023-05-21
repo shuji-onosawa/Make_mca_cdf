@@ -37,7 +37,7 @@ month="2"
 options="$year $month"
 
 # Loop through each day in March 1989
-for day in {25..26}
+for day in {1..28}
 do
   options="$year $month"
   options+=" $day 1"
