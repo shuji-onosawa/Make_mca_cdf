@@ -5,6 +5,7 @@ Make_mca_cdf ディレクトリに移動します。
 
 ./onosawa/mca_ave/average.h 内のCRNAMEを作成したcdfファイルの保存先にします。
 保存先のパスはMake_mca_cdfディレクトリからのパスにします。
+CRNAMEとsave_directoryの $year の前までは同じにします。
 
 シェルスクリプトを実行するには、以下のコマンドを実行します:
 ./run_bnd.sh
@@ -32,14 +33,21 @@ exit 0
 fi
 
 # Define year, month, and options
-year="1990"
-month="2"
+year="1993"
+month="1"
 options="$year $month"
 
-# Loop through each day in March 1989
-for day in {1..28}
+# make directory if not exist
+save_directory="./onosawa/data/CDF-H1/$year/"
+if [ ! -e $save_directory ]; then
+  mkdir -p $save_directory
+fi
+
+# set options
+days=(20)
+for day in ${days[@]};
 do
   options="$year $month"
-  options+=" $day 1"
+  options+=" $day 0.5"
   $source_directory/bnd $options
 done
