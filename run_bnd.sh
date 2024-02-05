@@ -5,6 +5,7 @@ Make_mca_cdf ディレクトリに移動します。
 
 ./onosawa/mca_ave/average.h 内のCRNAMEを作成したcdfファイルの保存先にします。
 保存先のパスはMake_mca_cdfディレクトリからのパスにします。
+CRNAMEとsave_directoryの $year の前までは同じにします。
 
 シェルスクリプトを実行するには、以下のコマンドを実行します:
 ./run_bnd.sh
