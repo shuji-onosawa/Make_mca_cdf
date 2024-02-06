@@ -531,7 +531,7 @@ void data_ave( total , ave , recsp )
     rms = sqrt( rms );
     //    rms = 20.0 * log10( rms ) + 120.0;
     //    ave[ i ] = ( unsigned char )rms;
-    ave[ i ] = ( unsigned char )( ( 20.0 * log10( rms ) ) + 120.0 );
+    ave[ i ] = ( unsigned char )( ( 20.0 * log10( rms ) ) + 120.0 );  //0-255の整数値
 
   }
 }
