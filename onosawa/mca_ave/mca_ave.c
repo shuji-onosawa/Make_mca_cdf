@@ -584,7 +584,7 @@ void ave_data( sec )
 
   int brHb = 0 , brHa = 0;    //仮想なら 1
 
-  recsp = (int) SECSPACE * sec;
+  recsp = (int) SECSPACE * sec;  //n秒間のレコード数
   half_recsp = recsp / 2;
   i_max = DAYSPACE - half_recsp;
   day_divided_by_n_seconds = 86400 / sec;
