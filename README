@@ -28,9 +28,11 @@ $ source install_cdflib.sh
 ```
 
 ## How to run the program
-- Confirm the folder name for CDF-H0 files and the folder name for CDF-H1 files. If you want to change the folder name, please change the name in ./onosawa/mca_ave/Makefile and run_bnd.sh.
-- Before create CDF files for year 'YYYY', confirm 'YYYY' folder is in CDF-H1 folder.
-- run the following command at Make_mca_cdf directory. Before running the program, see README in run_bnd.sh.
+The H0 version of the spectral data observed by VLF/MCA is divided by day and stored in cdf. Follow the procedure below to create the H1 version cdf for yyyymmdd.
+- If there are not the directories "./onosawa/data/CDF-H0" and "./onosawa/data/CDF-H1", make them. cf. the part of "定数宣言" in ./onosawa/mca_ave/average.h.
+- Make directory "./onosawa/data/CDF-H0/yyyy/" and store the H0 version cdf files("ak_h0_mca_yyyymmdd_v01.cdf") in it.
+- Read README in run_bnd.sh and set parameters: year, month, day.
+- Run the following command.
 ```
 $ ./run_bnd.sh
 ```

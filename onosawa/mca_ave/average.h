@@ -152,9 +152,9 @@ void input_EPOCHzENTRY( long varNum , long vAttrNum , long zEntryLen , double* z
 
 
 //***** 定数宣言 *****
-#define OPNAME "./onosawa/data/CDF-H0/"
+#define OPNAME "./onosawa/data/CDF-H0/"  //H0-CDFファイルの場所
 
-#define CRNAME "./onosawa/data/CDF-H1/"
+#define CRNAME "./onosawa/data/CDF-H1/"  //H1-CDFファイルの場所
 
 #define RESOLUTION       "h"
 #define RESOLUTION_LARGE "H"

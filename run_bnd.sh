@@ -19,7 +19,6 @@ CRNAMEとsave_directoryの $year の前までは同じにします。
 ./run_bnd.sh
 もし以下のように実行した場合make clean を実行します。
 ./run_bnd.sh clean
-optionsはオプションです。必ずこのファイル内で入力してください。書き方は./onosawa/mca_ave/READMEを参照してください。
 
 
 README
