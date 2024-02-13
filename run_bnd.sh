@@ -8,11 +8,12 @@ Make_mca_cdf ディレクトリに移動します。
 
 このファイル内のyearとmonthを作成したい年と月に変更します。
 このファイル内のtimeResolutionを作成したい時間分解能に変更します。
+変更を保存します。
 
 ./onosawa/mca_ave/average.h 内のCRNAMEを作成したcdfファイルの保存先にします。
 保存先のパスはMake_mca_cdfディレクトリからのパスにします。
 CRNAMEとsave_directoryの $year の前までは同じにします。
-1日のcdfファイルを作成する場合は、dayを指定し、Single versionで実行します。(Loop versionはコメントアウトしてください。)
+1日のcdfファイルを作成する場合は、dayを指定、保存し、Single versionで実行します。(Loop versionはコメントアウトしてください。)
 1ヶ月のcdfファイルを作成する場合は、Loop versionで実行します。(Single versionはコメントアウトしてください。)
 
 シェルスクリプトを実行するには、以下のコマンドを実行します:
