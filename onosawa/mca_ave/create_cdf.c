@@ -29,6 +29,7 @@ long ave_BavNum;
 long ave_PGapNum;
 long ave_EphNum;
 long ave_chNum;
+long ave_EaxisNum;
 
 //**************************************************************************
 //createCDF() : 平均したMCAデータを保存するCDFファイルを作成する関数
@@ -168,6 +169,11 @@ void create_zVAR()
 		   NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );
+
+  //***** 変数 E_axis を作成
+  status = CDFlib( CREATE_ , zVAR_ , "E_axis" , data_char , numElements , numDim1 , dimSize1 , recVary , dimVarys , &ave_EaxisNum ,
+       PUT_ , zVAR_SPARSERECORDS_ , PAD_SPARSERECORDS ,
+       NULL_ );
 
   input_channel();
 }
@@ -593,4 +599,21 @@ void input_PostGap( flag , record )
 
   printf("%d %d postgap = %d\n",ave_PGapNum,record, res );
   */
+}
+
+//**************************************************************************
+//input_E_axis() : z変数 E_axis に値を格納する関数
+
+void input_E_axis( axis , record )
+     unsigned char axis;
+     long record;
+{
+  //***** エネルギー軸データを変数 E_axis に格納する
+  status = CDFlib( SELECT_ , CDF_            , crid ,
+                 zVAR_           , ave_EaxisNum ,
+                 zVAR_RECNUMBER_ , record ,
+       PUT_ , zVAR_DATA_ , &axis ,
+       NULL_ );
+
+  if ( status != CDF_OK ) StatusHandler( status );
 }

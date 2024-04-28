@@ -49,6 +49,7 @@ long B_WIDANum;
 long PostGapNum;
 long EpochNum;
 long channelNum;
+long E_axisNum;
 
 long f_year;
 long f_month;
@@ -193,6 +194,7 @@ void get_VarNum()
 		          zVAR_NUMBER_ , "PostGap" , &PostGapNum ,
 		          zVAR_NUMBER_ , "Epoch"   , &EpochNum ,
 		          zVAR_NUMBER_ , "channel" , &channelNum ,
+              zVAR_NUMBER_ , "E_axis"  , &E_axisNum ,
 		   NULL_ );
 
   if (status != CDF_OK) StatusHandler (status);
@@ -365,6 +367,23 @@ void get_wida( wida , ws )
       c >>= 2;
     }
   }
+}
+
+//**************************************************************************
+//get_E_axis() : 読んだCDFファイルの E_axisの値(Unicodeコードポイント)をゲットする関数
+unsigned char get_E_axis( record )
+     long record;
+{
+  unsigned char E_axis;
+  status = CDFlib( SELECT_ , CDF_            , opid ,
+                 zVAR_           , E_axisNum ,
+                 zVAR_RECNUMBER_ , record ,
+       GET_    , zVAR_DATA_      , &E_axis,
+       NULL_ );
+
+  if ( status != CDF_OK ) StatusHandler( status );
+
+  return E_axis;
 }
 
 //**************************************************************************
@@ -546,7 +565,7 @@ void ave_data( sec )
   int half_recsp;
   int i , j , k;
   int q;
-  long m;
+  long record_num; //レコード番号 0から始まる
   int i_max;
   int day_divided_by_n_seconds;
 
@@ -576,6 +595,7 @@ void ave_data( sec )
   long msec;
 
   int flag;
+  unsigned char E_axis;
   int MCAflag = 0;
   int VTLflag = 0;      //レコードが VIRTUAL なものが含まれていたか
   int BDRflag = 0;
@@ -593,8 +613,8 @@ void ave_data( sec )
   //  half_recsp = 86400;
   //  i_max = 98400;
 
-  for( i =  half_recsp , m = 0 ; i <= i_max ; i += recsp , m ++ ) {
-
+  for( i =  half_recsp , record_num = 0 ; i <= i_max ; i += recsp , record_num ++ ) 
+  {
     //***** 変数の初期化 *****
     rec_vtl = 0;
 
@@ -610,6 +630,8 @@ void ave_data( sec )
       Bmax_total[ k ] = 0;
       Bave_total[ k ] = 0;
     }
+
+    E_axis = 0;
     //*************************
 
     //Epoch が何個 Virtual か調べる
@@ -629,9 +651,9 @@ void ave_data( sec )
         brHb = brHa;
     }
 
-    //Epoch
-    time = ( ( ( double )m + 1.0 ) * ( double )sec ) - ( double )sec / 2.0 ;
-    input_Epoch( time , m );
+    //Epochを計算。CDFに書き込む。データの品質によらない。
+    time = ( ( ( double )record_num + 1.0 ) * ( double )sec ) - ( double )sec / 2.0 ;
+    input_Epoch( time , record_num );
 
     //PostGapを取得 , 判定
     for( j = ( -1 ) * half_recsp ; j < half_recsp ; j++ ) {
@@ -650,14 +672,28 @@ void ave_data( sec )
 
     //PostGap
     flag += VTLflag;
-    if((flag & 0x01) == FLAG_MCA) flag=0x01;
+    if((flag & 0x01) == FLAG_MCA) 
+      flag=0x01;
+
+    //平均算出に使用するすべてのレコードのE_axisを比較。
+    //全てのレコードが同じなら、同じ値をE_axisとして採用
+    //異なる場合は、E_axis = 32 (スペース) とする
+    unsigned char prev_E_axis = 0;
+    for(j = ( -1 ) * half_recsp ; j < half_recsp ; j++ ){
+      E_axis = get_E_axis( ( long )( i + j ) ); 
+      if (j != (-1) * half_recsp && E_axis != prev_E_axis) {
+      E_axis = 32; // 32 is the space character
+      break;
+      }
+      prev_E_axis = E_axis;
 
     //n 秒間のレコードが全て仮想なら continue
     if( rec_vtl == recsp ) {
       flag=0x01;
-      input_PostGap( flag , m );
+      input_PostGap( flag , record_num );
+      input_E_axis( E_axis , record_num );
 
-      if(m==day_divided_by_n_seconds-1){
+      if(record_num==day_divided_by_n_seconds-1){
         for( q = 0 ; q < NUM_CHANNEL ; q ++ ){
           Emax_ave[q] = 0;
           Eave_ave[q] = 0;
@@ -665,18 +701,19 @@ void ave_data( sec )
           Bave_ave[q] = 0;
         }
 
-        input_Emax( Emax_ave , m );
-        input_Eave( Eave_ave , m );
-        input_Bmax( Bmax_ave , m );
-        input_Bave( Bave_ave , m );
+        input_Emax( Emax_ave , record_num );
+        input_Eave( Eave_ave , record_num );
+        input_Bmax( Bmax_ave , record_num );
+        input_Bave( Bave_ave , record_num );
       }
       //      read_Emax( m );
       continue;
     }
-    else if(flag == FLAG_MCA){
-      input_PostGap( flag , m );
+    else if(flag == FLAG_MCA){  //MCAのデータがないとき
+      input_PostGap( flag , record_num );
+      input_E_axis( E_axis , record_num );
 
-       if(m==day_divided_by_n_seconds-1){
+       if(record_num==day_divided_by_n_seconds-1){
         for( q = 0 ; q < NUM_CHANNEL ; q ++ ){
           Emax_ave[q] = 0;
           Eave_ave[q] = 0;
@@ -684,15 +721,16 @@ void ave_data( sec )
           Bave_ave[q] = 0;
         }
 
-        input_Emax( Emax_ave , m );
-        input_Eave( Eave_ave , m );
-        input_Bmax( Bmax_ave , m );
-        input_Bave( Bave_ave , m );
+        input_Emax( Emax_ave , record_num );
+        input_Eave( Eave_ave , record_num );
+        input_Bmax( Bmax_ave , record_num );
+        input_Bave( Bave_ave , record_num );
       }
       continue;
     }
     else {
-      input_PostGap( flag , m );
+      input_PostGap( flag , record_num );
+      input_E_axis( E_axis , record_num );
     }
     for( j = ( -1 ) * half_recsp ; j < half_recsp ; j++ ) {
 
@@ -732,15 +770,16 @@ void ave_data( sec )
     data_ave( Bmax_total , Bmax_ave , recsp );
     data_ave( Bave_total , Bave_ave , recsp );
 
-    input_Emax( Emax_ave , m );
-    input_Eave( Eave_ave , m );
-    input_Bmax( Bmax_ave , m );
-    input_Bave( Bave_ave , m );
+    input_Emax( Emax_ave , record_num );
+    input_Eave( Eave_ave , record_num );
+    input_Bmax( Bmax_ave , record_num );
+    input_Bave( Bave_ave , record_num );
 
 
     //    if( ( i % 100 < 10 ) )printf("continue...%d\n",i);
 
   }
+ }
 }
 
 /******************************************************************************

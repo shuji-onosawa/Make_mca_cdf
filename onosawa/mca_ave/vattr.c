@@ -28,6 +28,7 @@ extern long ave_BavNum;
 extern long ave_PGapNum;
 extern long ave_EphNum;
 extern long ave_chNum;
+extern long ave_EaxisNum;
 
 int valiable_attr()
 {
@@ -215,6 +216,15 @@ void makeCATDESC()
   free( zEntryValue );
   //================================================================
 
+  //===== E_axis ===================================================
+  zEntryLen = ( long )strlen( "Axis of E antenna." );
+  zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
+  strcpy( zEntryValue , "Axis of E antenna" );
+
+  input_CHARzENTRY( ave_EaxisNum , CatdescNum , zEntryLen , zEntryValue );
+  free( zEntryValue );
+  //================================================================
+
 }
 
 //**************************************************************************
@@ -274,6 +284,15 @@ void makeDEPEND_0()
   strcpy( zEntryValue , "Epoch" );
 
   input_CHARzENTRY( ave_PGapNum , DEPEND0Num , zEntryLen , zEntryValue );
+  free( zEntryValue );
+  //================================================================
+
+  //===== E_axis ===================================================
+  zEntryLen = ( long )strlen( "Epoch" );
+  zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
+  strcpy( zEntryValue , "Epoch" );
+
+  input_CHARzENTRY( ave_EaxisNum , DEPEND0Num , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 }
@@ -568,6 +587,7 @@ void makeFILLVAL()
   double EpochValue[ 1 ];
   float channelValue[ 1 ];
   int PostgapValue[ 1 ];
+  unsigned char E_axisValue[ 1 ];
 
   //***** v属性を作る関数を呼ぶ
   input_vATTR( "FILLVAL" , &FillvalNum );
@@ -620,6 +640,13 @@ void makeFILLVAL()
   PostgapValue[ 0 ] = 0;
 
   input_UINT4zENTRY( ave_PGapNum , FillvalNum , zEntryLen , PostgapValue );
+  //================================================================
+
+  //===== E_axis ===================================================
+  zEntryLen = 1;
+  E_axisValue[ 0 ] = ( unsigned char )32;
+
+  input_UINT1zENTRY( ave_EaxisNum , FillvalNum , zEntryLen , E_axisValue );
   //================================================================
 }
 
@@ -692,6 +719,14 @@ void makeFORMAT()
   free( zEntryValue );
   //================================================================
 
+  //===== E_axis ===================================================
+  zEntryLen = ( long )strlen( "%s" );
+  zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
+  strcpy( zEntryValue , "%s" );
+
+  input_CHARzENTRY( ave_EaxisNum , FormatNum , zEntryLen , zEntryValue );
+  free( zEntryValue );
+  //================================================================
 }
 
 //**************************************************************************
@@ -771,6 +806,14 @@ void makeLABLAXIS()
   input_CHARzENTRY( ave_PGapNum , LablaxisNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
+
+  //===== E_axis ===================================================
+  zEntryLen = ( long )strlen( "E field axis" );
+  zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
+  strcpy( zEntryValue , "E field axis" );
+
+  input_CHARzENTRY( ave_EaxisNum , LablaxisNum , zEntryLen , zEntryValue );
+  free( zEntryValue );
 }
 
 //**************************************************************************
@@ -1129,6 +1172,16 @@ void makeVAR_NOTE()
   input_CHARzENTRY( ave_PGapNum , VarnoteNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
+
+  //===== E_axis ===================================================
+  zEntryLen = ( long )strlen( "x=Ex sensor, y=Ey sensor\n" );
+
+  zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
+
+  strcpy( zEntryValue , "x=Ex sensor, y=Ey sensor\n" );
+
+  input_CHARzENTRY( ave_EaxisNum , VarnoteNum , zEntryLen , zEntryValue );
+  free( zEntryValue );
 }
 
 //**************************************************************************
@@ -1206,6 +1259,15 @@ void makeVAR_TYPE()
   strcpy( zEntryValue , "data" );
 
   input_CHARzENTRY( ave_PGapNum , VartypeNum , zEntryLen , zEntryValue );
+  free( zEntryValue );
+  //================================================================
+
+  //===== E_axis ===================================================
+  zEntryLen = ( long )strlen( "data" );
+  zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
+  strcpy( zEntryValue , "data" );
+
+  input_CHARzENTRY( ave_EaxisNum , VartypeNum , zEntryLen , zEntryValue );
   free( zEntryValue );
   //================================================================
 }

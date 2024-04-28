@@ -39,6 +39,8 @@ mca_ave.c    : main()
 		WIDAステータス4ch1バイトで保存されているものを、
 		1chずつにばらす。
 		(1バイトにMLBから 4ch 3ch 2ch 1ch の順に保存されている)
+			get_E_axis()
+		開いたCDFのE_axisの値を取得する。
 	       heffe()
 		電界のアンテナ実効長を求める。
 	       heffb()
@@ -68,6 +70,7 @@ create_cdf.c :
 	       createCDF()
 		平均結果を保存するCDFファイルを作成する
 		"remote/raid4/MCADB/CDF-H30/YYYY/ak_h30_mca_YYYYMMDD_v01"
+		z変数を作る。
 	       create_zVAR()
 		z変数を作る。
 	       input_channel()
@@ -84,6 +87,8 @@ create_cdf.c :
 		z変数 Bave に値を格納する。
 	       input_PostGap()
 		z変数 PostGap に値を格納する。
+			input_E_axis()
+		z変数 E_axis に値を格納する。
 
 gattr.c : global_attr()
 		グローバル属性と、その属性値が書かれている。
