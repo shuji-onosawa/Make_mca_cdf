@@ -65,7 +65,7 @@ int main( int argc , char *argv[] )
   int k;
 
   int len_ymd[ 4 ];
-  char ymd[ 4 ][ 5 ];
+  char ymd[ 4 ][ 5 ];  //年 月 日 平均する秒数
 
   if( argc != MAX_ARGC ) {
     printf("Input ERROR.\n");
@@ -363,18 +363,19 @@ void get_wida( wida , ws )
   for( j = 0 ; j < NUM_WIDA ; j ++ ){
       c = wida[ j ];
     for( i = 0 ; i < NUM_WIDA ; i ++ ){
-      ws[ (4 * j) + i ] = c & 0x03;
-      c >>= 2;
+      ws[ (4 * j) + i ] = c & 0x03;  //下位2ビットを取り出す
+      c >>= 2;  //2ビット右シフト
     }
   }
 }
 
 //**************************************************************************
 //get_E_axis() : 読んだCDFファイルの E_axisの値(Unicodeコードポイント)をゲットする関数
-unsigned char get_E_axis( record )
-     long record;
+char get_E_axis( record )
+      long record;
 {
-  unsigned char E_axis;
+  char E_axis;
+
   status = CDFlib( SELECT_ , CDF_            , opid ,
                  zVAR_           , E_axisNum ,
                  zVAR_RECNUMBER_ , record ,
@@ -558,12 +559,12 @@ void data_ave( total , ave , recsp )
 //**************************************************************************
 //ave_data() : MCAデータを平均する関数
 void ave_data( sec )
-     float sec;
+     float sec;  //平均する秒数(sec秒間のデータを平均する)
 {
 
   int recsp;
   int half_recsp;
-  int i , j , k;
+  int i , j , k;  // i:平均するレコードたちの小さいほうから(平均秒数*4)/2番目のレコード番号 , j:j+iで平均するレコードたちの各レコード番号 , k:MCAの周波数チャンネル番号
   int q;
   long record_num; //レコード番号 0から始まる
   int i_max;
@@ -595,7 +596,7 @@ void ave_data( sec )
   long msec;
 
   int flag;
-  unsigned char E_axis;
+  char E_axis;
   int MCAflag = 0;
   int VTLflag = 0;      //レコードが VIRTUAL なものが含まれていたか
   int BDRflag = 0;
@@ -604,9 +605,9 @@ void ave_data( sec )
 
   int brHb = 0 , brHa = 0;    //仮想なら 1
 
-  recsp = (int) SECSPACE * sec;  //n秒間のレコード数
+  recsp = (int) SECSPACE * sec;  //sec秒間のレコード数
   half_recsp = recsp / 2;
-  i_max = DAYSPACE - half_recsp;
+  i_max = DAYSPACE - half_recsp;  //1日のレコード数
   day_divided_by_n_seconds = 86400 / sec;
 
   /**************************************************************************/
@@ -678,21 +679,29 @@ void ave_data( sec )
     //平均算出に使用するすべてのレコードのE_axisを比較。
     //全てのレコードが同じなら、同じ値をE_axisとして採用
     //異なる場合は、E_axis = 32 (スペース) とする
-    unsigned char prev_E_axis = 0;
-    for(j = ( -1 ) * half_recsp ; j < half_recsp ; j++ ){
-      E_axis = get_E_axis( ( long )( i + j ) ); 
+    //get_E_axis()の返り値として 110 (n) が返った場合は、E_axis = 32 (スペース) とする。（もとのh0のCDFで32が入っているはずでも、get_E_axisで受け取ると110になってしまう。よくわからんので応急処置）
+    char prev_E_axis = 0;
+    for( j = ( -1 ) * half_recsp ; j < half_recsp ; j++ ) {
+      E_axis = get_E_axis( ( long )( i + j ) );
+      
+      if ( E_axis == 110 ) {
+        E_axis = (char) 32; // 32 is the space character
+      }
+
       if (j != (-1) * half_recsp && E_axis != prev_E_axis) {
-      E_axis = 32; // 32 is the space character
-      break;
+        E_axis = (char) 32; // 32 is the space character
+        break;  
       }
       prev_E_axis = E_axis;
+    }
+    //E_axisを書き込む
+    input_E_axis( E_axis , record_num );
 
     //n 秒間のレコードが全て仮想なら continue
     if( rec_vtl == recsp ) {
       flag=0x01;
       input_PostGap( flag , record_num );
-      input_E_axis( E_axis , record_num );
-
+      
       if(record_num==day_divided_by_n_seconds-1){
         for( q = 0 ; q < NUM_CHANNEL ; q ++ ){
           Emax_ave[q] = 0;
@@ -711,7 +720,6 @@ void ave_data( sec )
     }
     else if(flag == FLAG_MCA){  //MCAのデータがないとき
       input_PostGap( flag , record_num );
-      input_E_axis( E_axis , record_num );
 
        if(record_num==day_divided_by_n_seconds-1){
         for( q = 0 ; q < NUM_CHANNEL ; q ++ ){
@@ -728,9 +736,8 @@ void ave_data( sec )
       }
       continue;
     }
-    else {
+    else {  //MCAのデータがあるとき、平均を求める
       input_PostGap( flag , record_num );
-      input_E_axis( E_axis , record_num );
     }
     for( j = ( -1 ) * half_recsp ; j < half_recsp ; j++ ) {
 
@@ -779,8 +786,9 @@ void ave_data( sec )
     //    if( ( i % 100 < 10 ) )printf("continue...%d\n",i);
 
   }
- }
 }
+
+
 
 /******************************************************************************
  * Status handler.
@@ -808,7 +816,7 @@ void StatusHandler (status)
     else
       if (status > CDF_OK) {
 	if( status == VIRTUAL ){
-	  //	  printf("virtual\n");
+	//  	  printf("virtual\n");
 	}
 	else {
 	  printf ("Function completed successfully, but be advised that...\n");

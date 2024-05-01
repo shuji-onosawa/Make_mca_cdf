@@ -1174,11 +1174,11 @@ void makeVAR_NOTE()
   //================================================================
 
   //===== E_axis ===================================================
-  zEntryLen = ( long )strlen( "x=Ex sensor, y=Ey sensor\n" );
+  zEntryLen = ( long )strlen( "'x'=Ex sensor, 'y'=Ey sensor, ' '=No data or using both sensor in the time period\n" );
 
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
 
-  strcpy( zEntryValue , "x=Ex sensor, y=Ey sensor\n" );
+  strcpy( zEntryValue , "'x'=Ex sensor, 'y'=Ey sensor, ' '=No data or using both sensor in the time period\n" );
 
   input_CHARzENTRY( ave_EaxisNum , VarnoteNum , zEntryLen , zEntryValue );
   free( zEntryValue );

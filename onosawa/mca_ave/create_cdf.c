@@ -605,7 +605,7 @@ void input_PostGap( flag , record )
 //input_E_axis() : z変数 E_axis に値を格納する関数
 
 void input_E_axis( axis , record )
-     unsigned char axis;
+     char axis;
      long record;
 {
   //***** エネルギー軸データを変数 E_axis に格納する
