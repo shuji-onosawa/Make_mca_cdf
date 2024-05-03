@@ -89,7 +89,6 @@ void create_zVAR()
 {
 
   //datatype用変数
-  long data_char = CDF_CHAR;
   long data_uint1 = CDF_UINT1;
   long data_uint4 = CDF_UINT4;
   long data_epoch = CDF_EPOCH;
@@ -171,7 +170,7 @@ void create_zVAR()
   if ( status != CDF_OK ) StatusHandler( status );
 
   //***** 変数 E_axis を作成
-  status = CDFlib( CREATE_ , zVAR_ , "E_axis" , data_char , numElements , numDim1 , dimSize1 , recVary , dimVarys , &ave_EaxisNum ,
+  status = CDFlib( CREATE_ , zVAR_ , "E_axis" , data_uint1 , numElements , numDim1 , dimSize1 , recVary , dimVarys , &ave_EaxisNum ,
        PUT_ , zVAR_SPARSERECORDS_ , PAD_SPARSERECORDS ,
        NULL_ );
 
@@ -604,15 +603,15 @@ void input_PostGap( flag , record )
 //**************************************************************************
 //input_E_axis() : z変数 E_axis に値を格納する関数
 
-void input_E_axis( axis , record )
-     char axis;
+void input_E_axis( axis_flag , record )
+     int axis_flag;
      long record;
 {
   //***** エネルギー軸データを変数 E_axis に格納する
   status = CDFlib( SELECT_ , CDF_            , crid ,
                  zVAR_           , ave_EaxisNum ,
                  zVAR_RECNUMBER_ , record ,
-       PUT_ , zVAR_DATA_ , &axis ,
+       PUT_ , zVAR_DATA_ , &axis_flag ,
        NULL_ );
 
   if ( status != CDF_OK ) StatusHandler( status );

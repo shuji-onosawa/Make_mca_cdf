@@ -92,7 +92,7 @@ void input_Bave( unsigned char result[] , long record );
 void input_PostGap( int flag , long record );
 
 //input_E_axis() : z変数 E_axis に値を格納する関数
-void input_E_axis(char axis, long record);
+void input_E_axis(int axis_flag, long record);
 
 //z変数 Emax に値をよむ 関数
 //void read_Emax( long record );

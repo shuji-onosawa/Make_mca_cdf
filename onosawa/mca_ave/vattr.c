@@ -644,7 +644,7 @@ void makeFILLVAL()
 
   //===== E_axis ===================================================
   zEntryLen = 1;
-  E_axisValue[ 0 ] = ( unsigned char )32;
+  E_axisValue[ 0 ] = 0;
 
   input_UINT1zENTRY( ave_EaxisNum , FillvalNum , zEntryLen , E_axisValue );
   //================================================================
@@ -720,9 +720,9 @@ void makeFORMAT()
   //================================================================
 
   //===== E_axis ===================================================
-  zEntryLen = ( long )strlen( "%s" );
+  zEntryLen = ( long )strlen( "%3d" );
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
-  strcpy( zEntryValue , "%s" );
+  strcpy( zEntryValue , "%3d" );
 
   input_CHARzENTRY( ave_EaxisNum , FormatNum , zEntryLen , zEntryValue );
   free( zEntryValue );
@@ -1174,11 +1174,11 @@ void makeVAR_NOTE()
   //================================================================
 
   //===== E_axis ===================================================
-  zEntryLen = ( long )strlen( "'x'=Ex sensor, 'y'=Ey sensor, ' '=No data or using both sensor in the time period\n" );
+  zEntryLen = ( long )strlen( "The flag of MCA electric field sensor.\n 0 : No sensor data\n 1 : Ex sensor\n 2 : Ey sensor\n 3 : using both sensor in the time period\n" );
 
   zEntryValue = ( char * )calloc( zEntryLen + 1 , sizeof( char ) );
 
-  strcpy( zEntryValue , "'x'=Ex sensor, 'y'=Ey sensor, ' '=No data or using both sensor in the time period\n" );
+  strcpy( zEntryValue , "The flag of MCA electric field sensor.\n 0 : No sensor data\n 1 : Ex sensor\n 2 : Ey sensor\n 3 : using both sensor in the time period\n" );
 
   input_CHARzENTRY( ave_EaxisNum , VarnoteNum , zEntryLen , zEntryValue );
   free( zEntryValue );

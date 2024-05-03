@@ -596,7 +596,6 @@ void ave_data( sec )
   long msec;
 
   int flag;
-  char E_axis;
   int MCAflag = 0;
   int VTLflag = 0;      //レコードが VIRTUAL なものが含まれていたか
   int BDRflag = 0;
@@ -609,6 +608,9 @@ void ave_data( sec )
   half_recsp = recsp / 2;
   i_max = DAYSPACE - half_recsp;  //1日のレコード数
   day_divided_by_n_seconds = 86400 / sec;
+
+  int E_axis_flag = 0;
+  char E_axis;
 
   /**************************************************************************/
   //  half_recsp = 86400;
@@ -632,7 +634,7 @@ void ave_data( sec )
       Bave_total[ k ] = 0;
     }
 
-    E_axis = 0;
+    E_axis_flag = 0;
     //*************************
 
     //Epoch が何個 Virtual か調べる
@@ -676,26 +678,39 @@ void ave_data( sec )
     if((flag & 0x01) == FLAG_MCA) 
       flag=0x01;
 
-    //平均算出に使用するすべてのレコードのE_axisを比較。
-    //全てのレコードが同じなら、同じ値をE_axisとして採用
-    //異なる場合は、E_axis = 32 (スペース) とする
-    //get_E_axis()の返り値として 110 (n) が返った場合は、E_axis = 32 (スペース) とする。（もとのh0のCDFで32が入っているはずでも、get_E_axisで受け取ると110になってしまう。よくわからんので応急処置）
-    char prev_E_axis = 0;
+    //平均算出に使用するすべてのレコードのE_axisを比較し、E_axis_flagの値を決定する
+    //E_axis_flagの値 値なし:0, X軸アンテナ:1、Y軸アンテナ:2, 混合:4
+    //get_E_axis()の返り値として 110 (n) が返った場合は、E_axis_flag = 0 とする。（もとのh0のCDFで32が入っているはずでも、get_E_axisで受け取ると110になってしまう。よくわからんので応急処置）
+    int prev_E_axis_flag = 0;
     for( j = ( -1 ) * half_recsp ; j < half_recsp ; j++ ) {
       E_axis = get_E_axis( ( long )( i + j ) );
-      
+
       if ( E_axis == 110 ) {
         E_axis = (char) 32; // 32 is the space character
+        E_axis_flag = 0;
       }
 
-      if (j != (-1) * half_recsp && E_axis != prev_E_axis) {
-        E_axis = (char) 32; // 32 is the space character
+      if ( E_axis == 120 ){  //X軸アンテナ
+        E_axis_flag = 1;
+      }
+
+      if ( E_axis == 121 ){  //Y軸アンテナ
+        E_axis_flag = 2;
+      }
+
+      // test
+      if ( record_num == 0 ) {
+        printf("E_axis: %d\n", E_axis);
+        printf("E_axis_flag: %d\n", E_axis_flag);
+      }
+      if (j != (-1) * half_recsp && E_axis_flag != prev_E_axis_flag) {
+        E_axis_flag = 3; // 混合
         break;  
       }
-      prev_E_axis = E_axis;
+      prev_E_axis_flag = E_axis_flag;
     }
     //E_axisを書き込む
-    input_E_axis( E_axis , record_num );
+    input_E_axis( E_axis_flag , record_num );
 
     //n 秒間のレコードが全て仮想なら continue
     if( rec_vtl == recsp ) {
