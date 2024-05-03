@@ -698,11 +698,6 @@ void ave_data( sec )
         E_axis_flag = 2;
       }
 
-      // test
-      if ( record_num == 0 ) {
-        printf("E_axis: %d\n", E_axis);
-        printf("E_axis_flag: %d\n", E_axis_flag);
-      }
       if (j != (-1) * half_recsp && E_axis_flag != prev_E_axis_flag) {
         E_axis_flag = 3; // 混合
         break;  
